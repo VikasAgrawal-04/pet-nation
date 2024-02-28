@@ -1,0 +1,78 @@
+name: pet_nations
+description: "A new Flutter project."
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  cupertino_icons: ^1.0.6
+  dio: ^5.4.1
+  equatable: ^2.0.5
+  flutter:
+    sdk: flutter
+  flutter_dotenv: ^5.1.0
+  flutter_easyloading: ^3.0.5
+  flutter_svg: ^2.0.10+1
+  form_validator: ^2.1.1
+  get: ^4.6.6
+  intl: ^0.19.0
+  logger: ^2.0.2+1
+  page_view_dot_indicator: ^2.3.0
+  pinput: ^4.0.0
+  responsive_sizer: ^3.3.0+1
+  shared_preferences: ^2.2.2
+  talker_dio_logger: ^4.0.2
+
+dev_dependencies:
+  flutter_lints: ^3.0.0
+  flutter_native_splash: ^2.3.13
+  flutter_test:
+    sdk: flutter
+
+flutter_native_splash:
+  color: "#FFFFFF"
+  image: assets/images/dog_splash.png
+  android_12:
+    image: assets/images/dog_splash.png
+  android: true
+  ios: true
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/icons/
+    - assets/images/
+    - config.env
+
+  fonts:
+    - family: Lato
+      fonts:
+        - asset: assets/fonts/Lato-Thin.ttf
+          weight: 100
+        - asset: assets/fonts/Lato-ThinItalic.ttf
+          weight: 100
+          style: italic
+        - asset: assets/fonts/Lato-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Lato-LightItalic.ttf
+          weight: 300
+          style: italic
+        - asset: assets/fonts/Lato-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Lato-Italic.ttf
+          weight: 400
+          style: italic
+        - asset: assets/fonts/Lato-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Lato-BoldItalic.ttf
+          weight: 700
+          style: italic
+        - asset: assets/fonts/Lato-Black.ttf
+          weight: 900
+        - asset: assets/fonts/Lato-BlackItalic.ttf
+          weight: 900
+          style: italic
