@@ -24,6 +24,7 @@ class _MenuPageState extends State<MenuPage> {
       canPop: false,
       onPopInvoked: (didPop) {
         dashControl.curIndex.value = dashControl.lstIndex;
+        dashControl.lstIndex = 0;
       },
       child: Scaffold(
         body: SafeArea(
@@ -65,6 +66,7 @@ class _MenuPageState extends State<MenuPage> {
             height: 3.5.h,
             text: 'View Profile',
             onTap: () {
+              dashControl.lstIndex = dashControl.curIndex.value;
               dashControl.curIndex.value = 2;
             },
             style: theme.titleMedium?.copyWith(

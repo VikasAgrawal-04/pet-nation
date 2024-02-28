@@ -17,29 +17,38 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     final theme = Get.textTheme;
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        elevation: 1,
-        backgroundColor: Colors.white,
-        titleSpacing: 0,
-        leading: GestureDetector(
-          onTap: () {
-            dashControl.curIndex.value = 0;
-          },
-          child: const Icon(CupertinoIcons.back),
+    return PopScope(
+      canPop: false,
+      onPopInvoked: (didPop) {
+        dashControl.curIndex.value = dashControl.lstIndex;
+        dashControl.lstIndex = 0;
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          elevation: 1,
+          backgroundColor: Colors.white,
+          titleSpacing: 0,
+          leading: GestureDetector(
+            onTap: () {
+              dashControl.curIndex.value = dashControl.lstIndex;
+              dashControl.lstIndex = 0;
+            },
+            child: const Icon(CupertinoIcons.back),
+          ),
+          title: Text(
+            'Account Profile',
+            style: theme.displaySmall,
+          ),
+          actions: [
+            IconButton(
+                onPressed: () {},
+                icon: SvgPicture.asset('assets/icons/cart.svg')),
+            IconButton(
+                onPressed: () {},
+                icon: SvgPicture.asset('assets/icons/exit.svg'))
+          ],
         ),
-        title: Text(
-          'Account Profile',
-          style: theme.displaySmall,
-        ),
-        actions: [
-          IconButton(
-              onPressed: () {},
-              icon: SvgPicture.asset('assets/icons/cart.svg')),
-          IconButton(
-              onPressed: () {}, icon: SvgPicture.asset('assets/icons/exit.svg'))
-        ],
       ),
     );
   }

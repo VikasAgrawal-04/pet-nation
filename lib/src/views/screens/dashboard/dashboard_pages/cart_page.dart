@@ -16,20 +16,28 @@ class _CartPageState extends State<CartPage> {
   @override
   Widget build(BuildContext context) {
     final theme = Get.textTheme;
-    return Scaffold(
-      appBar: AppBar(
-        elevation: 1,
-        backgroundColor: Colors.white,
-        titleSpacing: 0,
-        leading: GestureDetector(
-          onTap: () {
-            dashControl.curIndex.value = 0;
-          },
-          child: const Icon(CupertinoIcons.back),
-        ),
-        title: Text(
-          'Shopping Cart',
-          style: theme.displaySmall,
+    return PopScope(
+      canPop: false,
+      onPopInvoked: (didPop) {
+        dashControl.curIndex.value = dashControl.lstIndex;
+        dashControl.lstIndex = 0;
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          elevation: 1,
+          backgroundColor: Colors.white,
+          titleSpacing: 0,
+          leading: GestureDetector(
+            onTap: () {
+              dashControl.curIndex.value = dashControl.lstIndex;
+              dashControl.lstIndex = 0;
+            },
+            child: const Icon(CupertinoIcons.back),
+          ),
+          title: Text(
+            'Shopping Cart',
+            style: theme.displaySmall,
+          ),
         ),
       ),
     );
