@@ -16,14 +16,17 @@ class _DashboardViewState extends State<DashboardView> {
   final _bucket = PageStorageBucket();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: bottomNav(onTap: (index) {
-        dashControl.curIndex.value = index;
-      }),
-      body: SafeArea(child: Obx(() {
-        return PageStorage(
-            bucket: _bucket, child: Constant.pages[dashControl.curIndex.value]);
-      })),
-    );
+    return Obx(() => Scaffold(
+          bottomNavigationBar: dashControl.curIndex.value == 3
+              ? null
+              : bottomNav(onTap: (index) {
+                  dashControl.lstIndex = dashControl.curIndex.value;
+                  dashControl.curIndex.value = index;
+                }),
+          body: SafeArea(
+              child: PageStorage(
+                  bucket: _bucket,
+                  child: Constant.pages[dashControl.curIndex.value])),
+        ));
   }
 }

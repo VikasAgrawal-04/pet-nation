@@ -12,6 +12,7 @@ class AppColors {
   //Buttons
   static Color primaryBtn = hexToColor('#1E56A1');
   static Color secondaryBtn = hexToColor('#008FD5');
+  static Color tertiaryBtn = hexToColor('#F1F8FC');
 
   //Background Color
   static Color whiteColor = hexToColor('#FFFFFF');
