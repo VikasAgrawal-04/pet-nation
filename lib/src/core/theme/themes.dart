@@ -58,6 +58,10 @@ class ApplicationTheme {
               fontSize: 17.sp,
               color: AppColors.primaryText,
               fontWeight: FontWeight.w700),
+          bodyMedium: TextStyle(
+              fontSize: 16.sp,
+              color: AppColors.primaryText,
+              fontWeight: FontWeight.w700),
           titleLarge: TextStyle(
               fontSize: 17.sp,
               fontWeight: FontWeight.w400,

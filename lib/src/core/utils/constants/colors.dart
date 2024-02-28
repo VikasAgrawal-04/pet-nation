@@ -22,6 +22,7 @@ class AppColors {
   static Color greyBgColor = hexToColor('#F5F5F5');
   static Color textFieldColor = hexToColor('#F9F9F9');
   static Color borderColor = hexToColor('#818181');
+  static Color lightGreyColor = hexToColor('#F8F8F8');
 
 
   //Function For Hex To Color
