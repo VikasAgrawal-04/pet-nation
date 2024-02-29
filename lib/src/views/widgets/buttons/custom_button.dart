@@ -9,7 +9,7 @@ class CustomButtonNew extends StatelessWidget {
   final Color? iconColor;
   final TextStyle? style;
   final Function()? onTap;
-  final bool? outlineBtn;
+  final bool outlineBtn;
   final double? borderRadius;
   final IconData? icon;
   final double? iconSize;
@@ -26,7 +26,7 @@ class CustomButtonNew extends StatelessWidget {
       this.iconColor,
       this.style,
       this.onTap,
-      this.outlineBtn,
+      this.outlineBtn = false,
       this.borderRadius,
       this.icon,
       this.iconSize,
@@ -52,7 +52,9 @@ class CustomButtonNew extends StatelessWidget {
         decoration: BoxDecoration(
           boxShadow: shadows,
           color: color ?? AppColors.primaryBtn,
-          border: Border.all(color: Colors.transparent, width: 1),
+          border: Border.all(
+              color: outlineBtn ? AppColors.borderColor : Colors.transparent,
+              width: 1),
           borderRadius: BorderRadius.circular(borderRadius ?? 8.0),
         ),
         child: child ??

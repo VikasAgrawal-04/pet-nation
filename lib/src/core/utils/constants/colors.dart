@@ -24,7 +24,6 @@ class AppColors {
   static Color borderColor = hexToColor('#818181');
   static Color lightGreyColor = hexToColor('#F8F8F8');
 
-
   //Function For Hex To Color
   static Color hexToColor(String code) {
     return Color(int.parse(code.substring(1, 7), radix: 16) + 0xFF000000);

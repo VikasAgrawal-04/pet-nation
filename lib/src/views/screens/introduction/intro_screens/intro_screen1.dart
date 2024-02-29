@@ -11,25 +11,25 @@ class IntroScreenFirst extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
           child: Center(
-            child: Column(
-              children: [
-                Image.asset('assets/images/dog_cover.png'),
-                SizedBox(height: 2.5.h),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8.w),
-                  child: Text('Get all supplies for your Dog',
-                      style: theme.displayLarge, textAlign: TextAlign.center),
-                ),
-                SizedBox(height: 2.5.h),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10.w),
-                  child: Text(
-                      'Lorem ipsum dolor sit amet consectetur. Viverra nunc egestas non imperdiet diam enim. Sed etiam eget morbi phasellus.',
-                      style: theme.titleLarge),
-                )
-              ],
+        child: Column(
+          children: [
+            Image.asset('assets/images/dog_cover.png'),
+            SizedBox(height: 2.5.h),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 8.w),
+              child: Text('Get all supplies for your Dog',
+                  style: theme.displayLarge, textAlign: TextAlign.center),
             ),
-          )),
+            SizedBox(height: 2.5.h),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10.w),
+              child: Text(
+                  'Lorem ipsum dolor sit amet consectetur. Viverra nunc egestas non imperdiet diam enim. Sed etiam eget morbi phasellus.',
+                  style: theme.titleLarge),
+            )
+          ],
+        ),
+      )),
     );
   }
 }

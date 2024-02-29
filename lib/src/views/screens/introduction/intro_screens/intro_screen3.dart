@@ -31,10 +31,11 @@ class IntroScreenThird extends StatelessWidget {
             const Spacer(),
             CustomButtonNew(
               height: 6.h,
-              margin: EdgeInsets.symmetric(horizontal: 8.w, vertical: 2.5.h),
+              margin: EdgeInsets.symmetric(horizontal: 8.w),
               onTap: () => Get.offAllNamed(AppRoutes.login),
               text: 'Get Started',
-            )
+            ),
+            SizedBox(height: 1.h)
           ],
         ),
       )),
