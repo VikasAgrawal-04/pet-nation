@@ -1,5 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:pet_nations/src/core/utils/constants/colors.dart';
+import 'package:pet_nations/src/views/widgets/buttons/custom_button.dart';
+import 'package:pet_nations/src/views/widgets/cards/product_card_2.dart';
+import 'package:pet_nations/src/views/widgets/cards/product_card_3.dart';
+import 'package:pet_nations/src/views/widgets/cards/product_card_4.dart';
+import 'package:pet_nations/src/views/widgets/cards/product_card_5.dart';
+import 'package:pet_nations/src/views/widgets/carousel/custom_carousel.dart';
 import 'package:pet_nations/src/views/widgets/textfield/search_textfield.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -12,6 +20,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final searchControl = TextEditingController();
+  final theme = Get.textTheme;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,6 +46,161 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           )),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.symmetric(horizontal: 4.w),
+        child: Column(
+          children: [
+            _secondHeader(),
+            _carousel(),
+            _titleRow(onTap: () {}, title: 'Deals for you'),
+            _deals(),
+            Divider(color: AppColors.borderColor, thickness: .5),
+            _titleRow(onTap: () {}, title: 'Product Category'),
+            _productCategory(),
+            _titleRow(onTap: () {}, title: 'Top Selling'),
+            _topSelling(),
+            _titleRow(onTap: () {}, title: 'Pet Services'),
+            _petServices(),
+            _titleRow(onTap: () {}, title: 'Pet Favorites'),
+            _petFavorites()
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _secondHeader() {
+    return Container(
+      margin: EdgeInsets.only(bottom: 2.h),
+      height: 10.h,
+      child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: 10,
+          itemBuilder: (context, index) {
+            return GestureDetector(
+              onTap: () {},
+              child: Container(
+                width: 22.w,
+                padding: EdgeInsets.symmetric(horizontal: 1.w),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: Image.network(
+                    'https://img.freepik.com/premium-photo/puppies-golden-retriever_1015979-1067.jpg',
+                    fit: BoxFit.fill,
+                  ),
+                ),
+              ),
+            );
+          }),
+    );
+  }
+
+  Widget _carousel() {
+    return CustomCarousel(images: const [
+      'https://img.freepik.com/premium-photo/puppies-golden-retriever_1015979-1067.jpg',
+      'https://img.freepik.com/premium-photo/puppies-golden-retriever_1015979-1067.jpg',
+      'https://img.freepik.com/premium-photo/puppies-golden-retriever_1015979-1067.jpg',
+      'https://img.freepik.com/premium-photo/puppies-golden-retriever_1015979-1067.jpg'
+    ], onTap: (index) {});
+  }
+
+  Widget _titleRow({required Function() onTap, required String title}) {
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 1.5.h),
+      child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+        Text(
+          title,
+          style: theme.bodyLarge,
+        ),
+        CustomButtonNew(
+            margin: EdgeInsets.only(right: 4.w),
+            height: 5.h,
+            width: 25.w,
+            text: 'SEE ALL',
+            onTap: onTap,
+            color: AppColors.tertiaryBtn,
+            style: theme.bodyMedium?.copyWith(color: AppColors.secondaryColor))
+      ]),
+    );
+  }
+
+  Widget _deals() {
+    return Wrap(
+      children: List.generate(4, (index) {
+        return ProductCard2(
+            img: 'https://m.media-amazon.com/images/I/81ltSAXl3EL.jpg',
+            animal: 'Cat',
+            type: 'Dry Food',
+            price: '24.99',
+            onTap: () {});
+      }),
+    );
+  }
+
+  Widget _productCategory() {
+    return SizedBox(
+      height: 24.h,
+      child: ListView.builder(
+          shrinkWrap: true,
+          scrollDirection: Axis.horizontal,
+          itemCount: 10,
+          itemBuilder: (context, index) {
+            return ProductCard3(
+              pName:
+                  'Canidae® Pure™ Adult Dry Dog Food - Limited Ingredient Diet, Salmon',
+              price: '4.99',
+              img: 'https://m.media-amazon.com/images/I/81ltSAXl3EL.jpg',
+              type: 'Supplies',
+              addToCart: () {},
+              buy: () {},
+              seller: 'Online Store',
+              wishBtn: () {},
+            );
+          }),
+    );
+  }
+
+  Widget _topSelling() {
+    return SizedBox(
+      height: 21.h,
+      child: ListView.builder(
+          shrinkWrap: true,
+          scrollDirection: Axis.horizontal,
+          itemCount: 10,
+          itemBuilder: (context, index) {
+            return ProductCard4(
+              pName:
+                  'Canidae® Pure™ Adult Dry Dog Food - Limited Ingredient Diet, Salmon',
+              price: '4.99',
+              img: 'https://m.media-amazon.com/images/I/81ltSAXl3EL.jpg',
+              addToCart: () {},
+              buy: () {},
+              wishBtn: () {},
+            );
+          }),
+    );
+  }
+
+  Widget _petServices() {
+    return const SizedBox();
+  }
+
+  Widget _petFavorites() {
+    return Container(
+      margin: EdgeInsets.only(bottom: 2.h),
+      height: 16.5.h,
+      child: ListView.builder(
+          shrinkWrap: true,
+          scrollDirection: Axis.horizontal,
+          itemCount: 10,
+          itemBuilder: (context, index) {
+            return ProuctCard5(
+              type: 'Cat Dry Food',
+              items: '5',
+              onTap: () {},
+              img: 'https://m.media-amazon.com/images/I/81ltSAXl3EL.jpg',
+            );
+          }),
     );
   }
 }
