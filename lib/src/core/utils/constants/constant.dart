@@ -25,4 +25,9 @@ class Constant {
     'Pet Profile',
     'Account'
   ];
+  static const List serviceSvg = [
+    {"name": "Featured Brand", "img": 'assets/icons/featured_brands.svg'},
+    {"name": "Pharmacy", "img": 'assets/icons/pharmacy.svg'},
+    {"name": "Innovation & AI", "img": 'assets/icons/innovation.svg'},
+  ];
 }

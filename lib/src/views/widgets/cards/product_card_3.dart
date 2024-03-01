@@ -32,7 +32,7 @@ class ProductCard3 extends StatelessWidget {
     return Container(
       width: 78.w,
       margin: EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.h),
-      padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 1.h),
+      padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 2.h),
       decoration: BoxDecoration(
           color: AppColors.greyBgColor, borderRadius: BorderRadius.circular(8)),
       child: Row(

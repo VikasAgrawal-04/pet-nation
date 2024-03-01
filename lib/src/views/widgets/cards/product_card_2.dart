@@ -24,7 +24,7 @@ class ProductCard2 extends StatelessWidget {
       onTap: onTap,
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: 1.w, vertical: 1.h),
-        padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 1.5.h),
+        padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 1.5.h),
         decoration: BoxDecoration(
             color: AppColors.greyBgColor,
             borderRadius: BorderRadius.circular(8)),
@@ -32,7 +32,7 @@ class ProductCard2 extends StatelessWidget {
           children: [
             Container(
               padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: .5.h),
-              height: 14.h,
+              height: 12.h,
               decoration: BoxDecoration(
                   color: AppColors.whiteColor,
                   borderRadius: BorderRadius.circular(8)),

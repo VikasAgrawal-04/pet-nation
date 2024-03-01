@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:pet_nations/src/core/utils/constants/colors.dart';
+import 'package:pet_nations/src/core/utils/constants/constant.dart';
 import 'package:pet_nations/src/views/widgets/buttons/custom_button.dart';
 import 'package:pet_nations/src/views/widgets/cards/product_card_2.dart';
 import 'package:pet_nations/src/views/widgets/cards/product_card_3.dart';
 import 'package:pet_nations/src/views/widgets/cards/product_card_4.dart';
 import 'package:pet_nations/src/views/widgets/cards/product_card_5.dart';
+import 'package:pet_nations/src/views/widgets/cards/service_card.dart';
 import 'package:pet_nations/src/views/widgets/carousel/custom_carousel.dart';
 import 'package:pet_nations/src/views/widgets/textfield/search_textfield.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -113,7 +115,7 @@ class _HomePageState extends State<HomePage> {
           style: theme.bodyLarge,
         ),
         CustomButtonNew(
-            margin: EdgeInsets.only(right: 4.w),
+            margin: EdgeInsets.only(right: 2.w),
             height: 5.h,
             width: 25.w,
             text: 'SEE ALL',
@@ -139,7 +141,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget _productCategory() {
     return SizedBox(
-      height: 24.h,
+      height: 26.h,
       child: ListView.builder(
           shrinkWrap: true,
           scrollDirection: Axis.horizontal,
@@ -182,7 +184,18 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _petServices() {
-    return const SizedBox();
+    return Container(
+      margin: EdgeInsets.only(bottom: 2.h),
+      height: 15.h,
+      child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: Constant.serviceSvg.length,
+          itemBuilder: ((context, index) {
+            final obj = Constant.serviceSvg[index];
+
+            return ServiceCard(img: obj['img'], title: obj['name']);
+          })),
+    );
   }
 
   Widget _petFavorites() {
