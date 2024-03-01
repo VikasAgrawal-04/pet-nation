@@ -41,7 +41,8 @@ Widget productCard(
                 pName,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
-                style: theme.titleLarge?.copyWith(color: AppColors.primaryText),
+                style: theme.titleLarge
+                    ?.copyWith(color: AppColors.primaryText, fontSize: 16.sp),
               ),
               SizedBox(height: 1.h),
               Text(
@@ -68,7 +69,8 @@ Widget productCard(
                     width: 20.w,
                     text: 'Buy Now',
                     onTap: buy,
-                    style: theme.titleMedium?.copyWith(color:AppColors.whiteColor ),
+                    style: theme.titleMedium
+                        ?.copyWith(color: AppColors.whiteColor),
                   )
                 ],
               )

@@ -174,17 +174,19 @@ class _ProfilePageState extends State<ProfilePage> {
         children: [
           SvgPicture.asset(svg, width: 7.5.w),
           SizedBox(width: 2.w),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(title, style: theme.titleMedium),
-              Text(
-                value,
-                style: theme.bodyMedium,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-              )
-            ],
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(title, style: theme.titleMedium),
+                Text(
+                  value,
+                  style: theme.bodyMedium,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                )
+              ],
+            ),
           )
         ],
       ),

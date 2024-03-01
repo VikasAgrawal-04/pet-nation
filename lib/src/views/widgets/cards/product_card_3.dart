@@ -30,7 +30,7 @@ class ProductCard3 extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Get.textTheme;
     return Container(
-      width: 78.w,
+      width: 79.w,
       margin: EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.h),
       padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 2.h),
       decoration: BoxDecoration(
@@ -63,8 +63,8 @@ class ProductCard3 extends StatelessWidget {
                   pName,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                  style:
-                      theme.titleLarge?.copyWith(color: AppColors.primaryText),
+                  style: theme.titleLarge
+                      ?.copyWith(fontSize: 16.sp, color: AppColors.primaryText),
                 ),
                 SizedBox(height: .5.h),
                 Text(

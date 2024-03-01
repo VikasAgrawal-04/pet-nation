@@ -149,7 +149,7 @@ class _CartPageState extends State<CartPage> {
     return Container(
       height: 24.h,
       margin: EdgeInsets.only(bottom: 2.h),
-      padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.h),
+      padding: EdgeInsets.symmetric(horizontal: 1.5.w, vertical: 1.h),
       decoration: BoxDecoration(
           border: Border.all(color: AppColors.borderColor),
           borderRadius: BorderRadius.circular(8)),
@@ -187,7 +187,8 @@ class _CartPageState extends State<CartPage> {
                 SizedBox(height: 2.h),
                 Row(
                   children: [
-                    Text('Qty', style: theme.titleLarge),
+                    Text('Qty',
+                        style: theme.titleLarge?.copyWith(fontSize: 16.sp)),
                     SizedBox(width: 2.w),
                     Container(
                       padding:
@@ -204,13 +205,13 @@ class _CartPageState extends State<CartPage> {
                               height: 2.2.h,
                             ),
                           ),
-                          SizedBox(width: 3.5.w),
+                          SizedBox(width: 3.w),
                           Text(
                             qty,
                             style: theme.bodyLarge
                                 ?.copyWith(color: AppColors.secondaryText),
                           ),
-                          SizedBox(width: 3.5.w),
+                          SizedBox(width: 3.w),
                           GestureDetector(
                             onTap: () {},
                             child: SvgPicture.asset(

@@ -7,7 +7,14 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 class CustomCarousel extends StatefulWidget {
   final List<String> images;
   final Function(int index) onTap;
-  const CustomCarousel({required this.images, required this.onTap, super.key});
+  final double? width;
+  final BoxFit? fit;
+  const CustomCarousel(
+      {required this.images,
+      this.width,
+      required this.onTap,
+      this.fit,
+      super.key});
 
   @override
   State<CustomCarousel> createState() => _CustomCarouselState();
@@ -31,8 +38,8 @@ class _CustomCarouselState extends State<CustomCarousel> {
                 borderRadius: BorderRadius.circular(10),
                 child: Image.network(
                   img,
-                  width: 100.w,
-                  fit: BoxFit.fill,
+                  width: widget.width ?? 100.w,
+                  fit: widget.fit ?? BoxFit.fill,
                 ),
               ),
             );

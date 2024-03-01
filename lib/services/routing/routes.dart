@@ -12,4 +12,7 @@ class AppRoutes {
 
   //Profile
   static const String customerSupport = '/customer-support';
+
+  //Product
+  static const String productDetails = '/products-details';
 }

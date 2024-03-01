@@ -11,8 +11,6 @@ class CustomButtonNew extends StatelessWidget {
   final Function()? onTap;
   final bool outlineBtn;
   final double? borderRadius;
-  final IconData? icon;
-  final double? iconSize;
   final double? width;
   final double? height;
   final Widget? child;
@@ -28,8 +26,6 @@ class CustomButtonNew extends StatelessWidget {
       this.onTap,
       this.outlineBtn = false,
       this.borderRadius,
-      this.icon,
-      this.iconSize,
       this.width,
       this.height,
       this.child,

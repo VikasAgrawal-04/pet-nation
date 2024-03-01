@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:pet_nations/services/routing/routes.dart';
 import 'package:pet_nations/src/core/utils/constants/colors.dart';
 import 'package:pet_nations/src/core/utils/constants/constant.dart';
 import 'package:pet_nations/src/views/widgets/buttons/custom_button.dart';
@@ -98,12 +99,16 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _carousel() {
-    return CustomCarousel(images: const [
-      'https://img.freepik.com/premium-photo/puppies-golden-retriever_1015979-1067.jpg',
-      'https://img.freepik.com/premium-photo/puppies-golden-retriever_1015979-1067.jpg',
-      'https://img.freepik.com/premium-photo/puppies-golden-retriever_1015979-1067.jpg',
-      'https://img.freepik.com/premium-photo/puppies-golden-retriever_1015979-1067.jpg'
-    ], onTap: (index) {});
+    return CustomCarousel(
+        images: const [
+          'https://img.freepik.com/premium-photo/puppies-golden-retriever_1015979-1067.jpg',
+          'https://img.freepik.com/premium-photo/puppies-golden-retriever_1015979-1067.jpg',
+          'https://img.freepik.com/premium-photo/puppies-golden-retriever_1015979-1067.jpg',
+          'https://img.freepik.com/premium-photo/puppies-golden-retriever_1015979-1067.jpg'
+        ],
+        onTap: (index) {
+          Get.toNamed(AppRoutes.productDetails);
+        });
   }
 
   Widget _titleRow({required Function() onTap, required String title}) {
