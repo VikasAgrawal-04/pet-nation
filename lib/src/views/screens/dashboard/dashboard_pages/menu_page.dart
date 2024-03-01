@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:pet_nations/services/routing/routes.dart';
 import 'package:pet_nations/src/controllers/dash_controller.dart';
 import 'package:pet_nations/src/core/utils/constants/colors.dart';
 import 'package:pet_nations/src/views/widgets/buttons/custom_button.dart';
@@ -135,7 +136,9 @@ class _MenuPageState extends State<MenuPage> {
           _row('Payment', 'assets/icons/card.svg', () {}),
           _row('Saved Address', 'assets/icons/address.svg', () {}),
           _row('Notification', 'assets/icons/bell.svg', () {}),
-          _row('Customer Support', 'assets/icons/support.svg', () {}),
+          _row('Customer Support', 'assets/icons/support.svg', () {
+            Get.toNamed<void>(AppRoutes.customerSupport);
+          }),
           _row('Terms and Conditions', 'assets/icons/terms_conditions.svg',
               () {}),
         ],

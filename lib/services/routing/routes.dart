@@ -9,4 +9,7 @@ class AppRoutes {
 
   //Dashboard
   static const String dashboard = '/dashboard';
+
+  //Profile
+  static const String customerSupport = '/customer-support';
 }

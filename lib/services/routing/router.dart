@@ -4,6 +4,7 @@ import 'package:pet_nations/src/views/screens/auth/login_view.dart';
 import 'package:pet_nations/src/views/screens/auth/otp_view.dart';
 import 'package:pet_nations/src/views/screens/dashboard/dashboard_view.dart';
 import 'package:pet_nations/src/views/screens/introduction/introduction_view.dart';
+import 'package:pet_nations/src/views/screens/profile_screens/customer_support_view.dart';
 import 'package:pet_nations/src/views/screens/splash/splash_view.dart';
 
 class AppRouter {
@@ -22,6 +23,9 @@ class AppRouter {
     GetPage(
         name: AppRoutes.dashboard,
         page: () => const DashboardView(),
-        transition: Transition.fade)
+        transition: Transition.fade),
+    GetPage(
+        name: AppRoutes.customerSupport,
+        page: () => const CustomerSupportView())
   ];
 }
