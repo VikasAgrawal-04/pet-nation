@@ -206,7 +206,7 @@ class _HomePageState extends State<HomePage> {
   Widget _petFavorites() {
     return Container(
       margin: EdgeInsets.only(bottom: 2.h),
-      height: 16.5.h,
+      height: 16.8.h,
       child: ListView.builder(
           shrinkWrap: true,
           scrollDirection: Axis.horizontal,

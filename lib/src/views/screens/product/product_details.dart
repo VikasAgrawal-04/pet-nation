@@ -89,7 +89,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                 color: AppColors.secondaryColor)),
         SizedBox(height: 2.h, child: VerticalLine(width: 2.w)),
         SizedBox(width: 4.w),
-        Ratings(rating: 4.2, onChange: (val) {}),
+        Ratings(rating: 4.5, onChange: (val) {}),
         SizedBox(width: 2.w),
         Text('10k reviews', style: theme.titleMedium)
       ],

@@ -27,7 +27,7 @@ class Ratings extends StatelessWidget {
               'assets/icons/full_star.svg',
             ),
             half: SvgPicture.asset(
-              'assets/icons/half-star.svg',
+              'assets/icons/half_star.svg',
             ),
             empty: SvgPicture.asset(
               'assets/icons/empty_star.svg',
