@@ -19,9 +19,8 @@ class CustomTextFieldNew extends StatefulWidget {
   final TextInputType keyboardType;
   final String? hint;
   final bool isRequired;
-  final IconData? icon;
+  final Widget? icon;
   final Widget? prefIcon;
-  final Function()? onTap;
   final bool? isReadOnly;
   final Color? fillColor;
   final FocusNode? focusNode;
@@ -53,7 +52,6 @@ class CustomTextFieldNew extends StatefulWidget {
       this.onChanged,
       required this.textInputAction,
       this.icon,
-      this.onTap,
       this.isReadOnly,
       this.singleInput = false,
       this.style,
@@ -174,16 +172,6 @@ class _CustomTextFieldState extends State<CustomTextFieldNew> {
                             color: Colors.black38),
                     color: Theme.of(context).iconTheme.color,
                   )
-                : widget.icon != null
-                    ? IconButton(
-                        constraints: const BoxConstraints(),
-                        iconSize: 24,
-                        padding: EdgeInsets.zero,
-                        onPressed: widget.onTap,
-                        icon: Icon(
-                          widget.icon,
-                          color: Colors.black54,
-                        ))
-                    : null));
+                : widget.icon));
   }
 }

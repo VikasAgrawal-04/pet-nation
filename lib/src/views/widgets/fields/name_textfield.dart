@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pet_nations/src/core/utils/constants/colors.dart';
-import 'package:pet_nations/src/views/widgets/textfield/custom_textfield.dart';
+import 'package:pet_nations/src/views/widgets/fields/custom_textfield.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class NameField extends StatelessWidget {
@@ -21,7 +21,7 @@ class NameField extends StatelessWidget {
           CustomTextFieldNew(
               isRequired: true,
               keyboardType: TextInputType.name,
-              isNumber: true,
+              isNumber: false,
               textInputAction: TextInputAction.next,
               hint: 'Name',
               focusedBorder: OutlineInputBorder(

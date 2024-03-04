@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pet_nations/src/core/utils/constants/colors.dart';
-import 'package:pet_nations/src/views/widgets/textfield/custom_textfield.dart';
+import 'package:pet_nations/src/views/widgets/fields/custom_textfield.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class MessageField extends StatelessWidget {
@@ -23,7 +23,7 @@ class MessageField extends StatelessWidget {
               minLine: 4,
               maxLine: 6,
               keyboardType: TextInputType.name,
-              isNumber: true,
+              isNumber: false,
               textInputAction: TextInputAction.next,
               focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),

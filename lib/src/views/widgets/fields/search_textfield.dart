@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pet_nations/src/core/utils/constants/colors.dart';
-import 'package:pet_nations/src/views/widgets/textfield/custom_textfield.dart';
+import 'package:pet_nations/src/views/widgets/fields/custom_textfield.dart';
 
 class SearchField extends StatelessWidget {
   final TextEditingController controller;
@@ -18,7 +18,7 @@ class SearchField extends StatelessWidget {
       control: controller,
       fillColor: AppColors.textFieldColor,
       hint: 'Search Product',
-      icon: Icons.search,
+      icon: const Icon(Icons.search),
     );
   }
 }

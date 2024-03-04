@@ -9,6 +9,7 @@ class AppColors {
   static Color primaryText = hexToColor('#515151');
   static Color secondaryText = hexToColor('#818181');
   static Color greenText = hexToColor('#34A853');
+  static Color redText = hexToColor('#DD3434');
 
   //Buttons
   static Color primaryBtn = hexToColor('#1E56A1');
@@ -23,8 +24,10 @@ class AppColors {
   static Color selectedSliderColor = hexToColor('#008FD5');
   static Color greyBgColor = hexToColor('#F5F5F5');
   static Color textFieldColor = hexToColor('#F9F9F9');
+  static Color textFieldColor2 = hexToColor('#E1E1E1');
   static Color borderColor = hexToColor('#818181');
   static Color lightGreyColor = hexToColor('#F8F8F8');
+  static Color redBg = hexToColor('#FDF3F3');
 
   //Function For Hex To Color
   static Color hexToColor(String code) {

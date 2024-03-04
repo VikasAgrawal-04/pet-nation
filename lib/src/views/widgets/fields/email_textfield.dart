@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:pet_nations/src/core/utils/constants/colors.dart';
-import 'package:pet_nations/src/views/widgets/textfield/custom_textfield.dart';
+import 'package:pet_nations/src/views/widgets/fields/custom_textfield.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-class MobileField extends StatelessWidget {
+class EmailTextField extends StatelessWidget {
   final TextEditingController controller;
-  final Future<void> Function()? onEditingComplete;
-  const MobileField(
-      {required this.controller, this.onEditingComplete, super.key});
+
+  const EmailTextField({super.key, required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -18,19 +16,15 @@ class MobileField extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Mobile Number',
-              style: Get.textTheme.titleLarge?.copyWith(height: 2)),
+          Text('Email',
+              style: Get.textTheme.titleLarge
+                  ?.copyWith(height: 2, color: AppColors.primaryText)),
           CustomTextFieldNew(
-              prefIcon: SvgPicture.asset(
-                'assets/icons/india.svg',
-                fit: BoxFit.scaleDown,
-              ),
               isRequired: true,
-              keyboardType: const TextInputType.numberWithOptions(),
-              isNumber: true,
-              textInputAction: TextInputAction.done,
-              onEditingComplete: onEditingComplete,
-              hint: 'Mobile Number',
+              keyboardType: TextInputType.emailAddress,
+              isNumber: false,
+              textInputAction: TextInputAction.next,
+              hint: 'Email',
               focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide:

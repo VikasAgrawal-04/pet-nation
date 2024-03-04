@@ -12,6 +12,7 @@ class CustomDropDown<T> extends StatelessWidget {
   final String Function(T)? labelBuilder;
   final void Function(T?)? onChanged;
   final bool readOnly;
+  final bool zeroPadding;
   const CustomDropDown(
       {required this.items,
       required this.value,
@@ -21,12 +22,13 @@ class CustomDropDown<T> extends StatelessWidget {
       this.labelBuilder,
       this.title,
       this.readOnly = false,
+      this.zeroPadding = false,
       super.key});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 4.w),
+      padding: EdgeInsets.symmetric(horizontal: zeroPadding ? 0 : 4.w),
       child:
           title == null ? _buildDropdown() : _buildDropdownWithTitle(context),
     );
@@ -55,8 +57,11 @@ class CustomDropDown<T> extends StatelessWidget {
       opacity: readOnly ? .7 : 1.0,
       child: Container(
         decoration: BoxDecoration(
-            color: AppColors.whiteColor,
-            border: Border.all(color: AppColors.hexToColor('#808080')),
+            color: zeroPadding ? Colors.transparent : AppColors.whiteColor,
+            border: Border.all(
+                color: zeroPadding
+                    ? AppColors.textFieldColor2
+                    : AppColors.hexToColor('#808080')),
             borderRadius: BorderRadius.circular(12.0)),
         child: IgnorePointer(
           ignoring: readOnly,
@@ -81,10 +86,8 @@ class CustomDropDown<T> extends StatelessWidget {
   DropdownMenuItem<T> _dropdownItem(T e, T v) {
     return DropdownMenuItem<T>(
       value: v,
-      child: Text(
-        labelBuilder?.call(e) ?? e.toString(),
-        style: Get.textTheme.titleLarge?.copyWith(color: AppColors.primaryText),
-      ),
+      child: Text(labelBuilder?.call(e) ?? e.toString(),
+          style: Get.textTheme.bodyLarge),
     );
   }
 }

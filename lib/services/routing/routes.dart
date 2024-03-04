@@ -10,9 +10,14 @@ class AppRoutes {
   //Dashboard
   static const String dashboard = '/dashboard';
 
-  //Profile
+  //Menu
   static const String customerSupport = '/customer-support';
+  static const String profile = '/profile';
 
   //Product
   static const String productDetails = '/products-details';
+
+  //Pet
+  static const String addPet = '/add-pet';
+  static const String petDetails = '/pet-details';
 }

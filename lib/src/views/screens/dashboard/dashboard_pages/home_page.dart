@@ -11,7 +11,7 @@ import 'package:pet_nations/src/views/widgets/cards/product_card_4.dart';
 import 'package:pet_nations/src/views/widgets/cards/product_card_5.dart';
 import 'package:pet_nations/src/views/widgets/cards/service_card.dart';
 import 'package:pet_nations/src/views/widgets/carousel/custom_carousel.dart';
-import 'package:pet_nations/src/views/widgets/textfield/search_textfield.dart';
+import 'package:pet_nations/src/views/widgets/fields/search_textfield.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class HomePage extends StatefulWidget {

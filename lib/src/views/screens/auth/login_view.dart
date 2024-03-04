@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:pet_nations/services/routing/routes.dart';
 import 'package:pet_nations/src/views/widgets/buttons/custom_button.dart';
-import 'package:pet_nations/src/views/widgets/textfield/mobile_textfield.dart';
+import 'package:pet_nations/src/views/widgets/fields/mobile_textfield.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class LoginView extends StatefulWidget {

@@ -67,8 +67,7 @@ class _MenuPageState extends State<MenuPage> {
             height: 3.5.h,
             text: 'View Profile',
             onTap: () {
-              dashControl.lstIndex = dashControl.curIndex.value;
-              dashControl.curIndex.value = 2;
+              Get.toNamed(AppRoutes.profile);
             },
             style: theme.titleMedium?.copyWith(
                 fontWeight: FontWeight.w500, color: AppColors.secondaryColor),

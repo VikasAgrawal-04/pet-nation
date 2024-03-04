@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pet_nations/src/views/widgets/buttons/dropdown_button.dart';
 import 'package:pet_nations/src/views/widgets/scaffold/back_appbar.dart';
-import 'package:pet_nations/src/views/widgets/textfield/email_textfield.dart';
-import 'package:pet_nations/src/views/widgets/textfield/message_textfield.dart';
-import 'package:pet_nations/src/views/widgets/textfield/mobile_textfield.dart';
-import 'package:pet_nations/src/views/widgets/textfield/name_textfield.dart';
+import 'package:pet_nations/src/views/widgets/fields/email_textfield.dart';
+import 'package:pet_nations/src/views/widgets/fields/message_textfield.dart';
+import 'package:pet_nations/src/views/widgets/fields/mobile_textfield.dart';
+import 'package:pet_nations/src/views/widgets/fields/name_textfield.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class CustomerSupportView extends StatefulWidget {
