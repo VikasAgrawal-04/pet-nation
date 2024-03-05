@@ -43,6 +43,9 @@ class _HomePageState extends State<HomePage> {
               ),
               actions: [
                 GestureDetector(
+                  onTap: () {
+                    Get.toNamed<void>(AppRoutes.notification);
+                  },
                   child:
                       SvgPicture.asset('assets/icons/bell.svg', height: 3.2.h),
                 )

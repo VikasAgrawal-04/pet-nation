@@ -8,6 +8,7 @@ import 'package:pet_nations/src/views/screens/cart_screens/payment_methods_scree
 import 'package:pet_nations/src/views/screens/cart_screens/product_summary_screen.dart';
 import 'package:pet_nations/src/views/screens/dashboard/dashboard_view.dart';
 import 'package:pet_nations/src/views/screens/introduction/introduction_view.dart';
+import 'package:pet_nations/src/views/screens/notification/notification_screen.dart';
 import 'package:pet_nations/src/views/screens/pet_screens/add_pet.dart';
 import 'package:pet_nations/src/views/screens/pet_screens/pet_details.dart';
 import 'package:pet_nations/src/views/screens/product/product_details.dart';
@@ -47,6 +48,8 @@ class AppRouter {
         name: AppRoutes.paymentMethod, page: () => const PaymentMethodScreen()),
     GetPage(name: AppRoutes.newCard, page: () => const NewCardScreen()),
     GetPage(name: AppRoutes.compare, page: () => const CompareScreen()),
-    GetPage(name: AppRoutes.wishlist, page: () => const WishlistScreen())
+    GetPage(name: AppRoutes.wishlist, page: () => const WishlistScreen()),
+    GetPage(
+        name: AppRoutes.notification, page: () => const NotificationScreen())
   ];
 }

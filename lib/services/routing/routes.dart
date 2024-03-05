@@ -27,4 +27,7 @@ class AppRoutes {
   static const String paymentMethod = '/payment-method';
   static const String newCard = '/new-card';
   static const String compare = '/compare';
+
+  //Notification
+  static const String notification = '/notification';
 }
