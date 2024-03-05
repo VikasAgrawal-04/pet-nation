@@ -141,7 +141,9 @@ class _HomePageState extends State<HomePage> {
               addToCart: () {},
               buy: () {},
               seller: 'Online Store',
-              wishBtn: () {},
+              wishBtn: () {
+                Get.toNamed<void>(AppRoutes.wishlist);
+              },
             );
           }),
     );

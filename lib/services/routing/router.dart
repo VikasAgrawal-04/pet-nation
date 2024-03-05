@@ -11,6 +11,7 @@ import 'package:pet_nations/src/views/screens/introduction/introduction_view.dar
 import 'package:pet_nations/src/views/screens/pet_screens/add_pet.dart';
 import 'package:pet_nations/src/views/screens/pet_screens/pet_details.dart';
 import 'package:pet_nations/src/views/screens/product/product_details.dart';
+import 'package:pet_nations/src/views/screens/product/wishlist_screen.dart';
 import 'package:pet_nations/src/views/screens/profile_screens/customer_support_view.dart';
 import 'package:pet_nations/src/views/screens/profile_screens/profile_page.dart';
 import 'package:pet_nations/src/views/screens/splash/splash_view.dart';
@@ -45,6 +46,7 @@ class AppRouter {
     GetPage(
         name: AppRoutes.paymentMethod, page: () => const PaymentMethodScreen()),
     GetPage(name: AppRoutes.newCard, page: () => const NewCardScreen()),
-    GetPage(name: AppRoutes.compare, page: () => const CompareScreen())
+    GetPage(name: AppRoutes.compare, page: () => const CompareScreen()),
+    GetPage(name: AppRoutes.wishlist, page: () => const WishlistScreen())
   ];
 }

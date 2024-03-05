@@ -65,7 +65,9 @@ class CustomButtonNew extends StatelessWidget {
                     TextStyle(
                         fontSize: 17.sp,
                         fontWeight: FontWeight.w700,
-                        color: AppColors.whiteColor),
+                        color: outlineBtn
+                            ? AppColors.secondaryText
+                            : AppColors.whiteColor),
                 textAlign: TextAlign.center,
               ),
             ),

@@ -16,6 +16,7 @@ class AppRoutes {
 
   //Product
   static const String productDetails = '/products-details';
+  static const String wishlist = '/wishlist';
 
   //Pet
   static const String addPet = '/add-pet';
