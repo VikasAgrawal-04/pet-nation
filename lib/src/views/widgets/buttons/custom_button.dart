@@ -17,6 +17,7 @@ class CustomButtonNew extends StatelessWidget {
   final EdgeInsetsGeometry? padding;
   final EdgeInsetsGeometry? margin;
   final List<BoxShadow>? shadows;
+  final Color? borderColor;
 
   const CustomButtonNew(
       {this.text,
@@ -32,6 +33,7 @@ class CustomButtonNew extends StatelessWidget {
       this.padding,
       this.margin,
       this.shadows,
+      this.borderColor,
       super.key});
 
   @override
@@ -47,9 +49,11 @@ class CustomButtonNew extends StatelessWidget {
         margin: margin,
         decoration: BoxDecoration(
           boxShadow: shadows,
-          color: color ?? AppColors.primaryBtn,
+          color:
+              outlineBtn ? Colors.transparent : color ?? AppColors.primaryBtn,
           border: Border.all(
-              color: outlineBtn ? AppColors.borderColor : Colors.transparent,
+              color: borderColor ??
+                  (outlineBtn ? AppColors.borderColor : Colors.transparent),
               width: 1),
           borderRadius: BorderRadius.circular(borderRadius ?? 8.0),
         ),

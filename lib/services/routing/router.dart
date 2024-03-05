@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:pet_nations/services/routing/routes.dart';
 import 'package:pet_nations/src/views/screens/auth/login_view.dart';
 import 'package:pet_nations/src/views/screens/auth/otp_view.dart';
+import 'package:pet_nations/src/views/screens/cart_screens/compare_screen.dart';
 import 'package:pet_nations/src/views/screens/cart_screens/new_card_screen.dart';
 import 'package:pet_nations/src/views/screens/cart_screens/payment_methods_screen.dart';
 import 'package:pet_nations/src/views/screens/cart_screens/product_summary_screen.dart';
@@ -43,6 +44,7 @@ class AppRouter {
         page: () => const ProductSummaryScreen()),
     GetPage(
         name: AppRoutes.paymentMethod, page: () => const PaymentMethodScreen()),
-    GetPage(name: AppRoutes.newCard, page: () => const NewCardScreen())
+    GetPage(name: AppRoutes.newCard, page: () => const NewCardScreen()),
+    GetPage(name: AppRoutes.compare, page: () => const CompareScreen())
   ];
 }

@@ -10,6 +10,7 @@ class AppColors {
   static Color secondaryText = hexToColor('#818181');
   static Color greenText = hexToColor('#34A853');
   static Color redText = hexToColor('#DD3434');
+  static Color yellowText = hexToColor('##FFBD00');
 
   //Buttons
   static Color primaryBtn = hexToColor('#1E56A1');
@@ -28,6 +29,7 @@ class AppColors {
   static Color borderColor = hexToColor('#818181');
   static Color lightGreyColor = hexToColor('#F8F8F8');
   static Color redBg = hexToColor('#FDF3F3');
+  static Color compareContainer = hexToColor('#F2F2F2');
 
   //Function For Hex To Color
   static Color hexToColor(String code) {

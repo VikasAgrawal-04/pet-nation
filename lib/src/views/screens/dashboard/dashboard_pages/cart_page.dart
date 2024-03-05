@@ -8,6 +8,7 @@ import 'package:pet_nations/src/core/utils/constants/colors.dart';
 import 'package:pet_nations/src/views/widgets/buttons/custom_button.dart';
 import 'package:pet_nations/src/views/widgets/cards/category_card.dart';
 import 'package:pet_nations/src/views/widgets/cards/product_card_1.dart';
+import 'package:pet_nations/src/views/widgets/titles/title_1.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class CartPage extends StatefulWidget {
@@ -64,7 +65,7 @@ class _CartPageState extends State<CartPage> {
                   '1'),
               _buyBtn(),
               _compareBtn(),
-              _titleRow(onTap: () {}, title: 'Cat Categories'),
+              TitleRow(onTap: () {}, title: 'Cat Categories'),
               SizedBox(
                 height: 22.h,
                 child: ListView.builder(
@@ -80,7 +81,7 @@ class _CartPageState extends State<CartPage> {
                           onTap: () {});
                     }),
               ),
-              _titleRow(onTap: () {}, title: 'You Might Also Like'),
+              TitleRow(onTap: () {}, title: 'You Might Also Like'),
               SizedBox(
                 height: 27.5.h,
                 child: ListView.builder(
@@ -107,25 +108,7 @@ class _CartPageState extends State<CartPage> {
     );
   }
 
-  Widget _titleRow({required Function() onTap, required String title}) {
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 1.5.h),
-      child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        Text(
-          title,
-          style: theme.bodyLarge,
-        ),
-        CustomButtonNew(
-            margin: EdgeInsets.only(right: 4.w),
-            height: 5.h,
-            width: 25.w,
-            text: 'SEE ALL',
-            onTap: onTap,
-            color: AppColors.tertiaryBtn,
-            style: theme.bodyMedium?.copyWith(color: AppColors.secondaryColor))
-      ]),
-    );
-  }
+  
 
   Widget _buyBtn() {
     return CustomButtonNew(
@@ -140,7 +123,9 @@ class _CartPageState extends State<CartPage> {
     return CustomButtonNew(
       margin: EdgeInsets.symmetric(vertical: 1.5.h),
       text: 'Compare',
-      onTap: () {},
+      onTap: () {
+        Get.toNamed<void>(AppRoutes.compare);
+      },
       color: AppColors.whiteColor,
       style: theme.titleLarge,
       outlineBtn: true,

@@ -25,4 +25,5 @@ class AppRoutes {
   static const String productSummary = '/product-summary';
   static const String paymentMethod = '/payment-method';
   static const String newCard = '/new-card';
+  static const String compare = '/compare';
 }

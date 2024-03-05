@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:pet_nations/services/routing/routes.dart';
 import 'package:pet_nations/src/core/utils/constants/colors.dart';
 import 'package:pet_nations/src/core/utils/constants/constant.dart';
-import 'package:pet_nations/src/views/widgets/buttons/custom_button.dart';
 import 'package:pet_nations/src/views/widgets/cards/product_card_2.dart';
 import 'package:pet_nations/src/views/widgets/cards/product_card_3.dart';
 import 'package:pet_nations/src/views/widgets/cards/product_card_4.dart';
@@ -12,6 +11,7 @@ import 'package:pet_nations/src/views/widgets/cards/product_card_5.dart';
 import 'package:pet_nations/src/views/widgets/cards/service_card.dart';
 import 'package:pet_nations/src/views/widgets/carousel/custom_carousel.dart';
 import 'package:pet_nations/src/views/widgets/fields/search_textfield.dart';
+import 'package:pet_nations/src/views/widgets/titles/title_1.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class HomePage extends StatefulWidget {
@@ -55,16 +55,16 @@ class _HomePageState extends State<HomePage> {
           children: [
             _secondHeader(),
             _carousel(),
-            _titleRow(onTap: () {}, title: 'Deals for you'),
+            TitleRow(onTap: () {}, title: 'Deals for you'),
             _deals(),
             Divider(color: AppColors.borderColor, thickness: .5),
-            _titleRow(onTap: () {}, title: 'Product Category'),
+            TitleRow(onTap: () {}, title: 'Product Category'),
             _productCategory(),
-            _titleRow(onTap: () {}, title: 'Top Selling'),
+            TitleRow(onTap: () {}, title: 'Top Selling'),
             _topSelling(),
-            _titleRow(onTap: () {}, title: 'Pet Services'),
+            TitleRow(onTap: () {}, title: 'Pet Services'),
             _petServices(),
-            _titleRow(onTap: () {}, title: 'Pet Favorites'),
+            TitleRow(onTap: () {}, title: 'Pet Favorites'),
             _petFavorites()
           ],
         ),
@@ -109,26 +109,6 @@ class _HomePageState extends State<HomePage> {
         onTap: (index) {
           Get.toNamed(AppRoutes.productDetails);
         });
-  }
-
-  Widget _titleRow({required Function() onTap, required String title}) {
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 1.5.h),
-      child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        Text(
-          title,
-          style: theme.bodyLarge,
-        ),
-        CustomButtonNew(
-            margin: EdgeInsets.only(right: 2.w),
-            height: 5.h,
-            width: 25.w,
-            text: 'SEE ALL',
-            onTap: onTap,
-            color: AppColors.tertiaryBtn,
-            style: theme.bodyMedium?.copyWith(color: AppColors.secondaryColor))
-      ]),
-    );
   }
 
   Widget _deals() {

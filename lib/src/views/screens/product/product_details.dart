@@ -10,6 +10,7 @@ import 'package:pet_nations/src/views/widgets/lines/bullet_text.dart';
 import 'package:pet_nations/src/views/widgets/lines/vertical_line.dart';
 import 'package:pet_nations/src/views/widgets/rating/ratings.dart';
 import 'package:pet_nations/src/views/widgets/scaffold/back_appbar.dart';
+import 'package:pet_nations/src/views/widgets/titles/title_1.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class ProductDetails extends StatefulWidget {
@@ -62,9 +63,9 @@ class _ProductDetailsState extends State<ProductDetails> {
             Divider(color: AppColors.borderColor, thickness: .2),
             _description(),
             Divider(color: AppColors.borderColor, thickness: .2, height: 4.h),
-            _titleRow(title: 'Cat Categories', onTap: () {}),
+            TitleRow(title: 'Cat Categories', onTap: () {}),
             _categories(),
-            _titleRow(onTap: () {}, title: 'You Might Also Like'),
+            TitleRow(onTap: () {}, title: 'You Might Also Like'),
             _youMightAlsoLike()
           ],
         ),
@@ -241,26 +242,6 @@ class _ProductDetailsState extends State<ProductDetails> {
             'Deboned Chicken, Whole Ground Brown Rice, Oatmeal, Maple Syrup, Vegetable Glycerine, Whole Ground Potato, Gelatin, Salt, Flaxseed (natural Source Of Omega 3 And 6 Fatty Acids), Phosphoric Acid (an Acidifier), Natural Smoke Flavor, Salmon Oil (natural Source Of DHA-Docosahexaenoic Acid), Sorbic Acid (a Natural Preservative), Calcium Ascorbate (a Natural Source Of Vitamin C), Citric Acid (a Natural Preservative), Mixed Tocopherols (a Natural Preservative), Rosemary',
             style: theme.titleMedium)
       ],
-    );
-  }
-
-  Widget _titleRow({required Function() onTap, required String title}) {
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 1.5.h),
-      child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        Text(
-          title,
-          style: theme.bodyLarge,
-        ),
-        CustomButtonNew(
-            margin: EdgeInsets.only(right: 4.w),
-            height: 5.h,
-            width: 25.w,
-            text: 'SEE ALL',
-            onTap: onTap,
-            color: AppColors.tertiaryBtn,
-            style: theme.bodyMedium?.copyWith(color: AppColors.secondaryColor))
-      ]),
     );
   }
 
