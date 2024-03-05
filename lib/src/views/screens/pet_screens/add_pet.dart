@@ -108,8 +108,8 @@ class _AddPetScreenState extends State<AddPetScreen> {
           borderRadius: BorderRadius.circular(10)),
       child: Column(
         children: [
-          PetField(controller: name, hint: 'Name'),
-          PetField(controller: breed, hint: 'Breed'),
+          DefaultField(controller: name, hint: 'Name'),
+          DefaultField(controller: breed, hint: 'Breed'),
           Obx(() => CustomDropDown(
                 items: const ['Male', 'Female'],
                 value: gender.value == '' ? null : gender.value,
@@ -128,7 +128,7 @@ class _AddPetScreenState extends State<AddPetScreen> {
               dob.text = value;
             },
           ),
-          PetField(
+          DefaultField(
             controller: weight,
             hint: 'Weight',
             number: true,

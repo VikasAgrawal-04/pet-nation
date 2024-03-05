@@ -20,4 +20,9 @@ class AppRoutes {
   //Pet
   static const String addPet = '/add-pet';
   static const String petDetails = '/pet-details';
+
+  //Cart
+  static const String productSummary = '/product-summary';
+  static const String paymentMethod = '/payment-method';
+  static const String newCard = '/new-card';
 }

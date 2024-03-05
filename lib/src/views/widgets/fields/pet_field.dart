@@ -3,16 +3,18 @@ import 'package:get/get.dart';
 import 'package:pet_nations/src/core/utils/constants/colors.dart';
 import 'package:pet_nations/src/views/widgets/fields/custom_textfield.dart';
 
-class PetField extends StatelessWidget {
+class DefaultField extends StatelessWidget {
   final String hint;
   final bool done;
   final bool number;
+  final bool title;
   final TextEditingController controller;
-  const PetField(
+  const DefaultField(
       {required this.controller,
       required this.hint,
       this.done = false,
       this.number = false,
+      this.title = true,
       super.key});
 
   @override
@@ -20,9 +22,10 @@ class PetField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(hint,
-            style: Get.textTheme.titleLarge
-                ?.copyWith(height: 2, color: AppColors.primaryText)),
+        if (title)
+          Text(hint,
+              style: Get.textTheme.titleLarge
+                  ?.copyWith(height: 2, color: AppColors.primaryText)),
         CustomTextFieldNew(
             isRequired: true,
             keyboardType: number ? TextInputType.number : TextInputType.name,

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:pet_nations/services/routing/routes.dart';
 import 'package:pet_nations/src/controllers/dash_controller.dart';
 import 'package:pet_nations/src/core/utils/constants/colors.dart';
 import 'package:pet_nations/src/views/widgets/buttons/custom_button.dart';
@@ -62,7 +63,7 @@ class _CartPageState extends State<CartPage> {
                   '4.99',
                   '1'),
               _buyBtn(),
-              _cancelBtn(),
+              _compareBtn(),
               _titleRow(onTap: () {}, title: 'Cat Categories'),
               SizedBox(
                 height: 22.h,
@@ -129,14 +130,16 @@ class _CartPageState extends State<CartPage> {
   Widget _buyBtn() {
     return CustomButtonNew(
       text: 'Buy Now',
-      onTap: () {},
+      onTap: () {
+        Get.toNamed(AppRoutes.productSummary);
+      },
     );
   }
 
-  Widget _cancelBtn() {
+  Widget _compareBtn() {
     return CustomButtonNew(
       margin: EdgeInsets.symmetric(vertical: 1.5.h),
-      text: 'Cancel',
+      text: 'Compare',
       onTap: () {},
       color: AppColors.whiteColor,
       style: theme.titleLarge,

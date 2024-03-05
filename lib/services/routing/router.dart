@@ -2,6 +2,9 @@ import 'package:get/get.dart';
 import 'package:pet_nations/services/routing/routes.dart';
 import 'package:pet_nations/src/views/screens/auth/login_view.dart';
 import 'package:pet_nations/src/views/screens/auth/otp_view.dart';
+import 'package:pet_nations/src/views/screens/cart_screens/new_card_screen.dart';
+import 'package:pet_nations/src/views/screens/cart_screens/payment_methods_screen.dart';
+import 'package:pet_nations/src/views/screens/cart_screens/product_summary_screen.dart';
 import 'package:pet_nations/src/views/screens/dashboard/dashboard_view.dart';
 import 'package:pet_nations/src/views/screens/introduction/introduction_view.dart';
 import 'package:pet_nations/src/views/screens/pet_screens/add_pet.dart';
@@ -34,6 +37,12 @@ class AppRouter {
     GetPage(name: AppRoutes.productDetails, page: () => const ProductDetails()),
     GetPage(name: AppRoutes.profile, page: () => const ProfilePage()),
     GetPage(name: AppRoutes.addPet, page: () => const AddPetScreen()),
-    GetPage(name: AppRoutes.petDetails, page: () => const PetDetails())
+    GetPage(name: AppRoutes.petDetails, page: () => const PetDetails()),
+    GetPage(
+        name: AppRoutes.productSummary,
+        page: () => const ProductSummaryScreen()),
+    GetPage(
+        name: AppRoutes.paymentMethod, page: () => const PaymentMethodScreen()),
+    GetPage(name: AppRoutes.newCard, page: () => const NewCardScreen())
   ];
 }
