@@ -97,8 +97,13 @@ class _MenuPageState extends State<MenuPage> {
         children: [
           Text('Orders', style: theme.bodyLarge),
           SizedBox(height: .75.h),
-          _row('Your Wishlist', 'assets/icons/wishlist.svg', () {}),
-          _row('Your Cart', 'assets/icons/cart-2.svg', () {}),
+          _row('Your Wishlist', 'assets/icons/wishlist.svg', () {
+            Get.toNamed(AppRoutes.wishlist);
+          }),
+          _row('Your Cart', 'assets/icons/cart-2.svg', () {
+            dashControl.lstIndex = dashControl.curIndex.value;
+            dashControl.curIndex.value = 1;
+          }),
           _row('Track Order', 'assets/icons/track.svg', () {
             Get.toNamed(AppRoutes.orders);
           }),
@@ -136,7 +141,9 @@ class _MenuPageState extends State<MenuPage> {
           _row('Languages', 'assets/icons/india.svg', () {}),
           _row('Payment', 'assets/icons/card.svg', () {}),
           _row('Saved Address', 'assets/icons/address.svg', () {}),
-          _row('Notification', 'assets/icons/bell.svg', () {}),
+          _row('Notification', 'assets/icons/bell.svg', () {
+            Get.toNamed(AppRoutes.notification);
+          }),
           _row('Customer Support', 'assets/icons/support.svg', () {
             Get.toNamed<void>(AppRoutes.customerSupport);
           }),

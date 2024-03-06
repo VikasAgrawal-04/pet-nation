@@ -30,7 +30,12 @@ class _NotificationScreenState extends State<NotificationScreen> {
               Container(
                   padding: EdgeInsets.symmetric(horizontal: 4.w),
                   height: 100.h,
-                  child: const TabBarView(children: [NotificationTabbarView()]))
+                  child: const TabBarView(children: [
+                    NotificationTabbarView(),
+                    NotificationTabbarView(),
+                    NotificationTabbarView(),
+                    NotificationTabbarView()
+                  ]))
             ],
           ),
         ),
