@@ -22,24 +22,21 @@ class _NotificationScreenState extends State<NotificationScreen> {
       ]),
       body: DefaultTabController(
         length: 4,
-        child: SizedBox(
-          height: 100.h,
-          child: Column(
-            children: [
-              customTabar(['All', 'Orders', 'Payment', 'Others']),
-              SizedBox(height: 2.h),
-              Expanded(
-                child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 4.w),
-                    child: const TabBarView(children: [
-                      NotificationTabbarView(),
-                      NotificationTabbarView(),
-                      NotificationTabbarView(),
-                      NotificationTabbarView()
-                    ])),
-              )
-            ],
-          ),
+        child: Column(
+          children: [
+            customTabar(['All', 'Orders', 'Payment', 'Others']),
+            SizedBox(height: 1.h),
+            Expanded(
+              child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 4.w),
+                  child: const TabBarView(children: [
+                    NotificationTabbarView(),
+                    NotificationTabbarView(),
+                    NotificationTabbarView(),
+                    NotificationTabbarView()
+                  ])),
+            )
+          ],
         ),
       ),
     );
