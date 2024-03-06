@@ -16,24 +16,23 @@ class _TrackOrderScreenState extends State<TrackOrderScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: backAppBar('My Orders'),
-      body: SingleChildScrollView(
-        child: DefaultTabController(
-          length: 4,
-          child: Column(
-            children: [
-              customTabar(['All', 'Ongoing', 'Completed', 'Cancelled']),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 4.w),
-                height: 100.h,
+      body: DefaultTabController(
+        length: 4,
+        child: Column(
+          children: [
+            customTabar(['All', 'Ongoing', 'Completed', 'Cancelled']),
+            Expanded(
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 4.w,vertical: 1.h),
                 child: const TabBarView(children: [
                   TrackOrderView(),
                   TrackOrderView(),
                   TrackOrderView(),
                   TrackOrderView()
                 ]),
-              )
-            ],
-          ),
+              ),
+            )
+          ],
         ),
       ),
     );

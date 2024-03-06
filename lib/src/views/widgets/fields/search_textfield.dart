@@ -5,8 +5,12 @@ import 'package:pet_nations/src/views/widgets/fields/custom_textfield.dart';
 class SearchField extends StatelessWidget {
   final TextEditingController controller;
   final Future<void> Function()? onEditingComplete;
+  final TextStyle? style;
   const SearchField(
-      {required this.controller, this.onEditingComplete, super.key});
+      {required this.controller,
+      this.onEditingComplete,
+      super.key,
+      this.style});
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +22,7 @@ class SearchField extends StatelessWidget {
       control: controller,
       fillColor: AppColors.textFieldColor,
       hint: 'Search Product',
+      hintStyle: style,
       icon: const Icon(Icons.search),
     );
   }

@@ -15,6 +15,7 @@ class AppRoutes {
   static const String profile = '/profile';
   static const String orders = '/orders';
   static const String orderDetails = '/order-details';
+  static const String shopByProduct = '/shop-by-product';
 
   //Product
   static const String productDetails = '/products-details';

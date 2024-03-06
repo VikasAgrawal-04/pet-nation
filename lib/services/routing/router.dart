@@ -9,6 +9,7 @@ import 'package:pet_nations/src/views/screens/cart_screens/product_summary_scree
 import 'package:pet_nations/src/views/screens/dashboard/dashboard_view.dart';
 import 'package:pet_nations/src/views/screens/introduction/introduction_view.dart';
 import 'package:pet_nations/src/views/screens/menu_screens/customer_support_view.dart';
+import 'package:pet_nations/src/views/screens/menu_screens/product_list_screen.dart';
 import 'package:pet_nations/src/views/screens/menu_screens/profile_page.dart';
 import 'package:pet_nations/src/views/screens/menu_screens/track_order_screen.dart';
 import 'package:pet_nations/src/views/screens/menu_screens/track_order_views/order_details.dart';
@@ -54,6 +55,8 @@ class AppRouter {
     GetPage(
         name: AppRoutes.notification, page: () => const NotificationScreen()),
     GetPage(name: AppRoutes.orders, page: () => const TrackOrderScreen()),
-    GetPage(name: AppRoutes.orderDetails, page: () => const OrderDetails())
+    GetPage(name: AppRoutes.orderDetails, page: () => const OrderDetails()),
+    GetPage(
+        name: AppRoutes.shopByProduct, page: () => const ProductListScreen())
   ];
 }
