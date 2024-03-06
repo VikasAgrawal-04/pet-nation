@@ -11,7 +11,9 @@ class OrderCard extends StatelessWidget {
   final String orderDate;
   final String delStatus;
   final String status;
-  final Function() onTap;
+  final Function()? onTap;
+  final bool track;
+  final String? price;
   const OrderCard(
       {super.key,
       required this.img,
@@ -20,7 +22,9 @@ class OrderCard extends StatelessWidget {
       required this.orderDate,
       required this.delStatus,
       required this.status,
-      required this.onTap});
+      this.onTap,
+      this.track = false,
+      this.price});
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +37,7 @@ class OrderCard extends StatelessWidget {
           Expanded(
               flex: 3,
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     pName,
@@ -47,20 +52,30 @@ class OrderCard extends StatelessWidget {
                       Text('Qty: $qty',
                           style:
                               theme.titleMedium?.copyWith(fontSize: 15.5.sp)),
-                      TextButton(
-                          style: TextButton.styleFrom(
-                              padding: EdgeInsets.symmetric(horizontal: 4.w),
-                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                              alignment: Alignment.topCenter),
-                          onPressed: onTap,
-                          child: Text(
-                            'View Details',
-                            style: theme.titleMedium?.copyWith(
-                                color: AppColors.secondaryColor,
-                                fontSize: 15.5.sp),
-                          ))
+                      Visibility(
+                        visible: !track,
+                        child: TextButton(
+                            style: TextButton.styleFrom(
+                                splashFactory: NoSplash.splashFactory,
+                                padding: EdgeInsets.symmetric(horizontal: 4.w),
+                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                                alignment: Alignment.topCenter),
+                            onPressed: onTap,
+                            child: Text(
+                              'View Details',
+                              style: theme.titleMedium?.copyWith(
+                                  color: AppColors.secondaryColor,
+                                  fontSize: 15.5.sp),
+                            )),
+                      )
                     ],
-                  )
+                  ),
+                  if (track) ...{
+                    Padding(
+                      padding: EdgeInsets.symmetric(vertical: 1.h),
+                      child: Text('\$ $price', style: theme.displaySmall),
+                    )
+                  }
                 ],
               ))
         ],

@@ -152,15 +152,19 @@ class _MenuPageState extends State<MenuPage> {
       padding: EdgeInsets.symmetric(vertical: .65.h),
       child: GestureDetector(
         onTap: onTap,
-        child: Row(
-          children: [
-            SvgPicture.asset(svg),
-            SizedBox(width: 4.w),
-            Text(title, style: theme.titleLarge),
-            const Spacer(),
-            Icon(CupertinoIcons.forward,
-                color: AppColors.secondaryColor, size: 16.sp)
-          ],
+        child: Container(
+          color: Colors.transparent,
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              SvgPicture.asset(svg),
+              SizedBox(width: 4.w),
+              Text(title, style: theme.titleLarge),
+              const Spacer(),
+              Icon(CupertinoIcons.forward,
+                  color: AppColors.secondaryColor, size: 16.sp)
+            ],
+          ),
         ),
       ),
     );

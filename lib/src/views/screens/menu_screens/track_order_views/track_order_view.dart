@@ -1,4 +1,6 @@
 import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
+import 'package:pet_nations/services/routing/routes.dart';
 import 'package:pet_nations/src/views/widgets/cards/order_card.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -20,7 +22,9 @@ class TrackOrderView extends StatelessWidget {
               orderDate: '20 Feb,2024',
               delStatus: 'Dispatched',
               status: 'Completed',
-              onTap: () {});
+              onTap: () {
+                Get.toNamed(AppRoutes.orderDetails);
+              });
         });
   }
 }
