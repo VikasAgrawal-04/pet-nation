@@ -10,13 +10,15 @@ class AppColors {
   static Color secondaryText = hexToColor('#818181');
   static Color greenText = hexToColor('#34A853');
   static Color redText = hexToColor('#DD3434');
-  static Color yellowText = hexToColor('##FFBD00');
+  static Color yellowText = hexToColor('#FFBD00');
+  static Color blueText = hexToColor('#3470A8');
 
   //Buttons
   static Color primaryBtn = hexToColor('#1E56A1');
   static Color secondaryBtn = hexToColor('#008FD5');
   static Color tertiaryBtn = hexToColor('#F1F8FC');
   static Color greenBtn = hexToColor('#EFF8F1');
+  static Color blueBtn = hexToColor('#E9EEF3');
 
   //Background Color
   static Color whiteColor = hexToColor('#FFFFFF');

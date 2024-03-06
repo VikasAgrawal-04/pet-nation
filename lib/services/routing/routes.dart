@@ -13,6 +13,7 @@ class AppRoutes {
   //Menu
   static const String customerSupport = '/customer-support';
   static const String profile = '/profile';
+  static const String orders = '/orders';
 
   //Product
   static const String productDetails = '/products-details';

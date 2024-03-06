@@ -8,13 +8,14 @@ import 'package:pet_nations/src/views/screens/cart_screens/payment_methods_scree
 import 'package:pet_nations/src/views/screens/cart_screens/product_summary_screen.dart';
 import 'package:pet_nations/src/views/screens/dashboard/dashboard_view.dart';
 import 'package:pet_nations/src/views/screens/introduction/introduction_view.dart';
+import 'package:pet_nations/src/views/screens/menu_screens/customer_support_view.dart';
+import 'package:pet_nations/src/views/screens/menu_screens/profile_page.dart';
+import 'package:pet_nations/src/views/screens/menu_screens/track_order_screen.dart';
 import 'package:pet_nations/src/views/screens/notification/notification_screen.dart';
 import 'package:pet_nations/src/views/screens/pet_screens/add_pet.dart';
 import 'package:pet_nations/src/views/screens/pet_screens/pet_details.dart';
 import 'package:pet_nations/src/views/screens/product/product_details.dart';
 import 'package:pet_nations/src/views/screens/product/wishlist_screen.dart';
-import 'package:pet_nations/src/views/screens/profile_screens/customer_support_view.dart';
-import 'package:pet_nations/src/views/screens/profile_screens/profile_page.dart';
 import 'package:pet_nations/src/views/screens/splash/splash_view.dart';
 
 class AppRouter {
@@ -50,6 +51,7 @@ class AppRouter {
     GetPage(name: AppRoutes.compare, page: () => const CompareScreen()),
     GetPage(name: AppRoutes.wishlist, page: () => const WishlistScreen()),
     GetPage(
-        name: AppRoutes.notification, page: () => const NotificationScreen())
+        name: AppRoutes.notification, page: () => const NotificationScreen()),
+    GetPage(name: AppRoutes.orders, page: () => const TrackOrderScreen())
   ];
 }

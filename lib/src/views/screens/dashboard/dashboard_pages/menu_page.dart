@@ -99,7 +99,9 @@ class _MenuPageState extends State<MenuPage> {
           SizedBox(height: .75.h),
           _row('Your Wishlist', 'assets/icons/wishlist.svg', () {}),
           _row('Your Cart', 'assets/icons/cart-2.svg', () {}),
-          _row('Track Order', 'assets/icons/track.svg', () {}),
+          _row('Track Order', 'assets/icons/track.svg', () {
+            Get.toNamed(AppRoutes.orders);
+          }),
         ],
       ),
     );

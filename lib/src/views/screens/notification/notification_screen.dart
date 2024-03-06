@@ -45,6 +45,7 @@ class NotificationTabbarView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      physics: const NeverScrollableScrollPhysics(),
       itemBuilder: (context, index) {
         return _card(
           img:
@@ -54,7 +55,7 @@ class NotificationTabbarView extends StatelessWidget {
           onTap: () {},
         );
       },
-      itemCount: 5,
+      itemCount: 15,
     );
   }
 
