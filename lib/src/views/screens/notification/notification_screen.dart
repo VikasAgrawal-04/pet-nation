@@ -22,22 +22,23 @@ class _NotificationScreenState extends State<NotificationScreen> {
       ]),
       body: DefaultTabController(
         length: 4,
-        child: Column(
-          children: [
-            customTabar(['All', 'Orders', 'Payment', 'Others']),
-            SizedBox(height: 1.h),
-            Expanded(
-              child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 4.w),
-                  child: const TabBarView(children: [
-                    NotificationTabbarView(),
-                    NotificationTabbarView(),
-                    NotificationTabbarView(),
-                    NotificationTabbarView()
-                  ])),
-            )
-          ],
-        ),
+        child: NestedScrollView(
+            headerSliverBuilder: ((context, innerBoxIsScrolled) {
+              return [
+                SliverToBoxAdapter(
+                  child: customTabar(['All', 'Orders', 'Payment', 'Others']),
+                )
+              ];
+            }),
+            body: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 1.5.h),
+              child: const TabBarView(children: [
+                NotificationTabbarView(),
+                NotificationTabbarView(),
+                NotificationTabbarView(),
+                NotificationTabbarView()
+              ]),
+            )),
       ),
     );
   }
@@ -49,6 +50,7 @@ class NotificationTabbarView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      physics: const NeverScrollableScrollPhysics(),
       itemBuilder: (context, index) {
         return _card(
           img:
@@ -58,7 +60,7 @@ class NotificationTabbarView extends StatelessWidget {
           onTap: () {},
         );
       },
-      itemCount: 15,
+      itemCount: 20,
     );
   }
 

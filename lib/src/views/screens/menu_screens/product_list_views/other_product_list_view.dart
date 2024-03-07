@@ -16,6 +16,7 @@ class OtherProductListView extends StatelessWidget {
         Text(title, style: theme.displaySmall),
         Expanded(
           child: GridView.builder(
+              physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               padding: EdgeInsets.symmetric(vertical: 2.h, horizontal: 2.w),
               itemCount: 6,

@@ -9,6 +9,7 @@ class AllListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.builder(
         shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
         padding: EdgeInsets.symmetric(vertical: 2.h, horizontal: 2.w),
         itemCount: 16,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

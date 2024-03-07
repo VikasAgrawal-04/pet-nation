@@ -10,6 +10,7 @@ class TrackOrderView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+        physics: const NeverScrollableScrollPhysics(),
         padding: EdgeInsets.symmetric(horizontal: 1.w, vertical: 2.h),
         itemCount: 10,
         itemBuilder: (context, index) {

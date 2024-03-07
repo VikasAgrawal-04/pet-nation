@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pet_nations/src/views/screens/menu_screens/track_order_views/track_order_view.dart';
 import 'package:pet_nations/src/views/widgets/scaffold/back_appbar.dart';
@@ -15,25 +16,29 @@ class _TrackOrderScreenState extends State<TrackOrderScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: backAppBar('My Orders'),
+      appBar: backAppBar('My Orders', centerTitle: true, actions: [
+        IconButton(onPressed: () {}, icon: const Icon(CupertinoIcons.search))
+      ]),
       body: DefaultTabController(
         length: 4,
-        child: Column(
-          children: [
-            customTabar(['All', 'Ongoing', 'Completed', 'Cancelled']),
-            Expanded(
-              child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 4.w,vertical: 1.h),
-                child: const TabBarView(children: [
-                  TrackOrderView(),
-                  TrackOrderView(),
-                  TrackOrderView(),
-                  TrackOrderView()
-                ]),
-              ),
-            )
-          ],
-        ),
+        child: NestedScrollView(
+            headerSliverBuilder: (((context, innerBoxIsScrolled) {
+              return [
+                SliverToBoxAdapter(
+                  child:
+                      customTabar(['All', 'Ongoing', 'Completed', 'Cancelled']),
+                )
+              ];
+            })),
+            body: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 1.h),
+              child: const TabBarView(children: [
+                TrackOrderView(),
+                TrackOrderView(),
+                TrackOrderView(),
+                TrackOrderView()
+              ]),
+            )),
       ),
     );
   }
