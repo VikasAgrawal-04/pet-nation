@@ -8,7 +8,7 @@
 PRODUCT_NAME = pet_nations
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.example.petNations
+PRODUCT_BUNDLE_IDENTIFIER = com.petnation.app
 
 // The copyright displayed in application information
 PRODUCT_COPYRIGHT = Copyright © 2024 com.example. All rights reserved.
