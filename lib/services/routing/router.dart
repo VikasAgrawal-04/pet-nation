@@ -9,6 +9,8 @@ import 'package:pet_nations/src/views/screens/cart_screens/product_summary_scree
 import 'package:pet_nations/src/views/screens/dashboard/dashboard_view.dart';
 import 'package:pet_nations/src/views/screens/introduction/introduction_view.dart';
 import 'package:pet_nations/src/views/screens/menu_screens/customer_support_view.dart';
+import 'package:pet_nations/src/views/screens/menu_screens/pet_community_screen.dart';
+import 'package:pet_nations/src/views/screens/menu_screens/pet_community_views/book_appt_views.dart';
 import 'package:pet_nations/src/views/screens/menu_screens/product_list_screen.dart';
 import 'package:pet_nations/src/views/screens/menu_screens/profile_page.dart';
 import 'package:pet_nations/src/views/screens/menu_screens/track_order_screen.dart';
@@ -57,6 +59,9 @@ class AppRouter {
     GetPage(name: AppRoutes.orders, page: () => const TrackOrderScreen()),
     GetPage(name: AppRoutes.orderDetails, page: () => const OrderDetails()),
     GetPage(
-        name: AppRoutes.shopByProduct, page: () => const ProductListScreen())
+        name: AppRoutes.shopByProduct, page: () => const ProductListScreen()),
+    GetPage(
+        name: AppRoutes.petCommunity, page: () => const PetCommunityScreen()),
+    GetPage(name: AppRoutes.bookAppt, page: () => const BookApptView())
   ];
 }

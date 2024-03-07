@@ -28,7 +28,7 @@ class ServiceCard extends StatelessWidget {
           SizedBox(height: 1.h),
           Text(title, style: theme.titleLarge?.copyWith(fontSize: 16.sp)),
           SizedBox(height: 1.h),
-          Text(title,
+          Text('View Details',
               style:
                   theme.titleMedium?.copyWith(color: AppColors.secondaryColor)),
         ],

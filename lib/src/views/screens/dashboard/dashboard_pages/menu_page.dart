@@ -123,7 +123,9 @@ class _MenuPageState extends State<MenuPage> {
           _row('Product Lists', 'assets/icons/order_2.svg', () {
             Get.toNamed(AppRoutes.shopByProduct);
           }),
-          _row('Pet Community', 'assets/icons/pet.svg', () {}),
+          _row('Pet Community', 'assets/icons/pet.svg', () {
+            Get.toNamed(AppRoutes.petCommunity);
+          }),
           _row('Pet Profile', 'assets/icons/pet-icon.svg', () {}),
           _row('Lost Pet', 'assets/icons/pet-2.svg', () {}),
           _row('Chat', 'assets/icons/chat.svg', () {}),
