@@ -85,16 +85,27 @@ class _HomePageState extends State<HomePage> {
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () {},
-              child: Container(
-                width: 22.w,
-                padding: EdgeInsets.symmetric(horizontal: 1.w),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: Image.network(
-                    'https://img.freepik.com/premium-photo/puppies-golden-retriever_1015979-1067.jpg',
-                    fit: BoxFit.fill,
+              child: Column(
+                children: [
+                  Expanded(
+                    child: Container(
+                      width: 22.w,
+                      padding: EdgeInsets.symmetric(horizontal: 1.w),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(8),
+                        child: Image.network(
+                          'https://img.freepik.com/premium-photo/puppies-golden-retriever_1015979-1067.jpg',
+                          fit: BoxFit.fill,
+                        ),
+                      ),
+                    ),
                   ),
-                ),
+                  Text(
+                    'Dogs',
+                    style: theme.titleMedium
+                        ?.copyWith(color: AppColors.primaryText),
+                  )
+                ],
               ),
             );
           }),
