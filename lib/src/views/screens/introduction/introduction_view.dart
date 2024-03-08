@@ -42,7 +42,7 @@ class _IntroductionViewState extends State<IntroductionView>
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.symmetric(vertical: 5.2.h),
+        padding: EdgeInsets.only(top: 4.h,bottom: 2.5.h),
         child: Column(
           children: [
             Align(

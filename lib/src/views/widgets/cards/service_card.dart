@@ -15,7 +15,7 @@ class ServiceCard extends StatelessWidget {
     final theme = Get.textTheme;
 
     return Container(
-      width: 40.w,
+      width: 42.w,
       padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 1.5.h),
       margin: EdgeInsets.symmetric(horizontal: 2.w),
       decoration: BoxDecoration(

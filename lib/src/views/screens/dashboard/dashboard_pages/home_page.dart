@@ -165,7 +165,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget _topSelling() {
     return SizedBox(
-      height: 21.h,
+      height: 22.5.h,
       child: ListView.builder(
           shrinkWrap: true,
           scrollDirection: Axis.horizontal,

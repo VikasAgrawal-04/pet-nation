@@ -21,7 +21,8 @@ class ProuctCard5 extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        margin: EdgeInsets.symmetric(horizontal: 4.w),
+        width:43.w,
+        margin: EdgeInsets.symmetric(horizontal: 2.w),
         padding: EdgeInsets.symmetric(vertical: .8.h, horizontal:4.w),
         decoration: BoxDecoration(
             border: Border.all(width: .5, color: AppColors.borderColor),

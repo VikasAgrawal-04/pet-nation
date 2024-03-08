@@ -10,7 +10,8 @@ Widget categoryCard(
     required String type,
     required Function() onTap}) {
   final theme = Get.textTheme;
-  return Padding(
+  return Container(
+    width: 43.w,
     padding: EdgeInsets.symmetric(horizontal: 6.w),
     child: Column(children: [
       SizedBox(

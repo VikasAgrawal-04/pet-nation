@@ -30,7 +30,7 @@ class ProductCard3 extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Get.textTheme;
     return Container(
-      width: 79.w,
+      width: 90.w,
       margin: EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.h),
       padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 2.h),
       decoration: BoxDecoration(
