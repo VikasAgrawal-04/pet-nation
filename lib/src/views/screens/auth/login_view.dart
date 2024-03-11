@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:pet_nations/services/routing/routes.dart';
+import 'package:pet_nations/src/controllers/auth_controller.dart';
 import 'package:pet_nations/src/views/widgets/buttons/custom_button.dart';
 import 'package:pet_nations/src/views/widgets/fields/mobile_textfield.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -14,6 +14,8 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
+  final form = GlobalKey<FormState>();
+  final authControl = Get.find<AuthController>();
   final mobile = TextEditingController();
 
   @override
@@ -31,7 +33,9 @@ class _LoginViewState extends State<LoginView> {
             Column(
               children: [
                 Padding(
-                  padding: EdgeInsets.only(top: 15.h),
+                  padding: EdgeInsets.only(
+                    top: 15.h,
+                  ),
                   child: Center(
                     child: Image.asset(
                       'assets/images/logo.png',
@@ -43,13 +47,17 @@ class _LoginViewState extends State<LoginView> {
                 SizedBox(height: 5.h),
                 Text('LOGIN', style: theme.displayMedium),
                 SizedBox(height: 5.h),
-                MobileField(controller: mobile, onEditingComplete: () async {}),
+                Form(
+                  key: form,
+                  child: MobileField(
+                    controller: mobile,
+                    onEditingComplete: login,
+                  ),
+                ),
                 SizedBox(height: 8.h),
                 CustomButtonNew(
                   text: 'Verify OTP',
-                  onTap: () {
-                    Get.toNamed<void>(AppRoutes.otp);
-                  },
+                  onTap: login,
                   margin: EdgeInsets.symmetric(horizontal: 4.w),
                 ),
                 SizedBox(height: 5.h),
@@ -73,5 +81,11 @@ class _LoginViewState extends State<LoginView> {
         ),
       ),
     );
+  }
+
+  Future<void> login() async {
+    if (form.currentState!.validate()) {
+      await authControl.login(mobile.text);
+    }
   }
 }

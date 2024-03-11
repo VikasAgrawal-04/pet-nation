@@ -21,6 +21,7 @@ class EmailTextField extends StatelessWidget {
                 ?.copyWith(height: 2, color: AppColors.primaryText),
           ),
           CustomTextFieldNew(
+            type: 'email',
             isRequired: true,
             keyboardType: TextInputType.emailAddress,
             isNumber: false,

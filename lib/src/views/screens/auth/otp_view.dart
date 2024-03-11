@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pet_nations/services/routing/routes.dart';
+import 'package:pet_nations/src/controllers/auth_controller.dart';
 import 'package:pet_nations/src/core/utils/constants/colors.dart';
 import 'package:pet_nations/src/views/widgets/buttons/custom_button.dart';
 import 'package:pinput/pinput.dart';
@@ -14,7 +14,9 @@ class OtpView extends StatefulWidget {
 }
 
 class _OtpViewState extends State<OtpView> {
+  final authControl = Get.find<AuthController>();
   final otp = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     final theme = Get.textTheme;
@@ -63,7 +65,9 @@ class _OtpViewState extends State<OtpView> {
                   onChanged: (value) {
                     otp.text = value;
                   },
-                  onCompleted: (value) {},
+                  onCompleted: (value) {
+                    submit();
+                  },
                   pinputAutovalidateMode: PinputAutovalidateMode.disabled,
                   length: 6,
                 ),
@@ -88,9 +92,7 @@ class _OtpViewState extends State<OtpView> {
                 CustomButtonNew(
                   margin: EdgeInsets.symmetric(horizontal: 8.w),
                   text: 'Submit',
-                  onTap: () {
-                    Get.toNamed<void>(AppRoutes.dashboard);
-                  },
+                  onTap: submit,
                 ),
               ],
             ),
@@ -98,5 +100,9 @@ class _OtpViewState extends State<OtpView> {
         ),
       ),
     );
+  }
+
+  Future<void> submit() async {
+    await authControl.otp(otp.text);
   }
 }

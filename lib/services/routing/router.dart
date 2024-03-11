@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:pet_nations/services/routing/routes.dart';
+import 'package:pet_nations/src/middlewares/auth_guard.dart';
 import 'package:pet_nations/src/views/screens/auth/login_view.dart';
 import 'package:pet_nations/src/views/screens/auth/otp_view.dart';
 import 'package:pet_nations/src/views/screens/cart_screens/compare_screen.dart';
@@ -42,6 +43,7 @@ class AppRouter {
       name: AppRoutes.dashboard,
       page: () => const DashboardView(),
       transition: Transition.fade,
+      middlewares: [AuthMiddleware()],
     ),
     GetPage(
       name: AppRoutes.customerSupport,

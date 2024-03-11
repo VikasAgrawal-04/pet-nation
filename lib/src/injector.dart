@@ -2,14 +2,14 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
+import 'package:pet_nations/src/controllers/auth_controller.dart';
 import 'package:pet_nations/src/controllers/dash_controller.dart';
 import 'package:pet_nations/src/core/utils/constants/api_endpoints.dart';
 import 'package:pet_nations/src/core/utils/constants/colors.dart';
 import 'package:pet_nations/src/core/utils/constants/keys.dart';
 import 'package:pet_nations/src/core/utils/helpers/helpers.dart';
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:talker_dio_logger/talker_dio_logger_interceptor.dart';
-import 'package:talker_dio_logger/talker_dio_logger_settings.dart';
 
 class DependencyInjector {
   DependencyInjector(this.pref) {
@@ -50,14 +50,14 @@ class DependencyInjector {
       ),
     );
     dio.interceptors.add(
-      TalkerDioLogger(
-        settings: const TalkerDioLoggerSettings(printRequestHeaders: true),
-      ),
+      PrettyDioLogger(requestHeader: true, requestBody: true),
     );
     Helpers.dio = dio;
   }
 
   static void _injectControllers() {
-    Get.lazyPut(DashController.new, fenix: true);
+    Get
+      ..lazyPut(DashController.new, fenix: true)
+      ..lazyPut(AuthController.new, fenix: true);
   }
 }

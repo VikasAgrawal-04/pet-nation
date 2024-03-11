@@ -88,11 +88,12 @@ class Helpers {
           response = await _dio!.delete(path, queryParameters: queryParams);
       }
 
-      if (response.statusCode == 200 || response.statusCode == 202) {
+      if ((response.data as Map<String, dynamic>)['code'] == '200' ||
+          (response.data as Map<String, dynamic>)['code'] == '202') {
         return response.data as Map<String, dynamic>;
-      } else if (response.statusCode == 400 ||
-          response.statusCode == 401 ||
-          response.statusCode == 402) {
+      } else if ((response.data as Map<String, dynamic>)['code'] == '400' ||
+          (response.data as Map<String, dynamic>)['code'] == '401' ||
+          (response.data as Map<String, dynamic>)['code'] == '402') {
         throw ServerException(
           code: response.statusCode,
           message:
@@ -106,7 +107,6 @@ class Helpers {
         );
       }
     } on ServerException catch (e) {
-      debugPrint('I go here 2');
       throw ServerException(message: e.message, code: e.code);
     } on DioException catch (e) {
       debugPrint('Dio Exception ${e.response?.data} ${e.type} ${e.message}');

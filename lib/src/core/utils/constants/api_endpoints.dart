@@ -5,6 +5,6 @@ class EndPoints {
 
   //Auth
   static const String login = '/register';
-  static const String verifyOtp = 'verify_otp';
+  static const String verifyOtp = '/verify_otp';
   static const String getProfile = '/get-profile';
 }

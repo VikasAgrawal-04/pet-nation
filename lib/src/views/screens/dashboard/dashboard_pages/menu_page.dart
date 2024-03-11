@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:pet_nations/services/routing/routes.dart';
 import 'package:pet_nations/src/controllers/dash_controller.dart';
 import 'package:pet_nations/src/core/utils/constants/colors.dart';
+import 'package:pet_nations/src/core/utils/helpers/helpers.dart';
 import 'package:pet_nations/src/views/widgets/buttons/custom_button.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -80,7 +81,10 @@ class _MenuPageState extends State<MenuPage> {
         ),
         const Spacer(),
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Helpers.clearShared();
+            Get.offAllNamed<void>(AppRoutes.login);
+          },
           icon: SvgPicture.asset(
             'assets/icons/exit.svg',
             color: AppColors.secondaryColor,

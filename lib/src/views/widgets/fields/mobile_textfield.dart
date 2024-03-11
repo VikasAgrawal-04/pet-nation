@@ -33,6 +33,7 @@ class MobileField extends StatelessWidget {
             isRequired: true,
             keyboardType: TextInputType.number,
             isNumber: true,
+            type: 'phone',
             textInputAction: TextInputAction.done,
             onEditingComplete: onEditingComplete,
             hint: 'Mobile Number',
