@@ -5,16 +5,17 @@ import 'package:pet_nations/src/views/widgets/indicator/dot_indicator.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class CustomCarousel extends StatefulWidget {
+  const CustomCarousel({
+    required this.images,
+    required this.onTap,
+    this.width,
+    this.fit,
+    super.key,
+  });
   final List<String> images;
-  final Function(int index) onTap;
+  final void Function(int index) onTap;
   final double? width;
   final BoxFit? fit;
-  const CustomCarousel(
-      {required this.images,
-      this.width,
-      required this.onTap,
-      this.fit,
-      super.key});
 
   @override
   State<CustomCarousel> createState() => _CustomCarouselState();
@@ -45,18 +46,18 @@ class _CustomCarouselState extends State<CustomCarousel> {
             );
           },
           options: CarouselOptions(
-              enableInfiniteScroll: true,
-              viewportFraction: 1,
-              onPageChanged: (index, reason) {
-                initialImg.value = index;
-              }),
+            viewportFraction: 1,
+            onPageChanged: (index, reason) {
+              initialImg.value = index;
+            },
+          ),
         ),
         SizedBox(height: 1.h),
         DotIndicator(
           curIndex: initialImg,
           length: widget.images.length,
           color: true,
-        )
+        ),
       ],
     );
   }

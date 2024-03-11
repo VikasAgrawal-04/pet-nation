@@ -26,9 +26,10 @@ class _ProductSummaryScreenState extends State<ProductSummaryScreen> {
         child: Column(
           children: [
             _product(
-                'https://www.hillspet.co.id/content/dam/pim/hills/en_id/sd/canned/sd-feline-adult-healthy-cuisine-roasted-chicken-and-rice-medley-canned-productShot_500.png',
-                'Canidae® Pure™ Adult Dry Dog Food - Limited Ingredient Diet, Salmon',
-                'Online Store'),
+              'https://www.hillspet.co.id/content/dam/pim/hills/en_id/sd/canned/sd-feline-adult-healthy-cuisine-roasted-chicken-and-rice-medley-canned-productShot_500.png',
+              'Canidae® Pure™ Adult Dry Dog Food - Limited Ingredient Diet, Salmon',
+              'Online Store',
+            ),
             _companyInvoice(),
             CustomButtonNew(
               margin: EdgeInsets.symmetric(vertical: 2.h),
@@ -38,13 +39,14 @@ class _ProductSummaryScreenState extends State<ProductSummaryScreen> {
               text: 'Proceed To Checkout',
             ),
             _title(
-                title: 'Shipping Address',
-                text2: 'Change Address',
-                onTap: () {}),
+              title: 'Shipping Address',
+              text2: 'Change Address',
+              onTap: () {},
+            ),
             _addressCon(),
             _title(title: 'Payment Details'),
             _payDetails(),
-            _applyCoupon()
+            _applyCoupon(),
           ],
         ),
       ),
@@ -56,20 +58,23 @@ class _ProductSummaryScreenState extends State<ProductSummaryScreen> {
       margin: EdgeInsets.symmetric(vertical: 2.h),
       padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.5.h),
       decoration: BoxDecoration(
-          color: AppColors.textFieldColor,
-          borderRadius: BorderRadius.circular(8)),
+        color: AppColors.textFieldColor,
+        borderRadius: BorderRadius.circular(8),
+      ),
       child: Column(
         children: [
           _singleAddress(
-              'Ashok Kumar',
-              '2972 Westheimer Rd. Santa Ana, Illinois 85486',
-              '9871677905',
-              true),
+            'Ashok Kumar',
+            '2972 Westheimer Rd. Santa Ana, Illinois 85486',
+            '9871677905',
+            true,
+          ),
           _singleAddress(
-              'Ashok Kumar',
-              '2972 Westheimer Rd. Santa Ana, Illinois 85486',
-              '9871677905',
-              false)
+            'Ashok Kumar',
+            '2972 Westheimer Rd. Santa Ana, Illinois 85486',
+            '9871677905',
+            false,
+          ),
         ],
       ),
     );
@@ -80,8 +85,9 @@ class _ProductSummaryScreenState extends State<ProductSummaryScreen> {
       margin: EdgeInsets.symmetric(vertical: 2.h),
       padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.5.h),
       decoration: BoxDecoration(
-          color: AppColors.textFieldColor,
-          borderRadius: BorderRadius.circular(8)),
+        color: AppColors.textFieldColor,
+        borderRadius: BorderRadius.circular(8),
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -91,19 +97,21 @@ class _ProductSummaryScreenState extends State<ProductSummaryScreen> {
           const Divider(thickness: .5),
           Row(
             children: [
-              Text('Total Amount',
-                  style:
-                      theme.bodyLarge?.copyWith(color: AppColors.primaryColor)),
+              Text(
+                'Total Amount',
+                style: theme.bodyLarge?.copyWith(color: AppColors.primaryColor),
+              ),
               const Spacer(),
-              Text('\$2.49',
-                  style:
-                      theme.bodyLarge?.copyWith(color: AppColors.primaryColor))
+              Text(
+                r'$2.49',
+                style: theme.bodyLarge?.copyWith(color: AppColors.primaryColor),
+              ),
             ],
           ),
           Text(
             'Shipping fees not included',
             style: theme.titleSmall,
-          )
+          ),
         ],
       ),
     );
@@ -114,32 +122,37 @@ class _ProductSummaryScreenState extends State<ProductSummaryScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         _title(title: 'Apply Coupon'),
-        Text('Using a Promo Code?',
-            style: theme.titleMedium?.copyWith(fontSize: 16.sp)),
+        Text(
+          'Using a Promo Code?',
+          style: theme.titleMedium?.copyWith(fontSize: 16.sp),
+        ),
         Container(
           margin: EdgeInsets.symmetric(vertical: 2.h),
           padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.5.h),
           decoration: BoxDecoration(
-              color: AppColors.textFieldColor,
-              borderRadius: BorderRadius.circular(8)),
+            color: AppColors.textFieldColor,
+            borderRadius: BorderRadius.circular(8),
+          ),
           child: Row(
             children: [
               Expanded(
-                  flex: 3,
-                  child: DefaultField(
-                    controller: coupon,
-                    hint: 'Enter Your Coupon',
-                    title: false,
-                  )),
+                flex: 3,
+                child: DefaultField(
+                  controller: coupon,
+                  hint: 'Enter Your Coupon',
+                  title: false,
+                ),
+              ),
               SizedBox(width: 4.w),
               Expanded(
-                  child: CustomButtonNew(
-                text: 'Apply',
-                onTap: () {},
-              ))
+                child: CustomButtonNew(
+                  text: 'Apply',
+                  onTap: () {},
+                ),
+              ),
             ],
           ),
-        )
+        ),
       ],
     );
   }
@@ -147,68 +160,81 @@ class _ProductSummaryScreenState extends State<ProductSummaryScreen> {
   Widget _payRow(String text1, String price, {bool discount = false}) {
     return Padding(
       padding: EdgeInsets.only(bottom: 1.5.h),
-      child: Row(children: [
-        Text(
-          text1,
-          style: theme.titleLarge?.copyWith(color: AppColors.primaryText),
-        ),
-        const Spacer(),
-        Text(
-          '${discount ? '- ' : ''}\$$price',
-          style: theme.titleLarge?.copyWith(color: AppColors.primaryColor),
-        )
-      ]),
+      child: Row(
+        children: [
+          Text(
+            text1,
+            style: theme.titleLarge?.copyWith(color: AppColors.primaryText),
+          ),
+          const Spacer(),
+          Text(
+            '${discount ? '- ' : ''}\$$price',
+            style: theme.titleLarge?.copyWith(color: AppColors.primaryColor),
+          ),
+        ],
+      ),
     );
   }
 
   Widget _singleAddress(String name, String address, String phone, bool value) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 1.5.h),
-      child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Checkbox.adaptive(value: value, onChanged: (val) {}),
-        Expanded(
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Checkbox.adaptive(value: value, onChanged: (val) {}),
+          Expanded(
             child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(name, style: theme.bodyLarge),
-            SizedBox(height: .5.h),
-            Text(address,
-                style:
-                    theme.titleLarge?.copyWith(color: AppColors.primaryText)),
-            SizedBox(height: .5.h),
-            Text(
-              'Phone Number: +91-$phone',
-              style: theme.titleLarge?.copyWith(color: AppColors.primaryText),
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(name, style: theme.bodyLarge),
+                SizedBox(height: .5.h),
+                Text(
+                  address,
+                  style:
+                      theme.titleLarge?.copyWith(color: AppColors.primaryText),
+                ),
+                SizedBox(height: .5.h),
+                Text(
+                  'Phone Number: +91-$phone',
+                  style:
+                      theme.titleLarge?.copyWith(color: AppColors.primaryText),
+                ),
+                CustomButtonNew(
+                  margin: EdgeInsets.only(top: 2.h),
+                  text: 'Add New Address',
+                  outlineBtn: true,
+                  color: Colors.transparent,
+                  style:
+                      theme.titleLarge?.copyWith(fontWeight: FontWeight.w700),
+                  onTap: () {},
+                ),
+              ],
             ),
-            CustomButtonNew(
-              margin: EdgeInsets.only(top: 2.h),
-              text: 'Add New Address',
-              outlineBtn: true,
-              color: Colors.transparent,
-              style: theme.titleLarge?.copyWith(fontWeight: FontWeight.w700),
-              onTap: () {},
-            )
-          ],
-        ))
-      ]),
+          ),
+        ],
+      ),
     );
   }
 
-  Widget _title({required String title, Function()? onTap, String? text2}) {
-    return Row(children: [
-      Text(title, style: theme.displaySmall),
-      if (text2 != null) ...{
-        const Spacer(),
-        GestureDetector(
-          onTap: () {},
-          child: Text(
-            text2,
-            style: theme.titleMedium
-                ?.copyWith(fontSize: 16.sp, color: AppColors.secondaryColor),
+  Widget _title(
+      {required String title, void Function()? onTap, String? text2}) {
+    return Row(
+      children: [
+        Text(title, style: theme.displaySmall),
+        if (text2 != null) ...{
+          const Spacer(),
+          GestureDetector(
+            onTap: () {},
+            child: Text(
+              text2,
+              style: theme.titleMedium
+                  ?.copyWith(fontSize: 16.sp, color: AppColors.secondaryColor),
+            ),
           ),
-        )
-      }
-    ]);
+        },
+      ],
+    );
   }
 
   Widget _product(String img, String pName, String seller) {
@@ -230,30 +256,35 @@ class _ProductSummaryScreenState extends State<ProductSummaryScreen> {
               ),
               RichText(
                 text: TextSpan(
-                    text: 'Sold By ',
-                    style: theme.titleMedium,
-                    children: [
-                      TextSpan(
-                          text: seller,
-                          style: theme.titleMedium
-                              ?.copyWith(color: AppColors.secondaryColor))
-                    ]),
-              )
+                  text: 'Sold By ',
+                  style: theme.titleMedium,
+                  children: [
+                    TextSpan(
+                      text: seller,
+                      style: theme.titleMedium
+                          ?.copyWith(color: AppColors.secondaryColor),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
-        )
+        ),
       ],
     );
   }
 
   Widget _companyInvoice() {
-    return Row(children: [
-      Checkbox.adaptive(value: true, onChanged: (val) {}),
-      Expanded(
-        child: Text(
+    return Row(
+      children: [
+        Checkbox.adaptive(value: true, onChanged: (val) {}),
+        Expanded(
+          child: Text(
             'Requires company invoice (Please fill in your company information to receive the invoice)?',
-            style: theme.titleMedium),
-      ),
-    ]);
+            style: theme.titleMedium,
+          ),
+        ),
+      ],
+    );
   }
 }

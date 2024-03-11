@@ -18,7 +18,9 @@ TabBar customTabar(List<String> tabs, {bool scroll = false}) {
     labelColor: AppColors.whiteColor,
     indicatorColor: AppColors.primaryColor,
     indicator: BoxDecoration(
-        borderRadius: BorderRadius.circular(8), color: AppColors.primaryColor),
+      borderRadius: BorderRadius.circular(8),
+      color: AppColors.primaryColor,
+    ),
     tabs: tabs.map((e) => Tab(text: e)).toList(),
   );
 }

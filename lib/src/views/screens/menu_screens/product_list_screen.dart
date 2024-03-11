@@ -26,22 +26,27 @@ class _ProductListScreenState extends State<ProductListScreen> {
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 2.w),
           child: NestedScrollView(
-              headerSliverBuilder: ((context, innerBoxIsScrolled) {
-                return [
-                  SliverToBoxAdapter(
-                    child: Column(children: [
+            headerSliverBuilder: (context, innerBoxIsScrolled) {
+              return [
+                SliverToBoxAdapter(
+                  child: Column(
+                    children: [
                       SearchField(controller: search, style: theme.titleLarge),
                       customTabar(['All', 'Cats', 'Dogs', 'Fish']),
-                    ]),
-                  )
-                ];
-              }),
-              body: const TabBarView(children: [
+                    ],
+                  ),
+                ),
+              ];
+            },
+            body: const TabBarView(
+              children: [
                 AllListView(),
                 OtherProductListView(title: 'Cats'),
                 OtherProductListView(title: 'Dogs'),
-                OtherProductListView(title: 'Fishes')
-              ])),
+                OtherProductListView(title: 'Fishes'),
+              ],
+            ),
+          ),
         ),
       ),
     );

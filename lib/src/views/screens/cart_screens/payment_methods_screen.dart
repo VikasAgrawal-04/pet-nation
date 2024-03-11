@@ -30,7 +30,7 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
               outlineBtn: true,
               color: Colors.transparent,
               onTap: () {
-                Get.toNamed(AppRoutes.newCard);
+                Get.toNamed<void>(AppRoutes.newCard);
               },
               text: 'Add New Card',
               style: theme.bodyLarge?.copyWith(color: AppColors.secondaryColor),
@@ -39,7 +39,7 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
               margin: EdgeInsets.symmetric(vertical: 1.5.h),
               text: 'Place Order',
               onTap: () {},
-            )
+            ),
           ],
         ),
       ),
@@ -51,23 +51,29 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
       margin: EdgeInsets.symmetric(vertical: 1.h),
       padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.5.h),
       decoration: BoxDecoration(
-          color: AppColors.textFieldColor,
-          borderRadius: BorderRadius.circular(8)),
+        color: AppColors.textFieldColor,
+        borderRadius: BorderRadius.circular(8),
+      ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Checkbox(value: value, onChanged: (val) {}),
           Expanded(
-              child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(name, style: theme.bodyMedium),
-              Text('Card No. : $cardNo',
-                  style: theme.titleMedium?.copyWith(fontSize: 16.sp)),
-              Text('Expire Date : $expiry',
-                  style: theme.titleMedium?.copyWith(fontSize: 16.sp))
-            ],
-          ))
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(name, style: theme.bodyMedium),
+                Text(
+                  'Card No. : $cardNo',
+                  style: theme.titleMedium?.copyWith(fontSize: 16.sp),
+                ),
+                Text(
+                  'Expire Date : $expiry',
+                  style: theme.titleMedium?.copyWith(fontSize: 16.sp),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );

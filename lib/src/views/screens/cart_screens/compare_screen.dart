@@ -35,43 +35,56 @@ class _CompareScreenState extends State<CompareScreen> {
                   Expanded(
                     flex: 7,
                     child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: 5,
-                        itemBuilder: (context, index) {
-                          return Column(
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.only(right: 4.w),
-                                child: productHeader(
-                                    'https://www.hillspet.co.id/content/dam/pim/hills/en_id/sd/canned/sd-feline-adult-healthy-cuisine-roasted-chicken-and-rice-medley-canned-productShot_500.png',
-                                    'Canidae® Pure™ Adult Dry Dog Food - Limited Ingredient Diet, Salmon'),
+                      scrollDirection: Axis.horizontal,
+                      itemCount: 5,
+                      itemBuilder: (context, index) {
+                        return Column(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(right: 4.w),
+                              child: productHeader(
+                                'https://www.hillspet.co.id/content/dam/pim/hills/en_id/sd/canned/sd-feline-adult-healthy-cuisine-roasted-chicken-and-rice-medley-canned-productShot_500.png',
+                                'Canidae® Pure™ Adult Dry Dog Food - Limited Ingredient Diet, Salmon',
                               ),
-                              dividerCon(children: [
+                            ),
+                            dividerCon(
+                              children: [
                                 Ratings(rating: 5, onChange: (value) {}),
-                                Text('10k Reviews',
-                                    style: theme.bodySmall
-                                        ?.copyWith(fontSize: 14.5.sp)),
-                              ]),
-                              dividerCon(
-                                  text: 'Online Store',
-                                  color: AppColors.secondaryColor),
-                              dividerCon(
-                                  text: '\$ 2.39', style: theme.bodyLarge),
-                              dividerCon(children: [
-                                colorCard(AppColors.greenBtn, 'In Stock')
-                              ]),
-                              dividerCon(
-                                  text: 'Blue Buffalo',
-                                  color: AppColors.secondaryColor),
-                              divider(),
-                              actionBtns(
-                                  buyNow: () {},
-                                  delete: () {},
-                                  addToCart: () {})
-                            ],
-                          );
-                        }),
-                  )
+                                Text(
+                                  '10k Reviews',
+                                  style: theme.bodySmall
+                                      ?.copyWith(fontSize: 14.5.sp),
+                                ),
+                              ],
+                            ),
+                            dividerCon(
+                              text: 'Online Store',
+                              color: AppColors.secondaryColor,
+                            ),
+                            dividerCon(
+                              text: r'$ 2.39',
+                              style: theme.bodyLarge,
+                            ),
+                            dividerCon(
+                              children: [
+                                colorCard(AppColors.greenBtn, 'In Stock'),
+                              ],
+                            ),
+                            dividerCon(
+                              text: 'Blue Buffalo',
+                              color: AppColors.secondaryColor,
+                            ),
+                            divider(),
+                            actionBtns(
+                              buyNow: () {},
+                              delete: () {},
+                              addToCart: () {},
+                            ),
+                          ],
+                        );
+                      },
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -83,27 +96,29 @@ class _CompareScreenState extends State<CompareScreen> {
                   SizedBox(
                     height: 27.5.h,
                     child: ListView.builder(
-                        shrinkWrap: true,
-                        scrollDirection: Axis.horizontal,
-                        itemCount: 10,
-                        itemBuilder: (context, index) {
-                          return productCard(
-                              pName:
-                                  'Canidae® Pure™ Adult Dry Dog Food - Limited Ingredient Diet, Salmon',
-                              price: '4.99',
-                              img:
-                                  'https://m.media-amazon.com/images/I/81ltSAXl3EL.jpg',
-                              type: 'Supplies',
-                              addToCart: () {},
-                              buy: () {},
-                              seller: 'Online Store');
-                        }),
+                      shrinkWrap: true,
+                      scrollDirection: Axis.horizontal,
+                      itemCount: 10,
+                      itemBuilder: (context, index) {
+                        return productCard(
+                          pName:
+                              'Canidae® Pure™ Adult Dry Dog Food - Limited Ingredient Diet, Salmon',
+                          price: '4.99',
+                          img:
+                              'https://m.media-amazon.com/images/I/81ltSAXl3EL.jpg',
+                          type: 'Supplies',
+                          addToCart: () {},
+                          buy: () {},
+                          seller: 'Online Store',
+                        );
+                      },
+                    ),
                   ),
                   TitleRow(title: 'Products Category', onTap: () {}),
-                  _productCategory()
+                  _productCategory(),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),
@@ -121,60 +136,67 @@ class _CompareScreenState extends State<CompareScreen> {
         children: [
           SizedBox(height: 16.h),
           Expanded(
-              child: Container(
-            width: 100.w,
-            padding:
-                EdgeInsets.only(left: 2.w, top: 1.h, right: 1.w, bottom: 1.h),
-            decoration: BoxDecoration(color: AppColors.compareContainer),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(height: 1.5.h),
-                Expanded(child: Text('Rating', style: theme.bodySmall)),
-                SizedBox(height: 1.5.h),
-                Expanded(child: Text('Sold By', style: theme.bodySmall)),
-                SizedBox(height: 1.5.h),
-                Expanded(child: Text('Price', style: theme.bodySmall)),
-                SizedBox(height: 1.5.h),
-                Expanded(child: Text('Availability', style: theme.bodySmall)),
-                SizedBox(height: 1.5.h),
-                Expanded(child: Text('Brands', style: theme.bodySmall)),
-                SizedBox(height: 10.h)
-              ],
+            child: Container(
+              width: 100.w,
+              padding:
+                  EdgeInsets.only(left: 2.w, top: 1.h, right: 1.w, bottom: 1.h),
+              decoration: BoxDecoration(color: AppColors.compareContainer),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(height: 1.5.h),
+                  Expanded(child: Text('Rating', style: theme.bodySmall)),
+                  SizedBox(height: 1.5.h),
+                  Expanded(child: Text('Sold By', style: theme.bodySmall)),
+                  SizedBox(height: 1.5.h),
+                  Expanded(child: Text('Price', style: theme.bodySmall)),
+                  SizedBox(height: 1.5.h),
+                  Expanded(child: Text('Availability', style: theme.bodySmall)),
+                  SizedBox(height: 1.5.h),
+                  Expanded(child: Text('Brands', style: theme.bodySmall)),
+                  SizedBox(height: 10.h),
+                ],
+              ),
             ),
-          ))
+          ),
         ],
       ),
     );
   }
 
   Widget productHeader(String img, String pName) {
-    return Column(children: [
-      Column(
-        children: [
-          SizedBox(
-            width: 35.w,
-            height: 15.h,
-            child: Column(
-              children: [
-                Expanded(child: Image.network(img)),
-                Text(
-                  pName,
-                  style: theme.bodySmall?.copyWith(fontSize: 14.5.sp),
-                  textAlign: TextAlign.center,
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 3,
-                ),
-              ],
+    return Column(
+      children: [
+        Column(
+          children: [
+            SizedBox(
+              width: 35.w,
+              height: 15.h,
+              child: Column(
+                children: [
+                  Expanded(child: Image.network(img)),
+                  Text(
+                    pName,
+                    style: theme.bodySmall?.copyWith(fontSize: 14.5.sp),
+                    textAlign: TextAlign.center,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 3,
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
-      ),
-    ]);
+          ],
+        ),
+      ],
+    );
   }
 
-  Widget dividerCon(
-      {List<Widget>? children, String? text, Color? color, TextStyle? style}) {
+  Widget dividerCon({
+    List<Widget>? children,
+    String? text,
+    Color? color,
+    TextStyle? style,
+  }) {
     return Expanded(
       child: SizedBox(
         width: 40.w,
@@ -184,30 +206,33 @@ class _CompareScreenState extends State<CompareScreen> {
             const Divider(thickness: .4),
             if (children != null) ...{...children},
             if (text != null)
-              Text(text,
-                  style: style ??
-                      theme.bodySmall
-                          ?.copyWith(fontSize: 14.5.sp, color: color)),
+              Text(
+                text,
+                style: style ??
+                    theme.bodySmall?.copyWith(fontSize: 14.5.sp, color: color),
+              ),
           ],
         ),
       ),
     );
   }
 
-  Widget actionBtns(
-      {required Function() buyNow,
-      required Function() delete,
-      required Function() addToCart}) {
+  Widget actionBtns({
+    required void Function() buyNow,
+    required void Function() delete,
+    required void Function() addToCart,
+  }) {
     return SizedBox(
       height: 10.h,
       width: 35.w,
       child: Column(
         children: [
           CustomButtonNew(
-              height: 4.2.h,
-              style: theme.bodySmall?.copyWith(color: AppColors.whiteColor),
-              onTap: buyNow,
-              text: 'Buy Now'),
+            height: 4.2.h,
+            style: theme.bodySmall?.copyWith(color: AppColors.whiteColor),
+            onTap: buyNow,
+            text: 'Buy Now',
+          ),
           SizedBox(height: 1.h),
           Row(
             children: [
@@ -241,7 +266,7 @@ class _CompareScreenState extends State<CompareScreen> {
                 ),
               ),
             ],
-          )
+          ),
         ],
       ),
     );
@@ -251,22 +276,23 @@ class _CompareScreenState extends State<CompareScreen> {
     return SizedBox(
       height: 26.h,
       child: ListView.builder(
-          shrinkWrap: true,
-          scrollDirection: Axis.horizontal,
-          itemCount: 10,
-          itemBuilder: (context, index) {
-            return ProductCard3(
-              pName:
-                  'Canidae® Pure™ Adult Dry Dog Food - Limited Ingredient Diet, Salmon',
-              price: '4.99',
-              img: 'https://m.media-amazon.com/images/I/81ltSAXl3EL.jpg',
-              type: 'Supplies',
-              addToCart: () {},
-              buy: () {},
-              seller: 'Online Store',
-              wishBtn: () {},
-            );
-          }),
+        shrinkWrap: true,
+        scrollDirection: Axis.horizontal,
+        itemCount: 10,
+        itemBuilder: (context, index) {
+          return ProductCard3(
+            pName:
+                'Canidae® Pure™ Adult Dry Dog Food - Limited Ingredient Diet, Salmon',
+            price: '4.99',
+            img: 'https://m.media-amazon.com/images/I/81ltSAXl3EL.jpg',
+            type: 'Supplies',
+            addToCart: () {},
+            buy: () {},
+            seller: 'Online Store',
+            wishBtn: () {},
+          );
+        },
+      ),
     );
   }
 }

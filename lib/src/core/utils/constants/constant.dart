@@ -9,25 +9,25 @@ class Constant {
     'assets/icons/home.svg',
     'assets/icons/cart.svg',
     'assets/icons/innovation.svg',
-    'assets/icons/menu.svg'
+    'assets/icons/menu.svg',
   ];
 
   static const List<Widget> pages = [
     HomePage(),
     CartPage(),
     PetPage(),
-    MenuPage()
+    MenuPage(),
   ];
 
   static const List<String> menuItems = [
     'Order',
     'Wishlist',
     'Pet Profile',
-    'Account'
+    'Account',
   ];
-  static const List serviceSvg = [
-    {"name": "Featured Brand", "img": 'assets/icons/featured_brands.svg'},
-    {"name": "Pharmacy", "img": 'assets/icons/pharmacy.svg'},
-    {"name": "Innovation & AI", "img": 'assets/icons/innovation.svg'},
+  static const List<Map<String, dynamic>> serviceSvg = [
+    {'name': 'Featured Brand', 'img': 'assets/icons/featured_brands.svg'},
+    {'name': 'Pharmacy', 'img': 'assets/icons/pharmacy.svg'},
+    {'name': 'Innovation & AI', 'img': 'assets/icons/innovation.svg'},
   ];
 }

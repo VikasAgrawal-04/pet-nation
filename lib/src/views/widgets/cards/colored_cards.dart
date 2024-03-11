@@ -11,15 +11,16 @@ Widget colorCard(Color color, String text, {double? size, FontWeight? weight}) {
     child: Text(
       text,
       style: Get.textTheme.bodySmall?.copyWith(
-          fontWeight: weight,
-          fontSize: size ?? 14.5.sp,
-          color: color == AppColors.greenBtn
-              ? AppColors.greenText
-              : color == AppColors.redBg
-                  ? AppColors.redText
-                  : color == AppColors.blueBtn
-                      ? AppColors.blueText
-                      : AppColors.yellowText),
+        fontWeight: weight,
+        fontSize: size ?? 14.5.sp,
+        color: color == AppColors.greenBtn
+            ? AppColors.greenText
+            : color == AppColors.redBg
+                ? AppColors.redText
+                : color == AppColors.blueBtn
+                    ? AppColors.blueText
+                    : AppColors.yellowText,
+      ),
     ),
   );
 }

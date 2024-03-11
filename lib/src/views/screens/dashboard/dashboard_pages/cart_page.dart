@@ -52,54 +52,60 @@ class _CartPageState extends State<CartPage> {
           child: Column(
             children: [
               _cartProduct(
-                  'https://cdn11.bigcommerce.com/s-c1f89/images/stencil/226x226/products/304/37559/lpf_dog_-adult_dry_chickenbrownrice__14123.1651842207.png?c=2',
-                  'Canidae® Pure™ Adult Dry Dog Food - Limited Ingredient Diet, Salmon',
-                  'Online Store',
-                  '4.99',
-                  '1'),
+                'https://cdn11.bigcommerce.com/s-c1f89/images/stencil/226x226/products/304/37559/lpf_dog_-adult_dry_chickenbrownrice__14123.1651842207.png?c=2',
+                'Canidae® Pure™ Adult Dry Dog Food - Limited Ingredient Diet, Salmon',
+                'Online Store',
+                '4.99',
+                '1',
+              ),
               _cartProduct(
-                  'https://www.pedigree.com/sites/g/files/fnmzdf3076/files/migrate-product-files/images/n4zblcwxn936e5xiv0bt.png',
-                  'Canidae® Pure™ Adult Dry Dog Food - Limited Ingredient Diet, Salmon',
-                  'Online Store',
-                  '4.99',
-                  '1'),
+                'https://www.pedigree.com/sites/g/files/fnmzdf3076/files/migrate-product-files/images/n4zblcwxn936e5xiv0bt.png',
+                'Canidae® Pure™ Adult Dry Dog Food - Limited Ingredient Diet, Salmon',
+                'Online Store',
+                '4.99',
+                '1',
+              ),
               _buyBtn(),
               _compareBtn(),
               TitleRow(onTap: () {}, title: 'Cat Categories'),
               SizedBox(
                 height: 22.h,
                 child: ListView.builder(
-                    shrinkWrap: true,
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 10,
-                    itemBuilder: (context, index) {
-                      return categoryCard(
-                          img:
-                              'https://m.media-amazon.com/images/I/81ltSAXl3EL.jpg',
-                          animal: 'Cat',
-                          type: 'Dry Food',
-                          onTap: () {});
-                    }),
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 10,
+                  itemBuilder: (context, index) {
+                    return categoryCard(
+                      img:
+                          'https://m.media-amazon.com/images/I/81ltSAXl3EL.jpg',
+                      animal: 'Cat',
+                      type: 'Dry Food',
+                      onTap: () {},
+                    );
+                  },
+                ),
               ),
               TitleRow(onTap: () {}, title: 'You Might Also Like'),
               SizedBox(
                 height: 27.5.h,
                 child: ListView.builder(
-                    shrinkWrap: true,
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 10,
-                    itemBuilder: (context, index) {
-                      return productCard(
-                          pName:
-                              'Canidae® Pure™ Adult Dry Dog Food - Limited Ingredient Diet, Salmon',
-                          price: '4.99',
-                          img:
-                              'https://m.media-amazon.com/images/I/81ltSAXl3EL.jpg',
-                          type: 'Supplies',
-                          addToCart: () {},
-                          buy: () {},
-                          seller: 'Online Store');
-                    }),
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 10,
+                  itemBuilder: (context, index) {
+                    return productCard(
+                      pName:
+                          'Canidae® Pure™ Adult Dry Dog Food - Limited Ingredient Diet, Salmon',
+                      price: '4.99',
+                      img:
+                          'https://m.media-amazon.com/images/I/81ltSAXl3EL.jpg',
+                      type: 'Supplies',
+                      addToCart: () {},
+                      buy: () {},
+                      seller: 'Online Store',
+                    );
+                  },
+                ),
               ),
             ],
           ),
@@ -108,13 +114,11 @@ class _CartPageState extends State<CartPage> {
     );
   }
 
-  
-
   Widget _buyBtn() {
     return CustomButtonNew(
       text: 'Buy Now',
       onTap: () {
-        Get.toNamed(AppRoutes.productSummary);
+        Get.toNamed<void>(AppRoutes.productSummary);
       },
     );
   }
@@ -133,25 +137,31 @@ class _CartPageState extends State<CartPage> {
   }
 
   Widget _cartProduct(
-      String img, String pName, String seller, String price, String qty) {
+    String img,
+    String pName,
+    String seller,
+    String price,
+    String qty,
+  ) {
     return Container(
       height: 24.h,
       margin: EdgeInsets.only(bottom: 2.h),
       padding: EdgeInsets.symmetric(horizontal: 1.5.w, vertical: 1.h),
       decoration: BoxDecoration(
-          border: Border.all(color: AppColors.borderColor),
-          borderRadius: BorderRadius.circular(8)),
+        border: Border.all(color: AppColors.borderColor),
+        borderRadius: BorderRadius.circular(8),
+      ),
       child: Row(
         children: [
           Expanded(
-              child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Checkbox(value: true, onChanged: (val) {}),
-              Expanded(child: Image.network(img)),
-            ],
-          )),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Checkbox(value: true, onChanged: (val) {}),
+                Expanded(child: Image.network(img)),
+              ],
+            ),
+          ),
           SizedBox(width: 1.w),
           Expanded(
             flex: 2,
@@ -175,15 +185,18 @@ class _CartPageState extends State<CartPage> {
                 SizedBox(height: 2.h),
                 Row(
                   children: [
-                    Text('Qty',
-                        style: theme.titleLarge?.copyWith(fontSize: 16.sp)),
+                    Text(
+                      'Qty',
+                      style: theme.titleLarge?.copyWith(fontSize: 16.sp),
+                    ),
                     SizedBox(width: 2.w),
                     Container(
                       padding:
                           EdgeInsets.symmetric(horizontal: 2.w, vertical: .8.h),
                       decoration: BoxDecoration(
-                          border: Border.all(color: AppColors.borderColor),
-                          borderRadius: BorderRadius.circular(8)),
+                        border: Border.all(color: AppColors.borderColor),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
                       child: Row(
                         children: [
                           GestureDetector(
@@ -206,7 +219,7 @@ class _CartPageState extends State<CartPage> {
                               'assets/icons/plus.svg',
                               height: 2.2.h,
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ),
@@ -225,9 +238,9 @@ class _CartPageState extends State<CartPage> {
                         'assets/icons/shr_btn.svg',
                         height: 5.h,
                       ),
-                    )
+                    ),
                   ],
-                )
+                ),
               ],
             ),
           ),

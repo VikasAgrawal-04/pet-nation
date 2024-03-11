@@ -42,28 +42,30 @@ class _IntroductionViewState extends State<IntroductionView>
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.only(top: 4.h,bottom: 2.5.h),
+        padding: EdgeInsets.only(top: 4.h, bottom: 2.5.h),
         child: Column(
           children: [
             Align(
               alignment: Alignment.centerRight,
               child: TextButton(
-                  onPressed: () => Get.offAllNamed(AppRoutes.login),
-                  child: Text('Skip', style: Get.textTheme.titleMedium)),
+                onPressed: () => Get.offAllNamed<void>(AppRoutes.login),
+                child: Text('Skip', style: Get.textTheme.titleMedium),
+              ),
             ),
             Expanded(
               child: PageStorage(
-                  bucket: _bucket,
-                  child: PageView(
-                    controller: _pageController,
-                    children: const <Widget>[
-                      IntroScreenFirst(),
-                      IntroScreenSecond(),
-                      IntroScreenThird()
-                    ],
-                  )),
+                bucket: _bucket,
+                child: PageView(
+                  controller: _pageController,
+                  children: const <Widget>[
+                    IntroScreenFirst(),
+                    IntroScreenSecond(),
+                    IntroScreenThird(),
+                  ],
+                ),
+              ),
             ),
-            DotIndicator(curIndex: _selectedPage)
+            DotIndicator(curIndex: _selectedPage),
           ],
         ),
       ),

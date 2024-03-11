@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:pet_nations/src/core/utils/constants/colors.dart';
 
 class VerticalLine extends StatelessWidget {
+  const VerticalLine({required this.width, super.key});
   final double width;
-  const VerticalLine({super.key, required this.width});
 
   @override
   Widget build(BuildContext context) {
@@ -14,11 +14,11 @@ class VerticalLine extends StatelessWidget {
 }
 
 class VerticalPaint extends CustomPainter {
-  final double width;
   VerticalPaint({required this.width, super.repaint});
+  final double width;
   @override
   void paint(Canvas canvas, Size size) {
-    final Paint paint = Paint()
+    final paint = Paint()
       ..color = AppColors.borderColor
       ..strokeWidth = .5
       ..style = PaintingStyle.stroke

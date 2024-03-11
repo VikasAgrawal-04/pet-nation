@@ -16,40 +16,50 @@ class _PetCommunityScreenState extends State<PetCommunityScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: backAppBar('Pet Community', centerTitle: true, actions: [
-        IconButton(
+      appBar: backAppBar(
+        'Pet Community',
+        centerTitle: true,
+        actions: [
+          IconButton(
             onPressed: () {},
-            icon: SvgPicture.asset('assets/icons/bell.svg', height: 3.2.h))
-      ]),
+            icon: SvgPicture.asset('assets/icons/bell.svg', height: 3.2.h),
+          ),
+        ],
+      ),
       body: DefaultTabController(
         length: 7,
         child: NestedScrollView(
-          headerSliverBuilder: ((context, innerBoxIsScrolled) {
+          headerSliverBuilder: (context, innerBoxIsScrolled) {
             return [
               SliverToBoxAdapter(
-                child: customTabar([
-                  'Pet Training',
-                  'Pet Grooming',
-                  'Pet Hotels',
-                  'Dog Day Care',
-                  'Bird',
-                  'Reptile',
-                  'Small Pet',
-                ], scroll: true),
-              )
+                child: customTabar(
+                  [
+                    'Pet Training',
+                    'Pet Grooming',
+                    'Pet Hotels',
+                    'Dog Day Care',
+                    'Bird',
+                    'Reptile',
+                    'Small Pet',
+                  ],
+                  scroll: true,
+                ),
+              ),
             ];
-          }),
+          },
           body: Padding(
             padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 1.5.h),
-            child: const TabBarView(children: [
-              PetCommunityView(),
-              PetCommunityView(),
-              PetCommunityView(),
-              PetCommunityView(),
-              PetCommunityView(),
-              PetCommunityView(),
-              PetCommunityView()
-            ]),
+            child: const TabBarView(
+              children: [
+                PetCommunityView(),
+                PetCommunityView(),
+                PetCommunityView(),
+                PetCommunityView(),
+                PetCommunityView(),
+                PetCommunityView(),
+                PetCommunityView(),
+              ],
+            ),
           ),
         ),
       ),

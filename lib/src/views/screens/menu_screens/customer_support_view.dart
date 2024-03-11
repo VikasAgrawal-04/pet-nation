@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pet_nations/src/views/widgets/buttons/dropdown_button.dart';
-import 'package:pet_nations/src/views/widgets/scaffold/back_appbar.dart';
 import 'package:pet_nations/src/views/widgets/fields/email_textfield.dart';
 import 'package:pet_nations/src/views/widgets/fields/message_textfield.dart';
 import 'package:pet_nations/src/views/widgets/fields/mobile_textfield.dart';
 import 'package:pet_nations/src/views/widgets/fields/name_textfield.dart';
+import 'package:pet_nations/src/views/widgets/scaffold/back_appbar.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class CustomerSupportView extends StatefulWidget {
@@ -41,7 +41,7 @@ class _CustomerSupportViewState extends State<CustomerSupportView> {
           SizedBox(height: 1.5.h),
           MobileField(controller: phone),
           SizedBox(height: 1.5.h),
-          MessageField(controller: message)
+          MessageField(controller: message),
         ],
       ),
     );

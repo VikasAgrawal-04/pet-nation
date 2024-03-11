@@ -39,27 +39,28 @@ class _OrderDetailsState extends State<OrderDetails> {
               price: '0.76',
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Checkbox.adaptive(
-                    materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                    visualDensity: const VisualDensity(horizontal: -4),
-                    value: false,
-                    onChanged: (val) {}),
+                  materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  visualDensity: const VisualDensity(horizontal: -4),
+                  value: false,
+                  onChanged: (val) {},
+                ),
                 SizedBox(width: 4.w),
-                Text('Out For Delivery',
-                    style: theme.bodyLarge
-                        ?.copyWith(color: AppColors.secondaryText))
+                Text(
+                  'Out For Delivery',
+                  style:
+                      theme.bodyLarge?.copyWith(color: AppColors.secondaryText),
+                ),
               ],
             ),
             tracking(),
-
             CustomButtonNew(
               margin: EdgeInsets.symmetric(vertical: 5.h),
               height: 5.h,
               text: 'Continue Shopping',
               onTap: () {},
-            )
+            ),
           ],
         ),
       ),
@@ -73,13 +74,15 @@ class _OrderDetailsState extends State<OrderDetails> {
         children: [
           check(5),
           SizedBox(width: 4.w),
-          Column(children: [
-            col('Sat, 14’ Oct ’22 - 4', 'Your Order has been placed.', theme),
-            col('Sat, 14’ Oct ’22 - 4', 'Your Order has been placed.', theme),
-            col('Sat, 14’ Oct ’22 - 4', 'Your Order has been placed.', theme),
-            col('Sat, 14’ Oct ’22 - 4', 'Your Order has been placed.', theme),
-            col('Sat, 14’ Oct ’22 - 4', 'Your Order has been placed.', theme)
-          ]),
+          Column(
+            children: [
+              col('Sat, 14’ Oct ’22 - 4', 'Your Order has been placed.', theme),
+              col('Sat, 14’ Oct ’22 - 4', 'Your Order has been placed.', theme),
+              col('Sat, 14’ Oct ’22 - 4', 'Your Order has been placed.', theme),
+              col('Sat, 14’ Oct ’22 - 4', 'Your Order has been placed.', theme),
+              col('Sat, 14’ Oct ’22 - 4', 'Your Order has been placed.', theme),
+            ],
+          ),
         ],
       ),
     );
@@ -88,28 +91,32 @@ class _OrderDetailsState extends State<OrderDetails> {
   Widget check(int count) {
     return Column(
       children: List.generate(
-          count,
-          (index) => Column(
-                children: [
-                  SvgPicture.asset('assets/icons/check.svg', height: 3.2.h),
-                  SizedBox(height: 5.h, child: const VerticalLine(width: 1))
-                ],
-              )),
+        count,
+        (index) => Column(
+          children: [
+            SvgPicture.asset('assets/icons/check.svg', height: 3.2.h),
+            SizedBox(height: 5.h, child: const VerticalLine(width: 1)),
+          ],
+        ),
+      ),
     );
   }
 
   Widget col(String title, String value, TextTheme theme) {
-    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Text(
-        value,
-        style: theme.titleMedium
-            ?.copyWith(color: AppColors.primaryText, fontSize: 15.5.sp),
-      ),
-      Text(
-        title,
-        style: theme.titleSmall?.copyWith(fontSize: 13.5.sp),
-      ),
-      SizedBox(height: 3.5.h)
-    ]);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          value,
+          style: theme.titleMedium
+              ?.copyWith(color: AppColors.primaryText, fontSize: 15.5.sp),
+        ),
+        Text(
+          title,
+          style: theme.titleSmall?.copyWith(fontSize: 13.5.sp),
+        ),
+        SizedBox(height: 3.5.h),
+      ],
+    );
   }
 }

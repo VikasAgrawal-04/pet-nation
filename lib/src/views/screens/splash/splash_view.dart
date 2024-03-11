@@ -15,7 +15,7 @@ class _SplashViewState extends State<SplashView> {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       await Future.delayed(const Duration(seconds: 2), () {
-        Get.offAndToNamed(AppRoutes.introduction);
+        Get.offAndToNamed<void>(AppRoutes.introduction);
       });
     });
   }
@@ -23,7 +23,9 @@ class _SplashViewState extends State<SplashView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(
-            child: Center(child: Image.asset('assets/images/logo.png'))));
+      body: SafeArea(
+        child: Center(child: Image.asset('assets/images/logo.png')),
+      ),
+    );
   }
 }

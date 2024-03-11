@@ -4,21 +4,19 @@ import 'package:pet_nations/src/core/utils/constants/colors.dart';
 import 'package:pet_nations/src/core/utils/constants/constant.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-Widget bottomNav({required Function(int index) onTap}) {
+Widget bottomNav({required void Function(int index) onTap}) {
   return Container(
     padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 2.h),
     margin: EdgeInsets.only(left: 6.w, right: 6.w, bottom: 1.5.h),
     decoration: BoxDecoration(
       boxShadow: const [
         BoxShadow(
-          offset: Offset(0.0, 0.0),
-          blurRadius: 30.0,
-          spreadRadius: 0.0,
+          blurRadius: 30,
           color: Color.fromRGBO(0, 0, 0, 0.1),
-        )
+        ),
       ],
       color: AppColors.primaryColor,
-      borderRadius: const BorderRadius.all(Radius.circular(30.0)),
+      borderRadius: const BorderRadius.all(Radius.circular(30)),
     ),
     child: IntrinsicHeight(
       child: Row(

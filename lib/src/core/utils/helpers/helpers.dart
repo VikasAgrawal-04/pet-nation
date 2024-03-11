@@ -15,105 +15,113 @@ enum RequestType { get, post, put, delete }
 enum LoggerType { d, e, i, f, t, w }
 
 class Helpers {
-  static SharedPreferences? prefs;
-  static Dio? dio;
+  static late SharedPreferences? _prefs;
+  static late Dio? _dio;
 
-  static void logger(
-      {required LoggerType type, required String message, StackTrace? stack}) {
+  static set prefs(SharedPreferences pref) => _prefs = pref;
+
+  static SharedPreferences get prefs => _prefs!;
+
+  static set dio(Dio dio) => _dio = dio;
+
+  static Dio get dio => _dio!;
+
+  static void logger({
+    required LoggerType type,
+    required String message,
+    StackTrace? stack,
+  }) {
     final logger = Logger(printer: PrettyPrinter());
 
     switch (type) {
       case LoggerType.d:
         logger.d(message, stackTrace: stack);
-        break;
       case LoggerType.e:
         logger.e(message, stackTrace: stack);
-        break;
       case LoggerType.i:
         logger.i(message, stackTrace: stack);
-        break;
       case LoggerType.f:
         logger.f(message, stackTrace: stack);
-        break;
       case LoggerType.t:
         logger.t(message, stackTrace: stack);
-        break;
       case LoggerType.w:
         logger.w(message, stackTrace: stack);
-        break;
     }
   }
 
   static void setToken(String token) {
-    dio!.options.headers = {
-      "Authorization": 'Bearer $token',
-      'Accept': 'application/json'
+    _dio!.options.headers = {
+      'Authorization': 'Bearer $token',
+      'Accept': 'application/json',
     };
   }
 
   static Future<Map<String, dynamic>?> sendRequest(
-      RequestType type, String path,
-      {Map<String, dynamic>? queryParams,
-      bool encoded = false,
-      dynamic data,
-      dynamic listData,
-      FormData? formData}) async {
+    RequestType type,
+    String path, {
+    Map<String, dynamic>? queryParams,
+    bool encoded = false,
+    dynamic data,
+    dynamic listData,
+    FormData? formData,
+  }) async {
     try {
-      Response response;
+      Response<dynamic> response;
 
       switch (type) {
         case RequestType.get:
-          response = (await dio!.get(path, queryParameters: queryParams));
-          break;
+          response = await _dio!.get(path, queryParameters: queryParams);
         case RequestType.post:
-          response = (await dio!.post(
+          response = await _dio!.post(
             path,
             options: Options(
-                contentType:
-                    encoded == true ? Headers.formUrlEncodedContentType : null,
-                validateStatus: (code) => true),
-            data: queryParams ??
-                listData ??
-                formData ??
-                (data != null ? FormData.fromMap(data) : null),
-          ));
-          break;
+              contentType:
+                  encoded == true ? Headers.formUrlEncodedContentType : null,
+              validateStatus: (code) => true,
+            ),
+            data: queryParams ?? listData ?? formData,
+          );
         case RequestType.put:
           response =
-              await dio!.put(path, data: data, queryParameters: queryParams);
-          break;
+              await _dio!.put(path, data: data, queryParameters: queryParams);
         case RequestType.delete:
-          response = (await dio!.delete(path, queryParameters: queryParams));
-          break;
-        default:
-          return null;
+          response = await _dio!.delete(path, queryParameters: queryParams);
       }
 
       if (response.statusCode == 200 || response.statusCode == 202) {
-        return jsonDecode(response.data) as Map<String, dynamic>;
+        return response.data as Map<String, dynamic>;
       } else if (response.statusCode == 400 ||
           response.statusCode == 401 ||
           response.statusCode == 402) {
         throw ServerException(
-            code: response.statusCode,
-            message: jsonDecode(response.data)['data']);
+          code: response.statusCode,
+          message:
+              (response.data as Map<String, dynamic>)['message'].toString(),
+        );
       } else {
         throw ServerException(
-            code: response.statusCode,
-            message: jsonDecode(response.data)['data']);
+          code: response.statusCode,
+          message:
+              (response.data as Map<String, dynamic>)['message'].toString(),
+        );
       }
     } on ServerException catch (e) {
-      debugPrint("I go here 2");
+      debugPrint('I go here 2');
       throw ServerException(message: e.message, code: e.code);
     } on DioException catch (e) {
-      debugPrint("Dio Exception ${e.response?.data} ${e.type} ${e.message}");
-      if (e.error == "Http status error [401]") {
+      debugPrint('Dio Exception ${e.response?.data} ${e.type} ${e.message}');
+      if (e.error == 'Http status error [401]') {
         debugPrint("I go here 3 ${e.error == "Http status error [401]"}");
       } else {
         throw ServerException(
-            message: e.error is io.SocketException
-                ? "No Internet"
-                : (jsonDecode(e.response?.data))['data'].toString());
+          code: int.tryParse(
+            (e.response?.data as Map<String, dynamic>)['code'].toString(),
+          ),
+          message: e.error is io.SocketException
+              ? 'No Internet'
+              : (e.response?.data as Map<String, dynamic>)['message']
+                  .toString(),
+        );
       }
     }
     return null;
@@ -123,23 +131,23 @@ class Helpers {
     if (failure is ServerFailure) {
       return failure.message;
     }
-    return "Unknown error occured";
+    return 'Unknown error occured';
   }
 
-  static setString({required String key, required String value}) async {
-    await prefs?.setString(key, value);
+  static void setString({required String key, required String value}) {
+    prefs.setString(key, value);
   }
 
-  static deleteString({required key}) {
-    prefs?.remove(key);
+  static void deleteString({required String key}) {
+    prefs.remove(key);
   }
 
   static String? getString({required String key}) {
-    return prefs?.getString(key);
+    return prefs.getString(key);
   }
 
-  static void clearShared() async {
-    await prefs?.clear();
+  static Future<void> clearShared() async {
+    await prefs.clear();
   }
 
   static String dateFormat(String dateTime) {
@@ -155,14 +163,40 @@ class Helpers {
   }
 
   static String jsonDate(String date) {
-    final DateTime rawDate = DateFormat("dd/MM/yyyy").parse(date);
-    return DateFormat("yyyy-MM-dd").format(rawDate);
+    final rawDate = DateFormat('dd/MM/yyyy').parse(date);
+    return DateFormat('yyyy-MM-dd').format(rawDate);
   }
 
   static String apiToApiDate(String date) {
-    DateTime originalDate = DateFormat("dd-MM-yyyy").parse(date);
-    String formattedDateStr = DateFormat("yyyy-MM-dd").format(originalDate);
+    final originalDate = DateFormat('dd-MM-yyyy').parse(date);
+    final formattedDateStr = DateFormat('yyyy-MM-dd').format(originalDate);
     return formattedDateStr;
+  }
+
+  static String displayTime(DateTime date) {
+    return DateFormat('dd/MM/yyyy h:mm a').format(date);
+  }
+
+  static List<String> generateTime({required bool todayDate}) {
+    final timeRange = <String>[];
+    const startTime = 10;
+    const endTime = 18;
+    final currentTime = const TimeOfDay(hour: 4, minute: 00).hour;
+
+    if (todayDate) {
+      if (currentTime < endTime) {
+        for (var i = startTime; i <= endTime; i++) {
+          if (i > currentTime) {
+            timeRange.add('$i:00');
+          }
+        }
+      }
+    } else {
+      for (var i = startTime; i <= endTime; i++) {
+        timeRange.add('$i:00');
+      }
+    }
+    return timeRange;
   }
 
   static Image imgFromBase64(String base64) {
@@ -177,17 +211,19 @@ class Helpers {
           duration: const Duration(seconds: 2),
           curve: Curves.easeOut,
           child: GestureDetector(
-              onTap: () {
-                showDialog(
-                    context: context,
-                    builder: (context) {
-                      return AlertDialog(
-                        contentPadding: EdgeInsets.zero,
-                        content: Image.memory(base64Decode(base64)),
-                      );
-                    });
-              },
-              child: child),
+            onTap: () {
+              showDialog<dynamic>(
+                context: context,
+                builder: (context) {
+                  return AlertDialog(
+                    contentPadding: EdgeInsets.zero,
+                    content: Image.memory(base64Decode(base64)),
+                  );
+                },
+              );
+            },
+            child: child,
+          ),
         );
       },
     );
@@ -197,7 +233,9 @@ class Helpers {
 class NumberInputFormat extends TextInputFormatter {
   @override
   TextEditingValue formatEditUpdate(
-      TextEditingValue oldValue, TextEditingValue newValue) {
+    TextEditingValue oldValue,
+    TextEditingValue newValue,
+  ) {
     if (newValue.text.contains('.')) {
       return oldValue;
     } else if (newValue.text.contains(RegExp(r'[^\d]'))) {

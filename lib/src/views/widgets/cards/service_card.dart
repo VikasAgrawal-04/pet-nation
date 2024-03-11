@@ -6,9 +6,9 @@ import 'package:pet_nations/src/core/utils/constants/colors.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class ServiceCard extends StatelessWidget {
+  const ServiceCard({required this.img, required this.title, super.key});
   final String img;
   final String title;
-  const ServiceCard({super.key, required this.img, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +28,10 @@ class ServiceCard extends StatelessWidget {
           SizedBox(height: 1.h),
           Text(title, style: theme.titleLarge?.copyWith(fontSize: 16.sp)),
           SizedBox(height: 1.h),
-          Text('View Details',
-              style:
-                  theme.titleMedium?.copyWith(color: AppColors.secondaryColor)),
+          Text(
+            'View Details',
+            style: theme.titleMedium?.copyWith(color: AppColors.secondaryColor),
+          ),
         ],
       ),
     );

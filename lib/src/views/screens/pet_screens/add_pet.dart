@@ -39,7 +39,7 @@ class _AddPetScreenState extends State<AddPetScreen> {
             _basicInfo(),
             Text('Diet & Prescription', style: theme.displaySmall),
             _deit(),
-            CustomButtonNew(text: 'Create Profile', onTap: () {})
+            CustomButtonNew(text: 'Create Profile', onTap: () {}),
           ],
         ),
       ),
@@ -64,7 +64,7 @@ class _AddPetScreenState extends State<AddPetScreen> {
             onTap: () {},
             child: SvgPicture.asset('assets/icons/camera-2.svg'),
           ),
-        )
+        ),
       ],
     );
   }
@@ -74,8 +74,9 @@ class _AddPetScreenState extends State<AddPetScreen> {
       margin: EdgeInsets.only(top: 1.h, bottom: 2.h),
       padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.5.h),
       decoration: BoxDecoration(
-          color: AppColors.lightGreyColor,
-          borderRadius: BorderRadius.circular(10)),
+        color: AppColors.lightGreyColor,
+        borderRadius: BorderRadius.circular(10),
+      ),
       child: Column(
         children: [
           CustomDropDown(
@@ -104,24 +105,27 @@ class _AddPetScreenState extends State<AddPetScreen> {
       margin: EdgeInsets.only(top: 1.h, bottom: 2.h),
       padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.5.h),
       decoration: BoxDecoration(
-          color: AppColors.lightGreyColor,
-          borderRadius: BorderRadius.circular(10)),
+        color: AppColors.lightGreyColor,
+        borderRadius: BorderRadius.circular(10),
+      ),
       child: Column(
         children: [
           DefaultField(controller: name, hint: 'Name'),
           DefaultField(controller: breed, hint: 'Breed'),
-          Obx(() => CustomDropDown(
-                items: const ['Male', 'Female'],
-                value: gender.value == '' ? null : gender.value,
-                onChanged: (value) {
-                  if (value != null) {
-                    gender.value = value;
-                  }
-                },
-                hint: 'Gender',
-                title: 'Gender',
-                zeroPadding: true,
-              )),
+          Obx(
+            () => CustomDropDown(
+              items: const ['Male', 'Female'],
+              value: gender.value == '' ? null : gender.value,
+              onChanged: (value) {
+                if (value != null) {
+                  gender.value = value;
+                }
+              },
+              hint: 'Gender',
+              title: 'Gender',
+              zeroPadding: true,
+            ),
+          ),
           DateTextField(
             hintText: 'Date Of Birth',
             onChanged: (value) {
@@ -132,7 +136,7 @@ class _AddPetScreenState extends State<AddPetScreen> {
             controller: weight,
             hint: 'Weight',
             number: true,
-          )
+          ),
         ],
       ),
     );

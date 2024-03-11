@@ -44,7 +44,9 @@ class _PetPageState extends State<PetPage> {
           ),
           actions: [
             IconButton(
-                onPressed: () {}, icon: const Icon(CupertinoIcons.search))
+              onPressed: () {},
+              icon: const Icon(CupertinoIcons.search),
+            ),
           ],
         ),
         body: SingleChildScrollView(
@@ -55,14 +57,15 @@ class _PetPageState extends State<PetPage> {
                 return Column(
                   children: [
                     _pet(
-                        img:
-                            'https://media-cldnry.s-nbcnews.com/image/upload/t_fit-760w,f_auto,q_auto:best/rockcms/2022-08/220805-border-collie-play-mn-1100-82d2f1.jpg',
-                        name: 'Charlie',
-                        type: 'Dog',
-                        onTap: () {
-                          Get.toNamed<void>(AppRoutes.petDetails);
-                        },
-                        petLost: true),
+                      img:
+                          'https://media-cldnry.s-nbcnews.com/image/upload/t_fit-760w,f_auto,q_auto:best/rockcms/2022-08/220805-border-collie-play-mn-1100-82d2f1.jpg',
+                      name: 'Charlie',
+                      type: 'Dog',
+                      onTap: () {
+                        Get.toNamed<void>(AppRoutes.petDetails);
+                      },
+                      petLost: true,
+                    ),
                     const Divider(thickness: .5),
                   ],
                 );
@@ -72,7 +75,7 @@ class _PetPageState extends State<PetPage> {
                   Get.toNamed<void>(AppRoutes.addPet);
                 },
                 text: 'Add Pet',
-              )
+              ),
             ],
           ),
         ),
@@ -80,50 +83,56 @@ class _PetPageState extends State<PetPage> {
     );
   }
 
-  Widget _pet(
-      {required String img,
-      required String name,
-      required String type,
-      required Function() onTap,
-      bool petLost = false}) {
+  Widget _pet({
+    required String img,
+    required String name,
+    required String type,
+    required void Function() onTap,
+    bool petLost = false,
+  }) {
     return Padding(
       padding: EdgeInsets.only(bottom: 1.5.h, top: 1.5.h),
-      child: Row(children: [
-        SizedBox(
-          height: 6.5.h,
-          child: ClipRRect(
+      child: Row(
+        children: [
+          SizedBox(
+            height: 6.5.h,
+            child: ClipRRect(
               borderRadius: BorderRadius.circular(8),
-              child: Image.network(img)),
-        ),
-        SizedBox(width: 4.w),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(name,
-                style:
-                    theme.titleLarge?.copyWith(color: AppColors.primaryText)),
-            Text(type, style: theme.titleMedium)
-          ],
-        ),
-        const Spacer(),
-        if (petLost)
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: .8.h),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-              color: AppColors.redBg,
-            ),
-            child: Text(
-              'Pet Lost',
-              style: theme.titleMedium?.copyWith(color: AppColors.redText),
+              child: Image.network(img),
             ),
           ),
-        SizedBox(width: 2.w),
-        GestureDetector(
-          onTap: onTap,
-          child: Icon(CupertinoIcons.forward, color: AppColors.secondaryColor),
-        )
-      ]),
+          SizedBox(width: 4.w),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                name,
+                style: theme.titleLarge?.copyWith(color: AppColors.primaryText),
+              ),
+              Text(type, style: theme.titleMedium),
+            ],
+          ),
+          const Spacer(),
+          if (petLost)
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: .8.h),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                color: AppColors.redBg,
+              ),
+              child: Text(
+                'Pet Lost',
+                style: theme.titleMedium?.copyWith(color: AppColors.redText),
+              ),
+            ),
+          SizedBox(width: 2.w),
+          GestureDetector(
+            onTap: onTap,
+            child:
+                Icon(CupertinoIcons.forward, color: AppColors.secondaryColor),
+          ),
+        ],
+      ),
     );
   }
 }

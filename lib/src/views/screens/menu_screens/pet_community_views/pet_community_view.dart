@@ -27,11 +27,12 @@ class _PetCommunityViewState extends State<PetCommunityView> {
         children: [
           _img(),
           CustomButtonNew(
-              margin: EdgeInsets.symmetric(vertical: 2.h),
-              onTap: () {
-                Get.toNamed<void>(AppRoutes.bookAppt);
-              },
-              text: 'Book Pet Grooming Appointment'),
+            margin: EdgeInsets.symmetric(vertical: 2.h),
+            onTap: () {
+              Get.toNamed<void>(AppRoutes.bookAppt);
+            },
+            text: 'Book Pet Grooming Appointment',
+          ),
           _title('Dog Training Service'),
           SizedBox(height: 1.5.h),
           Text(
@@ -54,12 +55,16 @@ class _PetCommunityViewState extends State<PetCommunityView> {
       margin: EdgeInsets.only(bottom: 2.h),
       height: 15.h,
       child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: Constant.serviceSvg.length,
-          itemBuilder: ((context, index) {
-            final obj = Constant.serviceSvg[index];
-            return ServiceCard(img: obj['img'], title: obj['name']);
-          })),
+        scrollDirection: Axis.horizontal,
+        itemCount: Constant.serviceSvg.length,
+        itemBuilder: (context, index) {
+          final obj = Constant.serviceSvg[index];
+          return ServiceCard(
+            img: obj['img'].toString(),
+            title: obj['name'].toString(),
+          );
+        },
+      ),
     );
   }
 
@@ -89,7 +94,7 @@ class _PetCommunityViewState extends State<PetCommunityView> {
             style: theme.titleSmall
                 ?.copyWith(color: AppColors.whiteColor, fontSize: 14.sp),
           ),
-        )
+        ),
       ],
     );
   }

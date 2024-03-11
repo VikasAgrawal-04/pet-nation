@@ -33,40 +33,49 @@ class _NewCardScreenState extends State<NewCardScreen> {
               margin: EdgeInsets.symmetric(vertical: 1.h),
               padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.5.h),
               decoration: BoxDecoration(
-                  color: AppColors.textFieldColor,
-                  borderRadius: BorderRadius.circular(8)),
+                color: AppColors.textFieldColor,
+                borderRadius: BorderRadius.circular(8),
+              ),
               child: Column(
                 children: [
                   DefaultField(
-                      controller: cardHolderName, hint: 'Card Holder Name*'),
+                    controller: cardHolderName,
+                    hint: 'Card Holder Name*',
+                  ),
                   SizedBox(height: 1.h),
                   DefaultField(controller: cardNumber, hint: 'Card Number*'),
                   SizedBox(height: 1.h),
                   Row(
                     children: [
                       Expanded(
-                          child:
-                              DefaultField(controller: expiry, hint: 'MM-YY')),
+                        child: DefaultField(controller: expiry, hint: 'MM-YY'),
+                      ),
                       SizedBox(width: 4.w),
                       Expanded(
-                          child: DefaultField(controller: cvv, hint: 'CVV'))
+                        child: DefaultField(controller: cvv, hint: 'CVV'),
+                      ),
                     ],
                   ),
                   SizedBox(height: 1.5.h),
                   Row(
                     children: [
-                      Obx(() => Checkbox(
+                      Obx(
+                        () => Checkbox(
                           value: save.value,
                           onChanged: (val) {
                             save.toggle();
-                          })),
+                          },
+                        ),
+                      ),
                       Expanded(
-                          child: Text(
-                        'This Card will be saved for future transactions in your saved payment methods',
-                        style: theme.titleMedium?.copyWith(letterSpacing: -.1),
-                      ))
+                        child: Text(
+                          'This Card will be saved for future transactions in your saved payment methods',
+                          style:
+                              theme.titleMedium?.copyWith(letterSpacing: -.1),
+                        ),
+                      ),
                     ],
-                  )
+                  ),
                 ],
               ),
             ),

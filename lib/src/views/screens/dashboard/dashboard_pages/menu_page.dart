@@ -41,7 +41,7 @@ class _MenuPageState extends State<MenuPage> {
                       children: [_orderBody(), _productBody(), _accountBody()],
                     ),
                   ),
-                )
+                ),
               ],
             ),
           ),
@@ -55,36 +55,43 @@ class _MenuPageState extends State<MenuPage> {
       children: [
         CircleAvatar(radius: 21.sp),
         SizedBox(width: 2.w),
-        Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Text(
-            'Ashok Kumar',
-            style: theme.displaySmall,
-          ),
-          SizedBox(height: .2.h),
-          CustomButtonNew(
-            color: AppColors.tertiaryBtn,
-            width: 26.w,
-            height: 3.5.h,
-            text: 'View Profile',
-            onTap: () {
-              Get.toNamed(AppRoutes.profile);
-            },
-            style: theme.titleMedium?.copyWith(
-                fontWeight: FontWeight.w500, color: AppColors.secondaryColor),
-          )
-        ]),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Ashok Kumar',
+              style: theme.displaySmall,
+            ),
+            SizedBox(height: .2.h),
+            CustomButtonNew(
+              color: AppColors.tertiaryBtn,
+              width: 26.w,
+              height: 3.5.h,
+              text: 'View Profile',
+              onTap: () {
+                Get.toNamed<void>(AppRoutes.profile);
+              },
+              style: theme.titleMedium?.copyWith(
+                fontWeight: FontWeight.w500,
+                color: AppColors.secondaryColor,
+              ),
+            ),
+          ],
+        ),
         const Spacer(),
         IconButton(
           onPressed: () {},
-          icon: SvgPicture.asset('assets/icons/exit.svg',
-              color: AppColors.secondaryColor),
+          icon: SvgPicture.asset(
+            'assets/icons/exit.svg',
+            color: AppColors.secondaryColor,
+          ),
         ),
         IconButton(
           onPressed: () {
             dashControl.curIndex.value = dashControl.lstIndex;
           },
           icon: SvgPicture.asset('assets/icons/back.svg'),
-        )
+        ),
       ],
     );
   }
@@ -98,14 +105,14 @@ class _MenuPageState extends State<MenuPage> {
           Text('Orders', style: theme.bodyLarge),
           SizedBox(height: .75.h),
           _row('Your Wishlist', 'assets/icons/wishlist.svg', () {
-            Get.toNamed(AppRoutes.wishlist);
+            Get.toNamed<void>(AppRoutes.wishlist);
           }),
           _row('Your Cart', 'assets/icons/cart-2.svg', () {
             dashControl.lstIndex = dashControl.curIndex.value;
             dashControl.curIndex.value = 1;
           }),
           _row('Track Order', 'assets/icons/track.svg', () {
-            Get.toNamed(AppRoutes.orders);
+            Get.toNamed<void>(AppRoutes.orders);
           }),
         ],
       ),
@@ -121,10 +128,10 @@ class _MenuPageState extends State<MenuPage> {
           Text('Products', style: theme.bodyLarge),
           SizedBox(height: .75.h),
           _row('Product Lists', 'assets/icons/order_2.svg', () {
-            Get.toNamed(AppRoutes.shopByProduct);
+            Get.toNamed<void>(AppRoutes.shopByProduct);
           }),
           _row('Pet Community', 'assets/icons/pet.svg', () {
-            Get.toNamed(AppRoutes.petCommunity);
+            Get.toNamed<void>(AppRoutes.petCommunity);
           }),
           _row('Pet Profile', 'assets/icons/pet-icon.svg', () {}),
           _row('Lost Pet', 'assets/icons/pet-2.svg', () {}),
@@ -146,34 +153,39 @@ class _MenuPageState extends State<MenuPage> {
           _row('Payment', 'assets/icons/card.svg', () {}),
           _row('Saved Address', 'assets/icons/address.svg', () {}),
           _row('Notification', 'assets/icons/bell.svg', () {
-            Get.toNamed(AppRoutes.notification);
+            Get.toNamed<void>(AppRoutes.notification);
           }),
           _row('Customer Support', 'assets/icons/support.svg', () {
             Get.toNamed<void>(AppRoutes.customerSupport);
           }),
-          _row('Terms and Conditions', 'assets/icons/terms_conditions.svg',
-              () {}),
+          _row(
+            'Terms and Conditions',
+            'assets/icons/terms_conditions.svg',
+            () {},
+          ),
         ],
       ),
     );
   }
 
-  Widget _row(String title, String svg, Function() onTap) {
+  Widget _row(String title, String svg, void Function() onTap) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: .65.h),
       child: GestureDetector(
         onTap: onTap,
-        child: Container(
+        child: ColoredBox(
           color: Colors.transparent,
           child: Row(
-            mainAxisSize: MainAxisSize.max,
             children: [
               SvgPicture.asset(svg),
               SizedBox(width: 4.w),
               Text(title, style: theme.titleLarge),
               const Spacer(),
-              Icon(CupertinoIcons.forward,
-                  color: AppColors.secondaryColor, size: 16.sp)
+              Icon(
+                CupertinoIcons.forward,
+                color: AppColors.secondaryColor,
+                size: 16.sp,
+              ),
             ],
           ),
         ),

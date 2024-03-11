@@ -1,14 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:pet_nations/src/core/utils/constants/colors.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-import '../../../core/utils/constants/colors.dart';
-
 class CustomButtonNew extends StatelessWidget {
+  const CustomButtonNew({
+    this.text,
+    this.color,
+    this.iconColor,
+    this.style,
+    this.onTap,
+    this.outlineBtn = false,
+    this.borderRadius,
+    this.width,
+    this.height,
+    this.child,
+    this.padding,
+    this.margin,
+    this.shadows,
+    this.borderColor,
+    super.key,
+  });
   final String? text;
   final Color? color;
   final Color? iconColor;
   final TextStyle? style;
-  final Function()? onTap;
+  final void Function()? onTap;
   final bool outlineBtn;
   final double? borderRadius;
   final double? width;
@@ -18,23 +34,6 @@ class CustomButtonNew extends StatelessWidget {
   final EdgeInsetsGeometry? margin;
   final List<BoxShadow>? shadows;
   final Color? borderColor;
-
-  const CustomButtonNew(
-      {this.text,
-      this.color,
-      this.iconColor,
-      this.style,
-      this.onTap,
-      this.outlineBtn = false,
-      this.borderRadius,
-      this.width,
-      this.height,
-      this.child,
-      this.padding,
-      this.margin,
-      this.shadows,
-      this.borderColor,
-      super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -52,23 +51,24 @@ class CustomButtonNew extends StatelessWidget {
           color:
               outlineBtn ? Colors.transparent : color ?? AppColors.primaryBtn,
           border: Border.all(
-              color: borderColor ??
-                  (outlineBtn ? AppColors.borderColor : Colors.transparent),
-              width: 1),
+            color: borderColor ??
+                (outlineBtn ? AppColors.borderColor : Colors.transparent),
+          ),
           borderRadius: BorderRadius.circular(borderRadius ?? 8.0),
         ),
         child: child ??
             Center(
               child: Text(
-                text ?? "View",
+                text ?? 'View',
                 style: style ??
                     TextStyle(
-                        fontSize: 17.sp,
-                        fontWeight: FontWeight.w700,
-                        color: borderColor ??
-                            (outlineBtn
-                                ? AppColors.secondaryText
-                                : AppColors.whiteColor)),
+                      fontSize: 17.sp,
+                      fontWeight: FontWeight.w700,
+                      color: borderColor ??
+                          (outlineBtn
+                              ? AppColors.secondaryText
+                              : AppColors.whiteColor),
+                    ),
                 textAlign: TextAlign.center,
               ),
             ),

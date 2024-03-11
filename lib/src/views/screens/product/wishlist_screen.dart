@@ -70,17 +70,18 @@ class _WishlistScreenState extends State<WishlistScreen> {
             SizedBox(
               height: 22.h,
               child: ListView.builder(
-                  shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 10,
-                  itemBuilder: (context, index) {
-                    return categoryCard(
-                        img:
-                            'https://m.media-amazon.com/images/I/81ltSAXl3EL.jpg',
-                        animal: 'Cat',
-                        type: 'Dry Food',
-                        onTap: () {});
-                  }),
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                itemCount: 10,
+                itemBuilder: (context, index) {
+                  return categoryCard(
+                    img: 'https://m.media-amazon.com/images/I/81ltSAXl3EL.jpg',
+                    animal: 'Cat',
+                    type: 'Dry Food',
+                    onTap: () {},
+                  );
+                },
+              ),
             ),
           ],
         ),

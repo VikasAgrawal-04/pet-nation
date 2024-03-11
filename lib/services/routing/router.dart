@@ -24,46 +24,59 @@ import 'package:pet_nations/src/views/screens/product/wishlist_screen.dart';
 import 'package:pet_nations/src/views/screens/splash/splash_view.dart';
 
 class AppRouter {
-  static List<GetPage> routes = [
+  static List<GetPage<dynamic>> routes = [
     GetPage(
-        name: AppRoutes.splash,
-        page: () => const SplashView(),
-        transition: Transition.fade),
+      name: AppRoutes.splash,
+      page: () => const SplashView(),
+      transition: Transition.fade,
+    ),
     GetPage(name: AppRoutes.introduction, page: () => const IntroductionView()),
     GetPage(name: AppRoutes.login, page: () => const LoginView()),
     GetPage(
-        name: AppRoutes.otp,
-        page: () => const OtpView(),
-        transition: Transition.upToDown,
-        transitionDuration: const Duration(milliseconds: 400)),
+      name: AppRoutes.otp,
+      page: () => const OtpView(),
+      transition: Transition.upToDown,
+      transitionDuration: const Duration(milliseconds: 400),
+    ),
     GetPage(
-        name: AppRoutes.dashboard,
-        page: () => const DashboardView(),
-        transition: Transition.fade),
+      name: AppRoutes.dashboard,
+      page: () => const DashboardView(),
+      transition: Transition.fade,
+    ),
     GetPage(
-        name: AppRoutes.customerSupport,
-        page: () => const CustomerSupportView()),
+      name: AppRoutes.customerSupport,
+      page: () => const CustomerSupportView(),
+    ),
     GetPage(name: AppRoutes.productDetails, page: () => const ProductDetails()),
     GetPage(name: AppRoutes.profile, page: () => const ProfilePage()),
     GetPage(name: AppRoutes.addPet, page: () => const AddPetScreen()),
     GetPage(name: AppRoutes.petDetails, page: () => const PetDetails()),
     GetPage(
-        name: AppRoutes.productSummary,
-        page: () => const ProductSummaryScreen()),
+      name: AppRoutes.productSummary,
+      page: () => const ProductSummaryScreen(),
+    ),
     GetPage(
-        name: AppRoutes.paymentMethod, page: () => const PaymentMethodScreen()),
+      name: AppRoutes.paymentMethod,
+      page: () => const PaymentMethodScreen(),
+    ),
     GetPage(name: AppRoutes.newCard, page: () => const NewCardScreen()),
     GetPage(name: AppRoutes.compare, page: () => const CompareScreen()),
     GetPage(name: AppRoutes.wishlist, page: () => const WishlistScreen()),
     GetPage(
-        name: AppRoutes.notification, page: () => const NotificationScreen()),
+      name: AppRoutes.notification,
+      page: () => const NotificationScreen(),
+    ),
     GetPage(name: AppRoutes.orders, page: () => const TrackOrderScreen()),
     GetPage(name: AppRoutes.orderDetails, page: () => const OrderDetails()),
     GetPage(
-        name: AppRoutes.shopByProduct, page: () => const ProductListScreen()),
+      name: AppRoutes.shopByProduct,
+      page: () => const ProductListScreen(),
+    ),
     GetPage(
-        name: AppRoutes.petCommunity, page: () => const PetCommunityScreen()),
+      name: AppRoutes.petCommunity,
+      page: () => const PetCommunityScreen(),
+    ),
     GetPage(name: AppRoutes.bookAppt, page: () => const BookApptView()),
-    GetPage(name: AppRoutes.apptPay, page: () => const BookApptPaymentView())
+    GetPage(name: AppRoutes.apptPay, page: () => const BookApptPaymentView()),
   ];
 }

@@ -35,10 +35,13 @@ class _ProfilePageState extends State<ProfilePage> {
         ),
         actions: [
           IconButton(
-              onPressed: () {},
-              icon: SvgPicture.asset('assets/icons/cart.svg')),
+            onPressed: () {},
+            icon: SvgPicture.asset('assets/icons/cart.svg'),
+          ),
           IconButton(
-              onPressed: () {}, icon: SvgPicture.asset('assets/icons/exit.svg'))
+            onPressed: () {},
+            icon: SvgPicture.asset('assets/icons/exit.svg'),
+          ),
         ],
       ),
       body: SingleChildScrollView(
@@ -50,7 +53,7 @@ class _ProfilePageState extends State<ProfilePage> {
             _prsnlHeader(),
             _prsnlBody(),
             _payHeader(),
-            _payBody()
+            _payBody(),
           ],
         ),
       ),
@@ -75,7 +78,7 @@ class _ProfilePageState extends State<ProfilePage> {
             onTap: () {},
             child: SvgPicture.asset('assets/icons/camera-2.svg'),
           ),
-        )
+        ),
       ],
     );
   }
@@ -89,9 +92,11 @@ class _ProfilePageState extends State<ProfilePage> {
           const Spacer(),
           GestureDetector(
             onTap: () {},
-            child: SvgPicture.asset('assets/icons/edit.svg',
-                color: AppColors.secondaryColor),
-          )
+            child: SvgPicture.asset(
+              'assets/icons/edit.svg',
+              color: AppColors.secondaryColor,
+            ),
+          ),
         ],
       ),
     );
@@ -106,21 +111,31 @@ class _ProfilePageState extends State<ProfilePage> {
 
   Widget _prsnlBody() {
     return Container(
-        width: 100.w,
-        padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 1.5.h),
-        decoration: BoxDecoration(
-            color: AppColors.lightGreyColor,
-            borderRadius: BorderRadius.circular(8)),
-        child: Column(children: [
+      width: 100.w,
+      padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 1.5.h),
+      decoration: BoxDecoration(
+        color: AppColors.lightGreyColor,
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Column(
+        children: [
           _row('First Name', 'Eleanor Pena', 'assets/icons/profile.svg'),
           _row('Gender', 'Male', 'assets/icons/gender.svg'),
           _row('Date of Birth', '05/09/1985', 'assets/icons/calendar.svg'),
-          _row('Email Address', 'eleanor.pena@gmail.com',
-              'assets/icons/email.svg'),
-          _row('Home Address', '1901 Thornidge Cir, Shiloh, Hawaii 81063',
-              'assets/icons/address.svg'),
+          _row(
+            'Email Address',
+            'eleanor.pena@gmail.com',
+            'assets/icons/email.svg',
+          ),
+          _row(
+            'Home Address',
+            '1901 Thornidge Cir, Shiloh, Hawaii 81063',
+            'assets/icons/address.svg',
+          ),
           _row('Language', 'English', 'assets/icons/india.svg'),
-        ]));
+        ],
+      ),
+    );
   }
 
   Widget _payBody() {
@@ -128,13 +143,14 @@ class _ProfilePageState extends State<ProfilePage> {
       width: 100.w,
       padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 1.5.h),
       decoration: BoxDecoration(
-          color: AppColors.lightGreyColor,
-          borderRadius: BorderRadius.circular(8)),
+        color: AppColors.lightGreyColor,
+        borderRadius: BorderRadius.circular(8),
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           _cardDetail('Ashok Kumar', '4451 XXXX XXXX XXXX', 'XX/XX'),
-          _cardDetail('Ashok Kumar', '8818 XXXX XXXX XXXX', 'XX/XX')
+          _cardDetail('Ashok Kumar', '8818 XXXX XXXX XXXX', 'XX/XX'),
         ],
       ),
     );
@@ -147,10 +163,14 @@ class _ProfilePageState extends State<ProfilePage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(name, style: theme.bodyMedium),
-          Text('Card No. : $cardNo',
-              style: theme.titleMedium?.copyWith(fontSize: 16.sp)),
-          Text('Expire Date : $expiry',
-              style: theme.titleMedium?.copyWith(fontSize: 16.sp))
+          Text(
+            'Card No. : $cardNo',
+            style: theme.titleMedium?.copyWith(fontSize: 16.sp),
+          ),
+          Text(
+            'Expire Date : $expiry',
+            style: theme.titleMedium?.copyWith(fontSize: 16.sp),
+          ),
         ],
       ),
     );
@@ -173,10 +193,10 @@ class _ProfilePageState extends State<ProfilePage> {
                   style: theme.bodyMedium,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                )
+                ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );

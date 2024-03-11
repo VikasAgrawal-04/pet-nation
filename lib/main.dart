@@ -12,10 +12,10 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 Future<void> main() async {
-  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  final widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   await dotenv.load(fileName: Environment.fileName);
-  SharedPreferences.getInstance().then((pref) {
+  await SharedPreferences.getInstance().then((pref) {
     DependencyInjector(pref);
     runApp(const MyApp());
     FlutterNativeSplash.remove();
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ResponsiveSizer(
-      builder: ((context, orientation, deviceType) {
+      builder: (context, orientation, deviceType) {
         return GetMaterialApp(
           theme: ApplicationTheme.lightTheme,
           debugShowCheckedModeBanner: false,
@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
           initialRoute: AppRoutes.splash,
           builder: EasyLoading.init(),
         );
-      }),
+      },
     );
   }
 }

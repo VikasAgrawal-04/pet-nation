@@ -6,21 +6,21 @@ import 'package:pet_nations/src/views/widgets/buttons/custom_button.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class ProductCard4 extends StatelessWidget {
+  const ProductCard4({
+    required this.img,
+    required this.pName,
+    required this.price,
+    required this.buy,
+    required this.addToCart,
+    required this.wishBtn,
+    super.key,
+  });
   final String img;
   final String pName;
   final String price;
-  final Function() buy;
-  final Function() addToCart;
-  final Function() wishBtn;
-
-  const ProductCard4(
-      {super.key,
-      required this.img,
-      required this.pName,
-      required this.price,
-      required this.buy,
-      required this.addToCart,
-      required this.wishBtn});
+  final void Function() buy;
+  final void Function() addToCart;
+  final void Function() wishBtn;
 
   @override
   Widget build(BuildContext context) {
@@ -30,30 +30,36 @@ class ProductCard4 extends StatelessWidget {
       margin: EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.h),
       padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 2.h),
       decoration: BoxDecoration(
-          border: Border.all(color: AppColors.borderColor, width: .2),
-          borderRadius: BorderRadius.circular(8)),
+        border: Border.all(color: AppColors.borderColor, width: .2),
+        borderRadius: BorderRadius.circular(8),
+      ),
       child: Row(
         children: [
           Expanded(child: Image.network(img)),
           SizedBox(width: 2.w),
           Expanded(
-              flex: 2,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('\$ $price',
-                      style: theme.displaySmall
-                          ?.copyWith(color: AppColors.secondaryColor)),
-                  SizedBox(height: 2.h),
-                  Text(
-                    pName,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: theme.titleLarge?.copyWith(
-                        color: AppColors.primaryText, fontSize: 16.sp),
+            flex: 2,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  '\$ $price',
+                  style: theme.displaySmall
+                      ?.copyWith(color: AppColors.secondaryColor),
+                ),
+                SizedBox(height: 2.h),
+                Text(
+                  pName,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: theme.titleLarge?.copyWith(
+                    color: AppColors.primaryText,
+                    fontSize: 16.sp,
                   ),
-                  SizedBox(height: 2.h),
-                  Row(children: [
+                ),
+                SizedBox(height: 2.h),
+                Row(
+                  children: [
                     GestureDetector(
                       onTap: wishBtn,
                       child: SvgPicture.asset(
@@ -77,10 +83,12 @@ class ProductCard4 extends StatelessWidget {
                       onTap: buy,
                       style: theme.titleMedium
                           ?.copyWith(color: AppColors.whiteColor),
-                    )
-                  ])
-                ],
-              ))
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );

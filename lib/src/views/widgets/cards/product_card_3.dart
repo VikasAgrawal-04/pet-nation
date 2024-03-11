@@ -6,25 +6,25 @@ import 'package:pet_nations/src/views/widgets/buttons/custom_button.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class ProductCard3 extends StatelessWidget {
+  const ProductCard3({
+    required this.img,
+    required this.type,
+    required this.pName,
+    required this.buy,
+    required this.addToCart,
+    required this.wishBtn,
+    required this.seller,
+    required this.price,
+    super.key,
+  });
   final String img;
   final String type;
   final String pName;
-  final Function() buy;
-  final Function() addToCart;
-  final Function() wishBtn;
+  final void Function() buy;
+  final void Function() addToCart;
+  final void Function() wishBtn;
   final String seller;
   final String price;
-
-  const ProductCard3(
-      {super.key,
-      required this.img,
-      required this.type,
-      required this.pName,
-      required this.buy,
-      required this.addToCart,
-      required this.wishBtn,
-      required this.seller,
-      required this.price});
 
   @override
   Widget build(BuildContext context) {
@@ -34,20 +34,25 @@ class ProductCard3 extends StatelessWidget {
       margin: EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.h),
       padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 2.h),
       decoration: BoxDecoration(
-          color: AppColors.greyBgColor, borderRadius: BorderRadius.circular(8)),
+        color: AppColors.greyBgColor,
+        borderRadius: BorderRadius.circular(8),
+      ),
       child: Row(
         children: [
           Expanded(
-              child: Container(
-                  height: 100.h,
-                  decoration: BoxDecoration(
-                      color: AppColors.whiteColor,
-                      borderRadius: BorderRadius.circular(8)),
-                  padding: EdgeInsets.symmetric(horizontal: 3.w, vertical: 4.h),
-                  child: Image.network(
-                    img,
-                    fit: BoxFit.fitHeight,
-                  ))),
+            child: Container(
+              height: 100.h,
+              decoration: BoxDecoration(
+                color: AppColors.whiteColor,
+                borderRadius: BorderRadius.circular(8),
+              ),
+              padding: EdgeInsets.symmetric(horizontal: 3.w, vertical: 4.h),
+              child: Image.network(
+                img,
+                fit: BoxFit.fitHeight,
+              ),
+            ),
+          ),
           SizedBox(width: 2.w),
           Expanded(
             flex: 2,
@@ -72,9 +77,11 @@ class ProductCard3 extends StatelessWidget {
                   style: theme.titleSmall?.copyWith(fontSize: 14.sp),
                 ),
                 SizedBox(height: 1.2.h),
-                Text('\$ $price',
-                    style: theme.displaySmall
-                        ?.copyWith(color: AppColors.secondaryColor)),
+                Text(
+                  '\$ $price',
+                  style: theme.displaySmall
+                      ?.copyWith(color: AppColors.secondaryColor),
+                ),
                 SizedBox(height: 1.2.h),
                 Row(
                   children: [
@@ -101,12 +108,12 @@ class ProductCard3 extends StatelessWidget {
                       onTap: buy,
                       style: theme.titleMedium
                           ?.copyWith(color: AppColors.whiteColor),
-                    )
+                    ),
                   ],
-                )
+                ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );

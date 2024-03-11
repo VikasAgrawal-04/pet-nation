@@ -31,7 +31,7 @@ class _PetDetailsState extends State<PetDetails> {
             _basicInfo(),
             _title('Diet & Prescription', () {}),
             _diet(),
-            _petStatus()
+            _petStatus(),
           ],
         ),
       ),
@@ -39,21 +39,26 @@ class _PetDetailsState extends State<PetDetails> {
   }
 
   Widget _petStatus() {
-    return Row(children: [
-      Text('Pet Status', style: theme.bodyLarge),
-      const Spacer(),
-      Text('Pet Lost', style: theme.titleMedium),
-      Obx(() => CupertinoSwitch(
-          trackColor: AppColors.hexToColor('#808080'),
-          activeColor: Colors.red,
-          value: lost.value,
-          onChanged: (val) {
-            lost.toggle.call();
-          }))
-    ]);
+    return Row(
+      children: [
+        Text('Pet Status', style: theme.bodyLarge),
+        const Spacer(),
+        Text('Pet Lost', style: theme.titleMedium),
+        Obx(
+          () => CupertinoSwitch(
+            trackColor: AppColors.hexToColor('#808080'),
+            activeColor: Colors.red,
+            value: lost.value,
+            onChanged: (val) {
+              lost.toggle.call();
+            },
+          ),
+        ),
+      ],
+    );
   }
 
-  Widget _title(String title, Function() ontap) {
+  Widget _title(String title, void Function() ontap) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -62,7 +67,9 @@ class _PetDetailsState extends State<PetDetails> {
           style: theme.bodyLarge,
         ),
         IconButton(
-            onPressed: () {}, icon: SvgPicture.asset('assets/icons/edit.svg'))
+          onPressed: () {},
+          icon: SvgPicture.asset('assets/icons/edit.svg'),
+        ),
       ],
     );
   }
@@ -72,31 +79,35 @@ class _PetDetailsState extends State<PetDetails> {
       margin: EdgeInsets.only(top: 1.h, bottom: 2.h),
       padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.5.h),
       decoration: BoxDecoration(
-          color: AppColors.lightGreyColor,
-          borderRadius: BorderRadius.circular(10)),
+        color: AppColors.lightGreyColor,
+        borderRadius: BorderRadius.circular(10),
+      ),
       child: Column(
         children: [
           _row(
-              svg1: 'assets/icons/pet.svg',
-              svg2: 'assets/icons/gender.svg',
-              title1: 'Name',
-              title2: 'Sex',
-              value1: 'Charlie',
-              value2: 'Male'),
+            svg1: 'assets/icons/pet.svg',
+            svg2: 'assets/icons/gender.svg',
+            title1: 'Name',
+            title2: 'Sex',
+            value1: 'Charlie',
+            value2: 'Male',
+          ),
           _row(
-              svg1: 'assets/icons/dna.svg',
-              svg2: 'assets/icons/pet-2.svg',
-              title1: 'Breed',
-              title2: 'Species',
-              value1: 'Golden Retriever',
-              value2: 'Dog'),
+            svg1: 'assets/icons/dna.svg',
+            svg2: 'assets/icons/pet-2.svg',
+            title1: 'Breed',
+            title2: 'Species',
+            value1: 'Golden Retriever',
+            value2: 'Dog',
+          ),
           _row(
-              svg1: 'assets/icons/calendar.svg',
-              svg2: 'assets/icons/weight.svg',
-              title1: 'Date Of Birth',
-              title2: 'Weight',
-              value1: '20/10/2020',
-              value2: '65lbs')
+            svg1: 'assets/icons/calendar.svg',
+            svg2: 'assets/icons/weight.svg',
+            title1: 'Date Of Birth',
+            title2: 'Weight',
+            value1: '20/10/2020',
+            value2: '65lbs',
+          ),
         ],
       ),
     );
@@ -107,29 +118,35 @@ class _PetDetailsState extends State<PetDetails> {
       margin: EdgeInsets.only(top: 1.h, bottom: 2.h),
       padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.5.h),
       decoration: BoxDecoration(
-          color: AppColors.lightGreyColor,
-          borderRadius: BorderRadius.circular(10)),
+        color: AppColors.lightGreyColor,
+        borderRadius: BorderRadius.circular(10),
+      ),
       child: _row(
-          svg1: 'assets/icons/bone.svg',
-          svg2: 'assets/icons/medicine.svg',
-          title1: 'Food',
-          title2: 'Prescription',
-          value1: 'Pedigree',
-          value2: 'Dogimax 50lbs'),
+        svg1: 'assets/icons/bone.svg',
+        svg2: 'assets/icons/medicine.svg',
+        title1: 'Food',
+        title2: 'Prescription',
+        value1: 'Pedigree',
+        value2: 'Dogimax 50lbs',
+      ),
     );
   }
 
-  Widget _row(
-      {required String svg1,
-      required String svg2,
-      required String title1,
-      required String title2,
-      required String value1,
-      required String value2}) {
-    return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-      _singleDet(svg1, title1, value1),
-      _singleDet(svg2, title2, value2)
-    ]);
+  Widget _row({
+    required String svg1,
+    required String svg2,
+    required String title1,
+    required String title2,
+    required String value1,
+    required String value2,
+  }) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        _singleDet(svg1, title1, value1),
+        _singleDet(svg2, title2, value2),
+      ],
+    );
   }
 
   Widget _singleDet(String svg, String title, String value) {
@@ -144,14 +161,20 @@ class _PetDetailsState extends State<PetDetails> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(title,
-                      style: theme.titleMedium?.copyWith(fontSize: 16.sp)),
-                  Text(value,
-                      style: theme.titleMedium?.copyWith(
-                          color: AppColors.primaryText, fontSize: 16.sp))
+                  Text(
+                    title,
+                    style: theme.titleMedium?.copyWith(fontSize: 16.sp),
+                  ),
+                  Text(
+                    value,
+                    style: theme.titleMedium?.copyWith(
+                      color: AppColors.primaryText,
+                      fontSize: 16.sp,
+                    ),
+                  ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),
@@ -176,7 +199,7 @@ class _PetDetailsState extends State<PetDetails> {
             onTap: () {},
             child: SvgPicture.asset('assets/icons/camera-2.svg'),
           ),
-        )
+        ),
       ],
     );
   }

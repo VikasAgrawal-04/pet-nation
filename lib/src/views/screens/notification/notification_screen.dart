@@ -17,28 +17,35 @@ class _NotificationScreenState extends State<NotificationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: backAppBar('Notification', centerTitle: true, actions: [
-        IconButton(onPressed: () {}, icon: const Icon(CupertinoIcons.search))
-      ]),
+      appBar: backAppBar(
+        'Notification',
+        centerTitle: true,
+        actions: [
+          IconButton(onPressed: () {}, icon: const Icon(CupertinoIcons.search)),
+        ],
+      ),
       body: DefaultTabController(
         length: 4,
         child: NestedScrollView(
-            headerSliverBuilder: ((context, innerBoxIsScrolled) {
-              return [
-                SliverToBoxAdapter(
-                  child: customTabar(['All', 'Orders', 'Payment', 'Others']),
-                )
-              ];
-            }),
-            body: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 1.5.h),
-              child: const TabBarView(children: [
+          headerSliverBuilder: (context, innerBoxIsScrolled) {
+            return [
+              SliverToBoxAdapter(
+                child: customTabar(['All', 'Orders', 'Payment', 'Others']),
+              ),
+            ];
+          },
+          body: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 1.5.h),
+            child: const TabBarView(
+              children: [
                 NotificationTabbarView(),
                 NotificationTabbarView(),
                 NotificationTabbarView(),
-                NotificationTabbarView()
-              ]),
-            )),
+                NotificationTabbarView(),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
@@ -68,7 +75,7 @@ class NotificationTabbarView extends StatelessWidget {
     required String img,
     required String title,
     required String date,
-    required Function() onTap,
+    required void Function() onTap,
   }) {
     final theme = Get.textTheme;
     return Padding(
@@ -77,25 +84,30 @@ class NotificationTabbarView extends StatelessWidget {
         onTap: onTap,
         child: Column(
           children: [
-            Row(children: [
-              SizedBox(
-                height: 6.h,
-                child: ClipRRect(
+            Row(
+              children: [
+                SizedBox(
+                  height: 6.h,
+                  child: ClipRRect(
                     borderRadius: BorderRadius.circular(8),
-                    child: Image.network(img)),
-              ),
-              SizedBox(width: 4.w),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(title,
+                    child: Image.network(img),
+                  ),
+                ),
+                SizedBox(width: 4.w),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
                       style: theme.titleLarge
-                          ?.copyWith(color: AppColors.primaryText)),
-                  Text(date, style: theme.titleMedium)
-                ],
-              ),
-            ]),
-            const Divider(thickness: .5)
+                          ?.copyWith(color: AppColors.primaryText),
+                    ),
+                    Text(date, style: theme.titleMedium),
+                  ],
+                ),
+              ],
+            ),
+            const Divider(thickness: .5),
           ],
         ),
       ),

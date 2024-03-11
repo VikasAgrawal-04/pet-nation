@@ -6,24 +6,25 @@ import 'package:pet_nations/src/views/widgets/buttons/custom_button.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class ProductCard6 extends StatelessWidget {
+  const ProductCard6({
+    required this.img,
+    required this.price,
+    required this.type,
+    required this.pName,
+    required this.seller,
+    required this.cart,
+    required this.buy,
+    required this.wish,
+    super.key,
+  });
   final String img;
   final String price;
   final String type;
   final String pName;
   final String seller;
-  final Function() cart;
-  final Function() buy;
-  final Function() wish;
-  const ProductCard6(
-      {super.key,
-      required this.img,
-      required this.price,
-      required this.type,
-      required this.pName,
-      required this.seller,
-      required this.cart,
-      required this.buy,
-      required this.wish});
+  final void Function() cart;
+  final void Function() buy;
+  final void Function() wish;
 
   @override
   Widget build(BuildContext context) {
@@ -32,8 +33,9 @@ class ProductCard6 extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.h),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: AppColors.borderColor, width: .5)),
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: AppColors.borderColor, width: .5),
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -48,11 +50,13 @@ class ProductCard6 extends StatelessWidget {
           Text('\$$price', style: theme.displaySmall),
           Text(type, style: theme.titleSmall),
           SizedBox(height: .5.h),
-          Text(pName,
-              style: theme.titleMedium
-                  ?.copyWith(fontSize: 15.5.sp, color: AppColors.primaryText),
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis),
+          Text(
+            pName,
+            style: theme.titleMedium
+                ?.copyWith(fontSize: 15.5.sp, color: AppColors.primaryText),
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+          ),
           SizedBox(height: .5.h),
           Row(
             children: [
@@ -62,10 +66,11 @@ class ProductCard6 extends StatelessWidget {
                 child: Text(
                   seller,
                   style: theme.titleMedium?.copyWith(
-                      fontSize: 14.sp,
-                      overflow: TextOverflow.ellipsis,
-                      fontWeight: FontWeight.w500,
-                      color: AppColors.secondaryColor),
+                    fontSize: 14.sp,
+                    overflow: TextOverflow.ellipsis,
+                    fontWeight: FontWeight.w500,
+                    color: AppColors.secondaryColor,
+                  ),
                 ),
               ),
             ],
@@ -87,9 +92,9 @@ class ProductCard6 extends StatelessWidget {
                 text: 'Buy Now',
                 onTap: buy,
                 style: theme.titleMedium?.copyWith(color: AppColors.whiteColor),
-              )
+              ),
             ],
-          )
+          ),
         ],
       ),
     );

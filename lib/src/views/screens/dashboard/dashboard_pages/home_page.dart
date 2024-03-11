@@ -28,30 +28,30 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-          preferredSize: Size(100.w, 10.h),
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.h),
-            child: AppBar(
-              leading: Image.asset(
-                'assets/images/dog_splash.png',
-                fit: BoxFit.scaleDown,
-                scale: 1.5,
-              ),
-              title: SearchField(
-                controller: searchControl,
-                onEditingComplete: () async {},
-              ),
-              actions: [
-                GestureDetector(
-                  onTap: () {
-                    Get.toNamed<void>(AppRoutes.notification);
-                  },
-                  child:
-                      SvgPicture.asset('assets/icons/bell.svg', height: 3.2.h),
-                )
-              ],
+        preferredSize: Size(100.w, 10.h),
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.h),
+          child: AppBar(
+            leading: Image.asset(
+              'assets/images/dog_splash.png',
+              fit: BoxFit.scaleDown,
+              scale: 1.5,
             ),
-          )),
+            title: SearchField(
+              controller: searchControl,
+              onEditingComplete: () async {},
+            ),
+            actions: [
+              GestureDetector(
+                onTap: () {
+                  Get.toNamed<void>(AppRoutes.notification);
+                },
+                child: SvgPicture.asset('assets/icons/bell.svg', height: 3.2.h),
+              ),
+            ],
+          ),
+        ),
+      ),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: 4.w),
         child: Column(
@@ -68,7 +68,7 @@ class _HomePageState extends State<HomePage> {
             TitleRow(onTap: () {}, title: 'Pet Services'),
             _petServices(),
             TitleRow(onTap: () {}, title: 'Pet Favorites'),
-            _petFavorites()
+            _petFavorites(),
           ],
         ),
       ),
@@ -80,60 +80,63 @@ class _HomePageState extends State<HomePage> {
       margin: EdgeInsets.only(bottom: 2.h),
       height: 10.h,
       child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: 10,
-          itemBuilder: (context, index) {
-            return GestureDetector(
-              onTap: () {},
-              child: Column(
-                children: [
-                  Expanded(
-                    child: Container(
-                      width: 22.w,
-                      padding: EdgeInsets.symmetric(horizontal: 1.w),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(8),
-                        child: Image.network(
-                          'https://img.freepik.com/premium-photo/puppies-golden-retriever_1015979-1067.jpg',
-                          fit: BoxFit.fill,
-                        ),
+        scrollDirection: Axis.horizontal,
+        itemCount: 10,
+        itemBuilder: (context, index) {
+          return GestureDetector(
+            onTap: () {},
+            child: Column(
+              children: [
+                Expanded(
+                  child: Container(
+                    width: 22.w,
+                    padding: EdgeInsets.symmetric(horizontal: 1.w),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(8),
+                      child: Image.network(
+                        'https://img.freepik.com/premium-photo/puppies-golden-retriever_1015979-1067.jpg',
+                        fit: BoxFit.fill,
                       ),
                     ),
                   ),
-                  Text(
-                    'Dogs',
-                    style: theme.titleMedium
-                        ?.copyWith(color: AppColors.primaryText),
-                  )
-                ],
-              ),
-            );
-          }),
+                ),
+                Text(
+                  'Dogs',
+                  style:
+                      theme.titleMedium?.copyWith(color: AppColors.primaryText),
+                ),
+              ],
+            ),
+          );
+        },
+      ),
     );
   }
 
   Widget _carousel() {
     return CustomCarousel(
-        images: const [
-          'https://img.freepik.com/premium-photo/puppies-golden-retriever_1015979-1067.jpg',
-          'https://img.freepik.com/premium-photo/puppies-golden-retriever_1015979-1067.jpg',
-          'https://img.freepik.com/premium-photo/puppies-golden-retriever_1015979-1067.jpg',
-          'https://img.freepik.com/premium-photo/puppies-golden-retriever_1015979-1067.jpg'
-        ],
-        onTap: (index) {
-          Get.toNamed(AppRoutes.productDetails);
-        });
+      images: const [
+        'https://img.freepik.com/premium-photo/puppies-golden-retriever_1015979-1067.jpg',
+        'https://img.freepik.com/premium-photo/puppies-golden-retriever_1015979-1067.jpg',
+        'https://img.freepik.com/premium-photo/puppies-golden-retriever_1015979-1067.jpg',
+        'https://img.freepik.com/premium-photo/puppies-golden-retriever_1015979-1067.jpg',
+      ],
+      onTap: (index) {
+        Get.toNamed<void>(AppRoutes.productDetails);
+      },
+    );
   }
 
   Widget _deals() {
     return Wrap(
       children: List.generate(4, (index) {
         return ProductCard2(
-            img: 'https://m.media-amazon.com/images/I/81ltSAXl3EL.jpg',
-            animal: 'Cat',
-            type: 'Dry Food',
-            price: '24.99',
-            onTap: () {});
+          img: 'https://m.media-amazon.com/images/I/81ltSAXl3EL.jpg',
+          animal: 'Cat',
+          type: 'Dry Food',
+          price: '24.99',
+          onTap: () {},
+        );
       }),
     );
   }
@@ -142,24 +145,25 @@ class _HomePageState extends State<HomePage> {
     return SizedBox(
       height: 26.h,
       child: ListView.builder(
-          shrinkWrap: true,
-          scrollDirection: Axis.horizontal,
-          itemCount: 10,
-          itemBuilder: (context, index) {
-            return ProductCard3(
-              pName:
-                  'Canidae® Pure™ Adult Dry Dog Food - Limited Ingredient Diet, Salmon',
-              price: '4.99',
-              img: 'https://m.media-amazon.com/images/I/81ltSAXl3EL.jpg',
-              type: 'Supplies',
-              addToCart: () {},
-              buy: () {},
-              seller: 'Online Store',
-              wishBtn: () {
-                Get.toNamed<void>(AppRoutes.wishlist);
-              },
-            );
-          }),
+        shrinkWrap: true,
+        scrollDirection: Axis.horizontal,
+        itemCount: 10,
+        itemBuilder: (context, index) {
+          return ProductCard3(
+            pName:
+                'Canidae® Pure™ Adult Dry Dog Food - Limited Ingredient Diet, Salmon',
+            price: '4.99',
+            img: 'https://m.media-amazon.com/images/I/81ltSAXl3EL.jpg',
+            type: 'Supplies',
+            addToCart: () {},
+            buy: () {},
+            seller: 'Online Store',
+            wishBtn: () {
+              Get.toNamed<void>(AppRoutes.wishlist);
+            },
+          );
+        },
+      ),
     );
   }
 
@@ -167,20 +171,21 @@ class _HomePageState extends State<HomePage> {
     return SizedBox(
       height: 22.5.h,
       child: ListView.builder(
-          shrinkWrap: true,
-          scrollDirection: Axis.horizontal,
-          itemCount: 10,
-          itemBuilder: (context, index) {
-            return ProductCard4(
-              pName:
-                  'Canidae® Pure™ Adult Dry Dog Food - Limited Ingredient Diet, Salmon',
-              price: '4.99',
-              img: 'https://m.media-amazon.com/images/I/81ltSAXl3EL.jpg',
-              addToCart: () {},
-              buy: () {},
-              wishBtn: () {},
-            );
-          }),
+        shrinkWrap: true,
+        scrollDirection: Axis.horizontal,
+        itemCount: 10,
+        itemBuilder: (context, index) {
+          return ProductCard4(
+            pName:
+                'Canidae® Pure™ Adult Dry Dog Food - Limited Ingredient Diet, Salmon',
+            price: '4.99',
+            img: 'https://m.media-amazon.com/images/I/81ltSAXl3EL.jpg',
+            addToCart: () {},
+            buy: () {},
+            wishBtn: () {},
+          );
+        },
+      ),
     );
   }
 
@@ -189,13 +194,17 @@ class _HomePageState extends State<HomePage> {
       margin: EdgeInsets.only(bottom: 2.h),
       height: 15.h,
       child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: Constant.serviceSvg.length,
-          itemBuilder: ((context, index) {
-            final obj = Constant.serviceSvg[index];
+        scrollDirection: Axis.horizontal,
+        itemCount: Constant.serviceSvg.length,
+        itemBuilder: (context, index) {
+          final obj = Constant.serviceSvg[index];
 
-            return ServiceCard(img: obj['img'], title: obj['name']);
-          })),
+          return ServiceCard(
+            img: obj['img'].toString(),
+            title: obj['name'].toString(),
+          );
+        },
+      ),
     );
   }
 
@@ -204,17 +213,18 @@ class _HomePageState extends State<HomePage> {
       margin: EdgeInsets.only(bottom: 2.h),
       height: 16.8.h,
       child: ListView.builder(
-          shrinkWrap: true,
-          scrollDirection: Axis.horizontal,
-          itemCount: 10,
-          itemBuilder: (context, index) {
-            return ProuctCard5(
-              type: 'Cat Dry Food',
-              items: '5',
-              onTap: () {},
-              img: 'https://m.media-amazon.com/images/I/81ltSAXl3EL.jpg',
-            );
-          }),
+        shrinkWrap: true,
+        scrollDirection: Axis.horizontal,
+        itemCount: 10,
+        itemBuilder: (context, index) {
+          return ProuctCard5(
+            type: 'Cat Dry Food',
+            items: '5',
+            onTap: () {},
+            img: 'https://m.media-amazon.com/images/I/81ltSAXl3EL.jpg',
+          );
+        },
+      ),
     );
   }
 }

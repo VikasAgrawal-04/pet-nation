@@ -7,22 +7,24 @@ import 'package:pet_nations/src/core/utils/constants/colors.dart';
 import 'package:pet_nations/src/views/widgets/buttons/custom_button.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-Widget productCard(
-    {required String img,
-    required String type,
-    required String pName,
-    required Function() buy,
-    required Function() addToCart,
-    required String seller,
-    required String price}) {
+Widget productCard({
+  required String img,
+  required String type,
+  required String pName,
+  required void Function() buy,
+  required void Function() addToCart,
+  required String seller,
+  required String price,
+}) {
   final theme = Get.textTheme;
   return Container(
     width: 90.w,
     margin: EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.h),
     padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.h),
     decoration: BoxDecoration(
-        border: Border.all(color: AppColors.borderColor, width: .2),
-        borderRadius: BorderRadius.circular(8)),
+      border: Border.all(color: AppColors.borderColor, width: .2),
+      borderRadius: BorderRadius.circular(8),
+    ),
     child: Row(
       children: [
         Expanded(child: Image.network(img)),
@@ -50,9 +52,11 @@ Widget productCard(
                 style: theme.titleSmall?.copyWith(fontSize: 14.sp),
               ),
               SizedBox(height: 2.h),
-              Text('\$ $price',
-                  style: theme.displaySmall
-                      ?.copyWith(color: AppColors.secondaryColor)),
+              Text(
+                '\$ $price',
+                style: theme.displaySmall
+                    ?.copyWith(color: AppColors.secondaryColor),
+              ),
               SizedBox(height: 2.h),
               Row(
                 children: [
@@ -71,12 +75,12 @@ Widget productCard(
                     onTap: buy,
                     style: theme.titleMedium
                         ?.copyWith(color: AppColors.whiteColor),
-                  )
+                  ),
                 ],
-              )
+              ),
             ],
           ),
-        )
+        ),
       ],
     ),
   );

@@ -5,8 +5,8 @@ import 'package:pet_nations/src/views/widgets/fields/custom_textfield.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class MessageField extends StatelessWidget {
+  const MessageField({required this.controller, super.key});
   final TextEditingController controller;
-  const MessageField({super.key, required this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -15,26 +15,29 @@ class MessageField extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Message',
-              style: Get.textTheme.titleLarge
-                  ?.copyWith(height: 2, color: AppColors.primaryText)),
+          Text(
+            'Message',
+            style: Get.textTheme.titleLarge
+                ?.copyWith(height: 2, color: AppColors.primaryText),
+          ),
           CustomTextFieldNew(
-              isRequired: true,
-              minLine: 4,
-              maxLine: 6,
-              keyboardType: TextInputType.name,
-              isNumber: false,
-              textInputAction: TextInputAction.next,
-              focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide:
-                      BorderSide(color: AppColors.hexToColor('#808080'))),
-              enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide:
-                      BorderSide(color: AppColors.hexToColor('#808080'))),
-              control: controller,
-              hintStyle: Get.textTheme.titleLarge),
+            isRequired: true,
+            minLine: 4,
+            maxLine: 6,
+            keyboardType: TextInputType.name,
+            isNumber: false,
+            textInputAction: TextInputAction.next,
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(color: AppColors.hexToColor('#808080')),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(color: AppColors.hexToColor('#808080')),
+            ),
+            control: controller,
+            hintStyle: Get.textTheme.titleLarge,
+          ),
         ],
       ),
     );
