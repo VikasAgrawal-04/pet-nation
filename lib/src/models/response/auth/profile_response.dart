@@ -3,9 +3,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'profile_response.freezed.dart';
 part 'profile_response.g.dart';
 
-
 @freezed
-class ProfileResponse with _$ProfileResponse {
+sealed class ProfileResponse with _$ProfileResponse {
   const factory ProfileResponse({
     @JsonKey(name: 'first_name') required String firstName,
     @JsonKey(name: 'last_name') required String lastName,

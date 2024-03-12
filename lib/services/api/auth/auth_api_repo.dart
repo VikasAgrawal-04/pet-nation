@@ -10,4 +10,5 @@ abstract class AuthApiRepo {
 
   Future<ApiResult<ProfileResponse>> verifyOtp({required String otp});
   Future<ApiResult<ProfileResponse>> getProfile();
+  Future<ApiResult<ProfileResponse>> updateProfile(ProfileResponse data);
 }

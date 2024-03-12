@@ -25,4 +25,9 @@ class ApiRepoImpl implements ApiRepo {
   Future<ApiResult<ProfileResponse>> verifyOtp({required String otp}) {
     return _authRepo.verifyOtp(otp: otp);
   }
+
+  @override
+  Future<ApiResult<ProfileResponse>> updateProfile(ProfileResponse data) {
+    return _authRepo.updateProfile(data);
+  }
 }

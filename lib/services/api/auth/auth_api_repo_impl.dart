@@ -19,9 +19,10 @@ class AuthApiRepoImpl implements AuthApiRepo {
         formData: FormData.fromMap({'user_id': userId}),
       );
       return ApiResult.success(
-          data: ProfileResponse.fromJson(
-        response?['data'] as Map<String, dynamic>,
-      ));
+        data: ProfileResponse.fromJson(
+          response?['data'] as Map<String, dynamic>,
+        ),
+      );
     } on ServerException catch (e) {
       return ApiResult.failure(
         error: ServerException(code: e.code, message: e.message),
@@ -69,6 +70,24 @@ class AuthApiRepoImpl implements AuthApiRepo {
           response?['data'] as Map<String, dynamic>,
         ),
       );
+    } on ServerException catch (e) {
+      return ApiResult.failure(
+        error: ServerException(code: e.code, message: e.message),
+      );
+    }
+  }
+
+  @override
+  Future<ApiResult<ProfileResponse>> updateProfile(ProfileResponse data) async {
+    try {
+      final json = data.toJson();
+      json['user_id'] = Helpers.getString(key: Keys.userId);
+      final response = await Helpers.sendRequest(
+        RequestType.post,
+        EndPoints.updateProfile,
+        formData: FormData.fromMap(json),
+      );
+      return ApiResult.success(data: ProfileResponse.fromJson(response ?? {}));
     } on ServerException catch (e) {
       return ApiResult.failure(
         error: ServerException(code: e.code, message: e.message),

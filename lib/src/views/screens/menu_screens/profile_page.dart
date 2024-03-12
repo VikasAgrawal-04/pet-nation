@@ -2,7 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:pet_nations/src/controllers/auth_controller.dart';
 import 'package:pet_nations/src/core/utils/constants/colors.dart';
+import 'package:pet_nations/src/models/response/auth/profile_response.dart';
+import 'package:pet_nations/src/views/widgets/indicator/loading_indicator.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -14,6 +17,13 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   final theme = Get.textTheme;
+  final authControl = Get.find<AuthController>();
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) async {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,30 +54,44 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
         ],
       ),
-      body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 1.5.h),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _img(),
-            _prsnlHeader(),
-            _prsnlBody(),
-            _payHeader(),
-            _payBody(),
-          ],
-        ),
+      body: FutureBuilder(
+        future: authControl.fetchProfile(),
+        builder: (contex, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const MyLoadingIndicator();
+          } else if (snapshot.data == null) {
+            return const Center(child: Text('No Data'));
+          } else {
+            final data = snapshot.data;
+            return SingleChildScrollView(
+              padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 1.5.h),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _img(data?.profileImage),
+                  _prsnlHeader(),
+                  _prsnlBody(data),
+                  _payHeader(),
+                  _payBody(),
+                ],
+              ),
+            );
+          }
+        },
       ),
     );
   }
 
-  Widget _img() {
+  Widget _img(String? img) {
     return Stack(
       children: [
         SizedBox(
           width: 100.w,
           height: 22.h,
           child: Image.network(
-            'https://img.freepik.com/premium-photo/cartoon-character-with-glasses-laptop_7023-101048.jpg',
+            img != ''
+                ? img.toString()
+                : 'https://img.freepik.com/premium-photo/cartoon-character-with-glasses-laptop_7023-101048.jpg',
             fit: BoxFit.fitWidth,
           ),
         ),
@@ -109,7 +133,7 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
-  Widget _prsnlBody() {
+  Widget _prsnlBody(ProfileResponse? data) {
     return Container(
       width: 100.w,
       padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 1.5.h),
@@ -119,20 +143,38 @@ class _ProfilePageState extends State<ProfilePage> {
       ),
       child: Column(
         children: [
-          _row('First Name', 'Eleanor Pena', 'assets/icons/profile.svg'),
-          _row('Gender', 'Male', 'assets/icons/gender.svg'),
-          _row('Date of Birth', '05/09/1985', 'assets/icons/calendar.svg'),
+          _row(
+            'First Name',
+            '${data?.firstName != '' ? data?.firstName : "Eleanor"} ${data?.lastName != '' ? data?.lastName : "Pena"}',
+            'assets/icons/profile.svg',
+          ),
+          _row(
+            'Gender',
+            data?.gender != '' ? data!.gender : 'Male',
+            'assets/icons/gender.svg',
+          ),
+          _row(
+            'Date of Birth',
+            data?.dob != '' ? data!.dob : '05/09/1985',
+            'assets/icons/calendar.svg',
+          ),
           _row(
             'Email Address',
-            'eleanor.pena@gmail.com',
+            data?.email != '' ? data!.email : 'eleanor.pena@gmail.com',
             'assets/icons/email.svg',
           ),
           _row(
             'Home Address',
-            '1901 Thornidge Cir, Shiloh, Hawaii 81063',
+            data?.houseNo != ''
+                ? '${data?.floorNo},${data?.houseNo} ${data?.poBox},${data?.city},${data?.country} ${data?.pincode}'
+                : '1901 Thornidge Cir, Shiloh, Hawaii 81063',
             'assets/icons/address.svg',
           ),
-          _row('Language', 'English', 'assets/icons/india.svg'),
+          _row(
+            'Language',
+            data?.language != '' ? data!.language : 'English',
+            'assets/icons/india.svg',
+          ),
         ],
       ),
     );

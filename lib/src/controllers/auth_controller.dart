@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:pet_nations/services/api/api_repo.dart';
@@ -5,6 +7,7 @@ import 'package:pet_nations/services/api/api_repo_impl.dart';
 import 'package:pet_nations/services/routing/routes.dart';
 import 'package:pet_nations/src/core/utils/constants/keys.dart';
 import 'package:pet_nations/src/core/utils/helpers/helpers.dart';
+import 'package:pet_nations/src/models/response/auth/profile_response.dart';
 
 class AuthController extends GetxController {
   final ApiRepo _repo = ApiRepoImpl();
@@ -34,5 +37,19 @@ class AuthController extends GetxController {
         EasyLoading.showError(failure.message.toString());
       },
     );
+  }
+
+  Future<ProfileResponse?> fetchProfile() async {
+    final res = await _repo.getProfile();
+    ProfileResponse? data;
+    res.when(
+      success: (success) {
+        data = success;
+      },
+      failure: (failure) {
+        data = null;
+      },
+    );
+    return data;
   }
 }
